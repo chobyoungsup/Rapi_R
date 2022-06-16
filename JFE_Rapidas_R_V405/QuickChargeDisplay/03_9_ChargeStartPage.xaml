@@ -1,0 +1,15 @@
+﻿<Page x:Class="QuickChargeDisplay.ChargeStartPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:QuickChargeDisplay.Control"
+    Title="ChargeStartPage" Width="800" Height="480" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
+    
+    <Page.Background>
+        <ImageBrush ImageSource="image\RAPIDAS-R_Monitor\09a09b.gif"></ImageBrush>
+    </Page.Background>
+
+    <Grid>
+        <control:AnimatedImage x:Name="BackImage" Grid.ColumnSpan="3" Grid.RowSpan="2" MouseDown="BackImage_MouseDown"></control:AnimatedImage>
+    </Grid>
+
+</Page>

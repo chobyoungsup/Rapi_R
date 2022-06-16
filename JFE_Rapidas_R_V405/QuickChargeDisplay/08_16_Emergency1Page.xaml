@@ -1,0 +1,16 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Control="clr-namespace:QuickChargeDisplay.Control" x:Class="QuickChargeDisplay.Emergency1Page"
+      Loaded="Page_Loaded" Unloaded="Page_Unloaded"
+    Title="Emergency1Page" Width="800" Height="480">
+
+    <Page.Background>
+        <ImageBrush ImageSource="image\RAPIDAS-R_Monitor\15a15b15c15d.gif"/>
+    </Page.Background>
+
+    <Grid>
+        <Image Margin="594,386,28,25" x:Name="batteryStopBtn" Source="image\04_충전중화면\충전중지버튼.png" MouseDown="batteryStopBtn_MouseDown" Visibility="Hidden" />
+        <Control:AnimatedImage x:Name="BackImage" MouseDown="BackImage_MouseDown"/>
+    </Grid>
+</Page>

@@ -1,0 +1,31 @@
+﻿<Page x:Class="QuickChargeDisplay.StandByPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:QuickChargeDisplay.Control"
+    Loaded="Page_Loaded" Unloaded="Page_Unloaded"
+    Title="StandByPage1" Width="800" Height="480" >
+
+    <Page.Background>
+        <ImageBrush ImageSource="image\RAPIDAS-R_Monitor\01a01b.gif"></ImageBrush>
+    </Page.Background>
+
+    <Grid>
+        <control:AnimatedImage x:Name="BackImage" MouseDown="BackImage_MouseDown"/>
+        <Rectangle x:Name="PassWordRect_1" MouseDown="PassWordRect_1_MouseDown" MouseUp="PassWordRect_1_MouseUp" Fill="Transparent" Panel.ZIndex="100" Margin="1.045,0.718,676.925,374.178" RenderTransformOrigin="0.943,1.014">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="1.143"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="1.37"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Ellipse HorizontalAlignment="Left" Height="16" Margin="777.473,325.268,0,0" VerticalAlignment="Top" Width="16" x:Name="Appstatus"/>
+    </Grid>
+
+</Page>
+
+    
+    
+    

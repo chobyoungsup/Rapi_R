@@ -1,0 +1,15 @@
+﻿<Window x:Class="QuickChargeDisplay.ChargeWarnningDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="ChargeWarnningDialog" Topmost="True" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="Page_Loaded" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Width="579.044" Height="395.792" Closed="Window_Closed">
+
+    <Canvas Height="388" Width="571">
+        <Canvas.Background>
+            <ImageBrush ImageSource="image\RAPIDAS-R_Monitor\07/충전기이상.png" />
+        </Canvas.Background>
+        <TextBlock Canvas.Left="90" Canvas.Top="34" FontSize="30" Height="40" Width="370" Foreground="White" FontWeight="Bold" FontFamily="font\YoonYGO550 TT.ttf" Name="strTitle" TextAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">バッテリー満充電</TextBlock>
+        <Image Canvas.Left="9" Canvas.Top="210" Height="69" MouseDown="Image_MouseDown" Source="image\09_패스워드화면\비밀번호오류확인.png" Width="451" Visibility="Hidden" />
+        <TextBlock Canvas.Left="81.2" Canvas.Top="100.2" FontFamily="font\YoonYGO550 TT.ttf" FontSize="30" FontWeight="Bold" Foreground="White" Height="38" Name="strInfo2" TextWrapping="Wrap" Width="433" TextAlignment="Center">バッテリーが満充電なりました。</TextBlock>
+        <Image x:Name="closeWarring" Height="52"  MouseDown="closeWarring_MouseDown" Stretch="UniformToFill" Width="144.109" Canvas.Top="326" Source="image/03_충전금액화면/충전금액버튼들/확인버튼.png" Canvas.Left="208" />
+    </Canvas>
+</Window>

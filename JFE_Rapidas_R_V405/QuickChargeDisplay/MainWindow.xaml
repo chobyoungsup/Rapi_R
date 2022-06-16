@@ -1,0 +1,15 @@
+﻿<Window x:Class="QuickChargeDisplay.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    WindowStyle="None" WindowStartupLocation="CenterScreen" Margin="0" BorderThickness="0" 
+    KeyDown="Window_KeyDown" Loaded="Window_Loaded" Closing="Window_Closing"
+    ResizeMode="NoResize" ShowInTaskbar="True" SizeToContent="WidthAndHeight" Left="Auto" Title="JFE_RAPIDAS" Closed="Window_Closed">
+    
+    <Grid>
+        <Frame Width="800" Height="480" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        <Canvas>
+            <Rectangle MouseDown="Rectangle_MouseDown" MouseUp="Rectangle_MouseUp"
+                Width="50" Height="50" Stroke="Transparent" Fill="Transparent" Canvas.Left="0" Canvas.Top="718"></Rectangle>    
+        </Canvas>       
+    </Grid>
+</Window>

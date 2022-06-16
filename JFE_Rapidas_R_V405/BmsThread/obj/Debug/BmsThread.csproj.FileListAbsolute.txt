@@ -1,0 +1,1181 @@
+D:\EV충전기_프로그램\QuickCharger_급속\QuickCharge_RFID_DCDC\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\EV충전기_프로그램\QuickCharger_급속\QuickCharge_RFID_DCDC\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\EV충전기_프로그램\QuickCharger_급속\QuickCharge_RFID_DCDC\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\EV충전기_프로그램\QuickCharger_급속\QuickCharge_RFID_DCDC\BmsThread\bin\Debug\BmsThread.dll
+D:\EV충전기_프로그램\QuickCharger_급속\QuickCharge_RFID_DCDC\BmsThread\bin\Debug\BmsThread.pdb
+D:\EV충전기_프로그램\QuickCharger_급속\QuickCharge_RFID_DCDC\BmsThread\bin\Debug\AVRIO.dll
+D:\EV충전기_프로그램\QuickCharger_급속\QuickCharge_RFID_DCDC\BmsThread\bin\Debug\RealsysCanComponent.dll
+D:\EV충전기_프로그램\QuickCharger_급속\QuickCharge_RFID_DCDC\BmsThread\bin\Debug\AVRIO.pdb
+D:\EV충전기_프로그램\QuickCharger_급속\QuickCharge_RFID_DCDC\BmsThread\obj\Debug\BmsThread.dll
+D:\EV충전기_프로그램\QuickCharger_급속\QuickCharge_RFID_DCDC\BmsThread\obj\Debug\BmsThread.pdb
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_DC\BmsThread\bin\Debug\BmsThread.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_DC\BmsThread\bin\Debug\BmsThread.pdb
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_DC\BmsThread\bin\Debug\AVRIO.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_DC\BmsThread\bin\Debug\RealsysCanComponent.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_DC\BmsThread\bin\Debug\AVRIO.pdb
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_DC\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_DC\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_DC\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_DC\BmsThread\obj\Debug\BmsThread.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_DC\BmsThread\obj\Debug\BmsThread.pdb
+D:\EV충전기_프로그램\제주도\QuickCharge_DC\BmsThread\bin\Debug\BmsThread.dll
+D:\EV충전기_프로그램\제주도\QuickCharge_DC\BmsThread\bin\Debug\BmsThread.pdb
+D:\EV충전기_프로그램\제주도\QuickCharge_DC\BmsThread\bin\Debug\AVRIO.dll
+D:\EV충전기_프로그램\제주도\QuickCharge_DC\BmsThread\bin\Debug\RealsysCanComponent.dll
+D:\EV충전기_프로그램\제주도\QuickCharge_DC\BmsThread\bin\Debug\AVRIO.pdb
+D:\EV충전기_프로그램\제주도\QuickCharge_DC\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\EV충전기_프로그램\제주도\QuickCharge_DC\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\EV충전기_프로그램\제주도\QuickCharge_DC\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\EV충전기_프로그램\제주도\QuickCharge_DC\BmsThread\obj\Debug\BmsThread.dll
+D:\EV충전기_프로그램\제주도\QuickCharge_DC\BmsThread\obj\Debug\BmsThread.pdb
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\bin\Debug\BmsThread.dll
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\bin\Debug\BmsThread.pdb
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\bin\Debug\AVRIO.dll
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\bin\Debug\RealsysCanComponent.dll
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\bin\Debug\AVRIO.pdb
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\obj\Debug\BmsThread.dll
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\obj\Debug\BmsThread.pdb
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\EV충전기_프로그램\BLC테크_급속\QuickCharge_급속\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\bin\Debug\BmsThread.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\bin\Debug\BmsThread.pdb
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\bin\Debug\AVRIO.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\bin\Debug\RealsysCanComponent.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\bin\Debug\AVRIO.pdb
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.pdb
+D:\QuickCharge_급속_BLC\BmsThread\bin\Debug\BmsThread.dll
+D:\QuickCharge_급속_BLC\BmsThread\bin\Debug\BmsThread.pdb
+D:\QuickCharge_급속_BLC\BmsThread\bin\Debug\AVRIO.dll
+D:\QuickCharge_급속_BLC\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\QuickCharge_급속_BLC\BmsThread\bin\Debug\RealsysCanComponent.dll
+D:\QuickCharge_급속_BLC\BmsThread\bin\Debug\AVRIO.pdb
+D:\QuickCharge_급속_BLC\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\QuickCharge_급속_BLC\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.dll
+D:\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.pdb
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\bin\Debug\BmsThread.dll
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\bin\Debug\BmsThread.pdb
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\bin\Debug\AVRIO.dll
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\bin\Debug\RealsysCanComponent.dll
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\bin\Debug\AVRIO.pdb
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.dll
+D:\EV충전기_프로그램\QuickCharge_급속_BLC\BmsThread\obj\Debug\BmsThread.pdb
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\bin\Debug\BmsThread.dll
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\bin\Debug\BmsThread.pdb
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\bin\Debug\AVRIO.dll
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\bin\Debug\RealsysCanComponent.dll
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\bin\Debug\AVRIO.pdb
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\obj\Debug\BmsThread.dll
+D:\Current ProjectC#\QuickCharger_급속_BLC\BmsThread\obj\Debug\BmsThread.pdb
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\bin\Debug\BmsThread.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\bin\Debug\BmsThread.pdb
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\bin\Debug\AVRIO.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\bin\Debug\RealsysCanComponent.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\bin\Debug\AVRIO.pdb
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\obj\Debug\BmsThread.dll
+C:\Documents and Settings\admin\바탕 화면\QuickCharger_급속_BLC\BmsThread\obj\Debug\BmsThread.pdb
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\bin\Debug\BmsThread.dll
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\bin\Debug\BmsThread.pdb
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\bin\Debug\AVRIO.dll
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\bin\Debug\RealsysCanComponent.dll
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\bin\Debug\AVRIO.pdb
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\obj\Debug\BmsThread.dll
+D:\Current ProjectC#\Hyosung\QuickCharger_급속\BmsThread\obj\Debug\BmsThread.pdb
+D:\Current ProjectC#\Hyosung\BmsThread\bin\Debug\BmsThread.dll
+D:\Current ProjectC#\Hyosung\BmsThread\bin\Debug\BmsThread.pdb
+D:\Current ProjectC#\Hyosung\BmsThread\bin\Debug\AVRIO.dll
+D:\Current ProjectC#\Hyosung\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\Current ProjectC#\Hyosung\BmsThread\bin\Debug\RealsysCanComponent.dll
+D:\Current ProjectC#\Hyosung\BmsThread\bin\Debug\AVRIO.pdb
+D:\Current ProjectC#\Hyosung\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\Current ProjectC#\Hyosung\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\Current ProjectC#\Hyosung\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\Current ProjectC#\Hyosung\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Current ProjectC#\Hyosung\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Current ProjectC#\Hyosung\BmsThread\obj\Debug\BmsThread.dll
+D:\Current ProjectC#\Hyosung\BmsThread\obj\Debug\BmsThread.pdb
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\bin\Debug\BmsThread.dll
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\bin\Debug\BmsThread.pdb
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\bin\Debug\AVRIO.dll
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\bin\Debug\AVRIO.pdb
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\obj\Debug\BmsThread.dll
+D:\Current ProjectC#\Hyosung\QuickCharger\BmsThread\obj\Debug\BmsThread.pdb
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\bin\Debug\BmsThread.dll
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\bin\Debug\BmsThread.pdb
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\bin\Debug\AVRIO.dll
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\bin\Debug\AVRIO.pdb
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\obj\Debug\BmsThread.dll
+D:\Current ProjectC#\CHAdeMO\QuickCharger\BmsThread\obj\Debug\BmsThread.pdb
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\bin\Debug\BmsThread.dll
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\bin\Debug\BmsThread.pdb
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\bin\Debug\AVRIO.dll
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\bin\Debug\AVRIO.pdb
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\obj\Debug\BmsThread.dll
+C:\Documents and Settings\Administrator\바탕 화면\QuickCharger\BmsThread\obj\Debug\BmsThread.pdb
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\bin\Debug\BmsThread.dll
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\bin\Debug\BmsThread.pdb
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\bin\Debug\AVRIO.dll
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\bin\Debug\AVRIO.pdb
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\obj\Debug\BmsThread.dll
+C:\Source\CHAdeMO\QuickCharger_20120627\BmsThread\obj\Debug\BmsThread.pdb
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\bin\Debug\BmsThread.dll
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\bin\Debug\BmsThread.pdb
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\bin\Debug\AVRIO.dll
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\bin\Debug\Multimedia.dll
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\bin\Debug\AVRIO.pdb
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\obj\Debug\BmsThread.dll
+C:\Source\CHAdeMO\QuickCharger_20120811_MultiTimer\BmsThread\obj\Debug\BmsThread.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\bin\Debug\BmsThread.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\bin\Debug\BmsThread.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\bin\Debug\AVRIO.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\bin\Debug\Multimedia.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\bin\Debug\AVRIO.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\obj\Debug\ResGen.read.1.tlog
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\obj\Debug\ResGen.write.1.tlog
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\obj\Debug\BmsThread.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120813_MultiTimer_2\BmsThread\obj\Debug\BmsThread.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\bin\Debug\BmsThread.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\bin\Debug\BmsThread.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\bin\Debug\AVRIO.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\bin\Debug\Multimedia.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\bin\Debug\AVRIO.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\obj\Debug\ResGen.read.1.tlog
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\obj\Debug\ResGen.write.1.tlog
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\obj\Debug\BmsThread.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120816_MultiTimer_2\BmsThread\obj\Debug\BmsThread.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\bin\Debug\BmsThread.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\bin\Debug\BmsThread.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\bin\Debug\AVRIO.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\bin\Debug\AVRIO.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\obj\Debug\ResGen.read.1.tlog
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\obj\Debug\ResGen.write.1.tlog
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\obj\Debug\BmsThread.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\obj\Debug\BmsThread.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120817\BmsThread\bin\Debug\Multimedia.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\bin\Debug\BmsThread.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\bin\Debug\BmsThread.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\bin\Debug\AVRIO.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\bin\Debug\AVRIO.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\obj\Debug\ResGen.read.1.tlog
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\obj\Debug\ResGen.write.1.tlog
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\obj\Debug\BmsThread.dll
+D:\Current ProjectC#\EV Charger\CHAdeMO\QuickCharger_20120822\BmsThread\obj\Debug\BmsThread.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\bin\Debug\BmsThread.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\bin\Debug\BmsThread.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\bin\Debug\AVRIO.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\bin\Debug\AVRIO.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\obj\Debug\BmsThread.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120902\BmsThread\obj\Debug\BmsThread.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\bin\Debug\BmsThread.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\bin\Debug\BmsThread.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\bin\Debug\AVRIO.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\bin\Debug\AVRIO.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\obj\Debug\BmsThread.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120903\BmsThread\obj\Debug\BmsThread.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\bin\Debug\BmsThread.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\bin\Debug\BmsThread.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\bin\Debug\AVRIO.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\bin\Debug\AVRIO.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\obj\Debug\BmsThread.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120904\BmsThread\obj\Debug\BmsThread.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\bin\Debug\BmsThread.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\bin\Debug\BmsThread.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\bin\Debug\AVRIO.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\bin\Debug\AVRIO.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\obj\Debug\BmsThread.dll
+C:\Source\EV Charger\JFE\QuickCharger_20120905\BmsThread\obj\Debug\BmsThread.pdb
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\bin\Debug\BmsThread.dll
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\bin\Debug\BmsThread.pdb
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\bin\Debug\AVRIO.dll
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\bin\Debug\AVRIO.pdb
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\obj\Debug\BmsThread.dll
+D:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120908\BmsThread\obj\Debug\BmsThread.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\bin\Debug\BmsThread.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\bin\Debug\BmsThread.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\bin\Debug\AVRIO.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\bin\Debug\AVRIO.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\obj\Debug\BmsThread.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120918\BmsThread\obj\Debug\BmsThread.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\bin\Debug\BmsThread.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\bin\Debug\BmsThread.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\bin\Debug\AVRIO.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\bin\Debug\AVRIO.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\obj\Debug\BmsThread.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120919\BmsThread\obj\Debug\BmsThread.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\bin\Debug\BmsThread.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\bin\Debug\BmsThread.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\bin\Debug\AVRIO.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\bin\Debug\AVRIO.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\obj\Debug\BmsThread.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120920\BmsThread\obj\Debug\BmsThread.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\bin\Debug\BmsThread.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\bin\Debug\BmsThread.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\bin\Debug\AVRIO.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\bin\Debug\AVRIO.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\obj\Debug\BmsThread.dll
+C:\Users\Andy\Desktop\JFE\Source\QuickCharger_20120921\BmsThread\obj\Debug\BmsThread.pdb
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\bin\Debug\BmsThread.dll
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\bin\Debug\BmsThread.pdb
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\bin\Debug\AVRIO.dll
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\bin\Debug\QuickChargeConfig.dll
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\bin\Debug\AVRIO.pdb
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\bin\Debug\QuickChargeConfig.pdb
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\obj\Debug\BmsThread.dll
+E:\Current ProjectC#\EV Charger\JFE\QuickCharger_20120926\BmsThread\obj\Debug\BmsThread.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\bin\Debug\BmsThread.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\bin\Debug\BmsThread.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\bin\Debug\AVRIO.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\bin\Debug\QuickChargeConfig.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\bin\Debug\AVRIO.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\bin\Debug\QuickChargeConfig.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\obj\Debug\BmsThread.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_20121026\BmsThread\obj\Debug\BmsThread.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\bin\Debug\BmsThread.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\bin\Debug\BmsThread.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\bin\Debug\AVRIO.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\bin\Debug\QuickChargeConfig.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\bin\Debug\AVRIO.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\bin\Debug\QuickChargeConfig.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\obj\Debug\BmsThread.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN_20121026\BmsThread\obj\Debug\BmsThread.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\bin\Debug\BmsThread.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\bin\Debug\BmsThread.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\bin\Debug\AVRIO.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\bin\Debug\QuickChargeConfig.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\bin\Debug\AVRIO.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\bin\Debug\QuickChargeConfig.pdb
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\obj\Debug\BmsThread.dll
+F:\Complite Project\EV충전기_자료\EV Charger 시스템\JFE\Source\QuickCharger_JPN\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130510\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130511_2\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_2\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130513_3\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130514_2\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130515_2\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130520_2\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130521_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130522_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_20130523_2\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306010_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_201306012_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306010_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306013_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306014\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306016\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306021\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306022\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306024_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306025_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_1\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306027_2\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_201306028\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130701\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20130706\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131021_70_미만충전\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20131226_85_양산기_out\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140108_85_양산기_out\BmsThread\obj\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\bin\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\bin\Debug\BmsThread.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\bin\Debug\AVRIO.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\bin\Debug\AVRIO.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\obj\Debug\BmsThread.dll
+D:\2013_Project\3_Japan_JFE\windows\Working\JFE_Card_20140110_85_양산기_out\BmsThread\obj\Debug\BmsThread.pdb
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\bin\Debug\BmsThread.dll
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\bin\Debug\BmsThread.pdb
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\bin\Debug\AVRIO.dll
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\bin\Debug\AVRIO.pdb
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\obj\Debug\BmsThread.dll
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_Card_20140312_85_과금_Version_5미만_inverter_versionout\BmsThread\obj\Debug\BmsThread.pdb
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\bin\Debug\BmsThread.dll
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\bin\Debug\BmsThread.pdb
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\bin\Debug\AVRIO.dll
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\bin\Debug\AVRIO.pdb
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\obj\Debug\BmsThread.dll
+D:\2014_Project\1_Japan_JFE_Rapidas\JFE_V1_07\BmsThread\obj\Debug\BmsThread.pdb
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\bin\Debug\BmsThread.dll
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\bin\Debug\BmsThread.pdb
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\bin\Debug\AVRIO.dll
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\bin\Debug\AVRIO.pdb
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\obj\Debug\BmsThread.dll
+C:\Users\Administrator\Desktop\JFE_V1_10\BmsThread\obj\Debug\BmsThread.pdb
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\bin\Debug\BmsThread.dll
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\bin\Debug\BmsThread.pdb
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\bin\Debug\AVRIO.dll
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\bin\Debug\AVRIO.pdb
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.dll
+D:\2017_ptoject\JFE_R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.pdb
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\BmsThread.dll
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\BmsThread.pdb
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\AVRIO.dll
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\AVRIO.pdb
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csprojResolveAssemblyReference.cache
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.Cache
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.dll
+D:\project\Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.pdb
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\BmsThread.dll
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\BmsThread.pdb
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\AVRIO.dll
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\AVRIO.pdb
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.dll
+D:\Project\Project\30_Rapidas\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.pdb
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\bin\Debug\BmsThread.dll
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\bin\Debug\BmsThread.pdb
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\bin\Debug\AVRIO.dll
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\bin\Debug\AVRIO.pdb
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.dll
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11\BmsThread\obj\Debug\BmsThread.pdb
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\BmsThread.dll
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\BmsThread.pdb
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\AVRIO.dll
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\AVRIO.pdb
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.dll
+D:\gitprj\rapidas_r_jfe\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.pdb
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\BmsThread.dll
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\BmsThread.pdb
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\AVRIO.dll
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\AVRIO.pdb
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.dll
+C:\Users\cbs\Desktop\RapidasSeriseWatch\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.pdb
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\BmsThread.dll
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\BmsThread.pdb
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\AVRIO.dll
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\AVRIO.pdb
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.dll
+C:\Users\cbs\Desktop\RapidasSerise20181106\R\JFE_V4_00_09_11_CBS_Debug\BmsThread\obj\Debug\BmsThread.pdb
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\bin\Debug\BmsThread.dll
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\bin\Debug\BmsThread.pdb
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\bin\Debug\AVRIO.dll
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\bin\Debug\AVRIO.pdb
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\obj\Debug\BmsThread.dll
+D:\gitprj\rapidas_r_jfe\JFE_Rapidas_R_V310\BmsThread\obj\Debug\BmsThread.pdb
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\bin\Debug\BmsThread.dll
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\bin\Debug\BmsThread.pdb
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\bin\Debug\AVRIO.dll
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\bin\Debug\QuickChargeConfig.dll
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\bin\Debug\AVRIO.pdb
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\bin\Debug\QuickChargeConfig.pdb
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\obj\Debug\BmsThread.dll
+C:\Users\cbs\Desktop\JFE_Rapidas_R_V311\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V311_AddVoltage\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\JFE_Rapidas_R_V312_AddVoltage\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V312\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V313\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\TEST\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V400\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V401\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V402\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V403\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V404\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\Final\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\BmsThread.pdb
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\AVRIO.dll
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\QuickChargeConfig.dll
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\VCI_CAN_DotNET.dll
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\AVRIO.pdb
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\bin\Debug\QuickChargeConfig.pdb
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.csprojAssemblyReference.cache
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.Properties.Resources.resources
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.csproj.GenerateResource.cache
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.csproj.CoreCompileInputs.cache
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.csproj.CopyComplete
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.dll
+D:\1_PS사업부Project\JFE_Rapidas\R\JFE_Rapidas_R_V405\BmsThread\obj\Debug\BmsThread.pdb

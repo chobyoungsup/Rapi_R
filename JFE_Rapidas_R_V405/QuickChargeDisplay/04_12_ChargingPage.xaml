@@ -1,0 +1,87 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:QuickChargeDisplay.Control"
+    xmlns:Converter="clr-namespace:QuickChargeDisplay.Converter"
+    xmlns:local="clr-namespace:QuickChargeDisplay" x:Class="QuickChargeDisplay.ChargingPage"
+    Loaded="Page_Loaded" Unloaded="Page_Unloaded"
+    Title="ChargingPage" Width="800" Height="480">
+
+    <Page.Resources>
+        <Converter:DoublePrecisionConverter x:Key="doublePrecisionConverter"/>
+    </Page.Resources>
+
+    <Page.Background>
+        <ImageBrush ImageSource="image\RAPIDAS-R_Monitor\05\충전중11.png"/>
+    </Page.Background>
+
+    <Grid>
+        <local:ExtendedBinding Source="{Binding Path=ChargingSoc, Source={x:Static local:QCDV.Charging}}"  
+                               Target="{Binding Path=SocPercent, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}"/>
+
+        <control:AnimatedImage x:Name="BackImage" Grid.ColumnSpan="3" Grid.RowSpan="2" MouseDown="BackImage_MouseDown" />
+        <Image Source="image\04_충전중화면\배터리화면\자동차아이콘.png" Stretch="Fill" Panel.ZIndex="3" Margin="180,78,500,281" />
+        <Image x:Name="p10"  Source="image\RAPIDAS-R_Monitor\05\충전바.png"   Margin="84.378,55.398,682.622,261.602" />
+        <Image x:Name="p20"  Source="image\RAPIDAS-R_Monitor\05\충전바.png"   Margin="113.986,55.398,651.014,261.602" />
+        <Image x:Name="p30"  Source="image\RAPIDAS-R_Monitor\05\충전바.png"   Margin="144.496,55.398,620.504,261.602" />
+        <Image x:Name="p40"  Source="image\RAPIDAS-R_Monitor\05\충전바.png"   Margin="174.842,55.398,590.158,261.602" />
+        <Image x:Name="p50"  Source="image\RAPIDAS-R_Monitor\05\충전바.png"   Margin="205.352,55.398,559.648,261.602" />
+        <Image x:Name="p60"  Source="image\RAPIDAS-R_Monitor\05\충전바.png"   Margin="234.764,55.398,530.236,261.602" />
+        <Image x:Name="p70"  Source="image\RAPIDAS-R_Monitor\05\충전바.png"   Margin="265.274,55.398,499.726,261.602" />
+        <Image x:Name="p80"  Source="image\RAPIDAS-R_Monitor\05\충전바.png"   Margin="295.784,55.398,469.216,261.602" />
+        <Image x:Name="p90"  Source="image\RAPIDAS-R_Monitor\05\충전바.png"   Margin="326.294,55.398,438.706,261.602" />
+        <Image x:Name="p100" Source="image\RAPIDAS-R_Monitor\05\충전바.png" Margin="357,55,408,262" />
+        <Rectangle x:Name="ChargeDevice" Fill="Transparent" Panel.ZIndex="100" Canvas.Left="307" Canvas.Top="268" Margin="71,42,350,250" MouseDown="ChargeDevice_MouseDown_1" MouseUp="ChargeDevice_MouseUp_1"></Rectangle>
+        <Label Content="0" Height="79" HorizontalAlignment="Left" Margin="144,290.872,0,0" Name="SetPower" VerticalAlignment="Top" Width="120" Foreground="#FFFBF8F8" FontSize="50" HorizontalContentAlignment="Right">
+            <Label.BorderBrush>
+                <SolidColorBrush />
+            </Label.BorderBrush>
+        </Label>
+        <Label Content="0" FontSize="50" Foreground="#FFFBF8F8" Height="79" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="603,290.308,0,0" Name="Txttimemm" VerticalAlignment="Top" Width="89">
+            <Label.BorderBrush>
+                <SolidColorBrush />
+            </Label.BorderBrush>
+        </Label>
+        <Label Content="0.0" FontSize="60" Foreground="#FF0000E1" Height="97" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="603,159.872,0,0" Name="chargingSoc" VerticalAlignment="Top" Width="111">
+            <Label.BorderBrush>
+                <SolidColorBrush />
+            </Label.BorderBrush>
+        </Label>
+
+        <!--cbs 일단 추가 2018.09.10-->
+        <GroupBox x:Name="Info" Header="BMS Info" Visibility="{Binding Visible, Mode=TwoWay, Source={x:Static local:QCDV.BmsInfo}, UpdateSourceTrigger=PropertyChanged}"
+        	Foreground="Black" FontSize="15" Margin="0,0,371.746,368" RenderTransformOrigin="0.486,0.963" FontWeight="Bold">
+            <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+                <!-- 
+                        QCDVClasses에 BmsInfo 클래스에 필드를 추가
+                    -->
+                <!-- 첫번째 -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="13" Width="74.233" TextAlignment="Right" HorizontalAlignment="Left"><Run Text="Output V :"/></TextBlock>
+                    <TextBlock Name="OutputVoltage" FontSize="13" Width="80" HorizontalAlignment="Right" Text="{Binding Path=OutVoltage, Source={x:Static local:QCDV.BmsInfo}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock FontSize="13" Width="120" TextAlignment="Right"><Run Text="Output A :"/></TextBlock>
+                    <TextBlock Name="OutputCurrent" FontSize="13" Width="97.003" Text="{Binding Path=OutAmpare, Source={x:Static local:QCDV.BmsInfo}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Height="2" Orientation="Horizontal" Background="Pink"/>
+                <!-- 두번째 -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="13" Width="74.233" TextAlignment="Right" HorizontalAlignment="Left"><Run Text="Target V :"/></TextBlock>
+                    <TextBlock Name="TargetVoltage" FontSize="13" Width="80" HorizontalAlignment="Right" Text="{Binding Path=TargetVoltage, Source={x:Static local:QCDV.BmsInfo}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock FontSize="13" Width="120" TextAlignment="Right"><Run Text="Target A :"/></TextBlock>
+                    <TextBlock Name="TargetCurrent" FontSize="13" Width="97.003" Text="{Binding Path=TargetAmpare, Source={x:Static local:QCDV.BmsInfo}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Height="2" Orientation="Horizontal" Background="Pink"/>
+                <!-- 두번째 -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="13" Width="85" TextAlignment="Right" HorizontalAlignment="Left"><Run Text="Remain Time :"/></TextBlock>
+                    <TextBlock x:Name="ResidTime" FontSize="13" Width="75" HorizontalAlignment="Right" Text="{Binding Path=RemainTime, Source={x:Static local:QCDV.BmsInfo}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock FontSize="13" Width="115" TextAlignment="Right"><Run Text="SOC :"/></TextBlock>
+                    <TextBlock Name="chargeSoc" FontSize="13" Width="92" Text="{Binding Path=SOC, Source={x:Static local:QCDV.BmsInfo}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Height="2" Orientation="Horizontal" Background="Pink"/>
+
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+
+</Page>

@@ -1,0 +1,266 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Xml;
+using System.Xml.Linq;
+using System.IO;
+
+namespace QuickChargeConfig
+{
+    public static class ChargeConfig
+    {
+        static XElement xroot;
+        static XElement xsubAVRID;
+        static XElement xsubSmartGird;
+        static XElement xsubCSOS;
+
+        //public void QuickChargeConfig()
+        //{
+        //    xroot = XElement.Load("Config.xml");
+        //    xsubAVRID = xroot.Element("AVRIO");
+        //    xsubSmartGird = xroot.Element("SmartGrid");
+        //    xsubCSOS = xroot.Element("CSOS");
+        //}
+
+        public static void ConfigLoad()
+        {
+            xroot = XElement.Load("Config.xml");
+            xsubAVRID = xroot.Element("AVRIO");
+            xsubSmartGird = xroot.Element("SmartGrid");
+            xsubCSOS = xroot.Element("CSOS");
+        }
+        
+        public static void SetConfig(string element, string node, string value)
+        {
+            XElement root = XElement.Load("Config.xml");
+            XElement sub = root.Element(element);
+            XElement val = sub.Element(node);
+
+            if (val == null)
+            {
+                sub.Add(new XElement(node, value));
+            }
+            else
+            {
+                val.Value = value;
+            }
+
+            root.Save("Config.xml");
+        }
+
+        public static string GetConfig(string element, string node, string basevalue)
+        {
+            FileInfo fi = new FileInfo("Config.xml");
+            if (fi.Exists)
+            {
+                XElement root = XElement.Load("Config.xml");
+                XElement sub = root.Element(element);
+                XElement val = sub.Element(node);
+
+                if (val == null)
+                {
+                    return basevalue;
+                }
+                else
+                {
+                    return val.Value;
+                }
+            }
+
+            //존재하지 않으면 기본값을 반환
+            return basevalue;
+        }
+
+        public static void SetUnitPrice()
+        {
+            FileInfo fi = new FileInfo("Config.xml");
+            if (fi.Exists)
+            {
+                XElement root = XElement.Load("Config.xml");
+                XElement sub = root.Element("UnitPrice");
+
+                IEnumerable<XElement> iter = sub.Elements("Price");
+
+                iter.Remove();
+
+                DateTime dt = DateTime.Now;
+                string date = AVRIO.avrio.UnitPriceList.First().Date;
+                XElement val = sub.Element("Date");
+                val.Value = date;
+
+                foreach (AVRIO.UnitPricePerTimes up in AVRIO.avrio.UnitPriceList)
+                {
+                    sub.Add(new XElement("Price", up.Ucost));
+                }
+
+                XElement subNext = root.Element("NextUnitPrice");
+                IEnumerable<XElement> iter2 = subNext.Elements("Price");
+
+                date = AVRIO.avrio.UnitPriceListNext.First().Date;
+                XElement valNext = subNext.Element("Date");
+                valNext.Value = date;
+
+                AVRIO.avrio.UnitPriceListNext.Clear();
+                foreach (AVRIO.UnitPricePerTimes up in AVRIO.avrio.UnitPriceListNext)
+                {
+                    subNext.Add(new XElement("Price", up.Ucost));
+                }
+
+                root.Save("Config.xml");
+            }
+        }
+
+        public static void GetUnitPrice()
+        {
+            FileInfo fi = new FileInfo("Config.xml");
+            if (fi.Exists)
+            {
+                XElement root = XElement.Load("Config.xml");
+                XElement sub = root.Element("UnitPrice");
+
+                IEnumerable<XElement> iter = sub.Elements("Price");
+
+                string company = GetConfig("CSOS", "Company", "KDN");
+
+                DateTime dt = DateTime.Now;
+                string date = sub.Element("Date").ToString().Trim();
+                AVRIO.avrio.UnitPriceList.Clear();
+                int hour = 0;
+                int interval = 1;
+                double cost = 0;
+                foreach (XElement el in iter)
+                {
+                    cost = Convert.ToDouble(el.Value);
+                    AVRIO.avrio.UnitPriceList.Add(new AVRIO.UnitPricePerTimes(hour, interval, cost, date));
+                    if (company == "KDN")
+                    {
+                        if (hour == dt.Hour)
+                        {
+                            if (interval == 1 && dt.Minute < 30)
+                            {
+                                AVRIO.avrio.CurrentUnitPrice = cost;
+                            }
+                            else if (interval == 2)
+                            {
+                                AVRIO.avrio.CurrentUnitPrice = cost;
+                            }
+                        }
+                        interval = (++interval % 2) + 1;
+                        if (interval == 1)
+                        {
+                            hour++;
+                        }
+                    }
+                    else
+                    {
+                        if (hour == dt.Hour)
+                        {
+                            AVRIO.avrio.CurrentUnitPrice = cost;
+                        }
+                        hour++;
+                    }
+                }
+
+                XElement subNext = root.Element("NextUnitPrice");
+                IEnumerable<XElement> iter2 = subNext.Elements("Price");
+
+                date = subNext.Element("Date").ToString().Trim();
+                AVRIO.avrio.UnitPriceListNext.Clear();
+                hour = 0;
+                interval = 0;
+                cost = 0;
+                foreach (XElement el in iter2)
+                {
+                    cost = Convert.ToDouble(el.Value);
+                    AVRIO.avrio.UnitPriceListNext.Add(new AVRIO.UnitPricePerTimes(hour, interval, cost, date));
+                    if (company == "KDN")
+                    {
+                        interval = (++interval % 2) + 1;
+                        if (interval == 1)
+                        {
+                            hour++;
+                        }
+                    }
+                    else
+                    {
+                        hour++;
+                    }
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// 시간은 자동저장할것
+        /// </summary>
+        /// <param name="logname"></param>
+        /// <param name="msg"></param>
+        public static void SetLog(string subdir, uint nSeqNum, string msg, DateTime dt)
+        {
+            DirectoryInfo dinfo = new DirectoryInfo(".");
+
+            //string[] subdirs = Directory.GetDirectories(".");
+
+            //foreach (string s in subdirs)
+            //{
+            //    if (s == subdir)
+            //    {
+            //        break;
+            //    }
+            //}
+
+            string dname = dinfo.FullName + "\\" + subdir.ToUpper();
+
+            DirectoryInfo subinfo = new DirectoryInfo(dname);
+
+            // 디렉토리가 존재하지 않으면
+            if (!subinfo.Exists)
+            {
+                subinfo.Create();
+            }
+
+            try
+            {
+                string filename = subinfo.Name + "\\" + subdir.Substring(0, 1).ToUpper() + dt.Year.ToString("0000") + dt.Month.ToString("00") + dt.Day.ToString("00") + ".log";
+
+                FileStream file = new FileStream(filename, FileMode.Append, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(file);
+                sw.WriteLine(nSeqNum + "," + dt.Hour.ToString("00") + dt.Minute.ToString("00") + dt.Second.ToString("00") + "," + msg);
+                sw.Flush();
+                file.Close();
+                SetConfig("SEQ", subdir, nSeqNum.ToString());
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
+        }
+
+        public static void test()
+        {
+            //XElement root = new XElement("AVRIORoot");
+            //XElement sub = new XElement("AVRIO");
+            //root.Add(sub);
+            //sub.Add(new XElement("UnitPrice", 100));
+            //sub.Add(new XElement("UnitPrice", 200));
+            //sub.Add(new XElement("UnitPrice", 300));
+            //sub.Add(new XElement("UnitPrice", 400));
+            //sub.Add(new XElement("UnitPrice", 500));
+            //root.Save("Test.xml");
+
+            //root = XElement.Load("Test.xml");
+            //XElement subele = root.Element("AVRIO");
+            //subele.Add(new XElement("UnitPrice", 600));
+
+            //IEnumerable<XElement> iter = subele.Elements("UnitPrice");
+
+            //foreach (XElement el in iter)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(el);
+            //}
+            //root.Save("Test.xml");
+        }
+    }
+}

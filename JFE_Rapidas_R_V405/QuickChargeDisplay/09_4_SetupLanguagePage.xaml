@@ -1,0 +1,74 @@
+﻿<Page x:Class="QuickChargeDisplay.SetupLanguagePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Loaded="Page_Loaded"
+    Title="SetupLanguagePage" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="480" d:DesignWidth="800">
+
+
+    <Page.Background>
+        <ImageBrush ImageSource="image\10_관리자화면\관리자기본배경.png" />
+    </Page.Background>
+    <Canvas x:Name="Compulsion">
+        <Image x:Name="logOut" MouseDown="logOut_MouseDown" Source="image/20191018_Add/back_12955.png" Canvas.Left="719" Canvas.Top="386.347" Width="50" Height="59.47"/>
+        <Label x:Name="Lanuage" Content="Setup" Height="63" Canvas.Left="97" Canvas.Top="97.731" Width="110" FontSize="32" Foreground="#FFF5F2F2" FontWeight="Bold"/>
+        <Button Content="Confirm" Height="94" Canvas.Left="501" Canvas.Top="128.196" Width="161" FontSize="20" BorderBrush="#FF050F1D" Foreground="#FF101010" Name="btnComfirm" Click="btnComfirm_Click" FontWeight="Normal"></Button>
+        <Image Canvas.Left="264" Canvas.Top="104.731" Height="45" Name="ImglJapan" Source="/QuickChargeDisplay;component/image/CheckFalse.png" Stretch="Fill" Width="47" MouseDown="ImglJapan_MouseDown" />
+        <Image Canvas.Left="262" Canvas.Top="171.801" Height="48" Name="ImglEnglish" Source="/QuickChargeDisplay;component/image/CheckFalse.png" Stretch="Fill" Width="49" MouseDown="ImglEnglish_MouseDown" />
+        <Label Canvas.Left="323" Canvas.Top="161.801" Content="English" Height="63" Name="label1" Width="135" Foreground="#FFF5EFEF" FontSize="36" />
+        <Label Canvas.Left="322" Canvas.Top="95.731" Content="Japan" FontSize="36" Foreground="#FFF5EFEF" Height="63" Name="label2" Width="108" />
+        <Label Canvas.Left="97" Canvas.Top="161.801" Content="Language" FontSize="32" FontWeight="Bold" Foreground="#FFF5F2F2" Height="62" Name="label3" Width="159" />
+
+        <Image Canvas.Left="241" Canvas.Top="0" Height="80" Name="CahrgeHistory" Source="image\10_관리자화면\아이콘/충전이력.png" Width="79" MouseDown="CahrgeHistory_MouseDown" />
+        <Image Canvas.Left="318" Canvas.Top="0" Height="80" Name="TroubleHistory" Source="image\10_관리자화면\아이콘/에러이력.png" Width="79" MouseDown="TroubleHistory_MouseDown" />
+        <Image Canvas.Left="397" Canvas.Top="0" Height="80" Name="PassWord" Source="image\10_관리자화면\아이콘/패스워드.png" Width="79" MouseDown="PassWord_MouseDown" />
+        <Image Canvas.Left="720" Canvas.Top="1" Height="80" Name="LogSampling" Source="image\10_관리자화면\아이콘/로그추출.png" Width="79" MouseDown="LogSampling_MouseDown" />
+        <Image Canvas.Left="562" Canvas.Top="1" Height="78" Name="SetupMaxium" Source="image\10_관리자화면\아이콘/최대전류설정.png" Width="77" MouseDown="SetupMaxium_MouseDown" />
+        <Image Canvas.Left="0" Canvas.Top="1" Height="80" Name="TroubleDetails" Source="image/RAPIDAS-R_Monitor/07/관리설정.png" Width="78" MouseDown="TroubleDetails_MouseDown" />
+        <Image Canvas.Left="478" Canvas.Top="0" Height="80" Name="SetupEquipment" Source="image/RAPIDAS-R_Monitor/07/수전전력설정.png" Width="82" MouseDown="SetupEquipment_MouseDown" />
+        <Image Canvas.Left="79" Canvas.Top="0" Height="80" Name="AdjustUnitPrice" RenderTransformOrigin="0.5,0.5" Source="image/RAPIDAS-R_Monitor/07/일시정지.png" Width="82" MouseDown="AdjustUnitPrice_MouseDown" />
+        <Image Canvas.Left="639" Canvas.Top="1" Height="80" Name="EquipmentInfo" Source="image\10_관리자화면\아이콘/강제충전.png" Width="80" MouseDown="EquipmentInfo_MouseDown" />
+        <Label Canvas.Left="0" Canvas.Top="54" Content="管理設定" Height="27" Name="Langanglab1" Width="78" Foreground="#FFF2E9E9" ForceCursor="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="720" Canvas.Top="55" Content="Log抽出" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab2" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="79" Canvas.Top="54" Content="時間の設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab3" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="161" Canvas.Top="54" Content="言語設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab4" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="242" Canvas.Top="54" Content="充電履歴" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab5" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="319" Canvas.Top="53" Content="エラー履歴" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab6" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="398" Canvas.Top="54" Content="パスワード" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab7" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="478" Canvas.Top="54" Content="受電電力設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab8" VerticalContentAlignment="Bottom" Width="81" />
+        <Label Canvas.Left="562" Canvas.Top="54" Content="電流設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab9" VerticalContentAlignment="Bottom" Width="78" />
+        <Label Canvas.Left="640" Canvas.Top="55" Content="Manual" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab10" VerticalContentAlignment="Bottom" Width="78" />
+        <Image Canvas.Left="562" Canvas.Top="-1" Height="81" Name="Imgmanu" Source="/QuickChargeDisplay;component/image/10_관리자화면/Imgmanu.png" Width="238" VerticalAlignment="Top" StretchDirection="Both" />
+        <TextBox Background="Black" Canvas.Left="-319" Canvas.Top="241" Focusable="False" FontFamily="font\YoonYGO550 TT.ttf" FontSize="30" FontWeight="Bold" Foreground="White" Height="51" HorizontalContentAlignment="Center" IsEnabled="True" IsReadOnly="True" VerticalContentAlignment="Center" Width="224" Text="Rebooting Set"/>
+        <Label MouseDown="lbl_MouseDown" Canvas.Left="73.194" Canvas.Top="333" Content="日" FontSize="24" Foreground="#FFF2E9E9" Height="44" x:Name="Sunday" Width="55"  />
+        <Image Canvas.Left="32" Canvas.Top="338" Height="34" x:Name="DaySun" Source="image/CheckFalse.png" Stretch="Fill" Width="38" MouseDown="DaySun_MouseDown" />
+        <Label MouseDown="lbl_MouseDown" Canvas.Left="175.194" Canvas.Top="333" Content="月" FontSize="24" Foreground="#FFF2E9E9" Height="44" x:Name="Monday" Width="55" />
+        <Image Canvas.Left="137" Canvas.Top="338" Height="34" x:Name="DayMon" Source="image/CheckFalse.png" Stretch="Fill" Width="38" MouseDown="DayMon_MouseDown" />
+        <Label MouseDown="lbl_MouseDown" Canvas.Left="272.194" Canvas.Top="332" Content="火" FontSize="24" Foreground="#FFF2E9E9" Height="44" x:Name="Tuesday" Width="55" />
+        <Image Canvas.Left="234" Canvas.Top="338" Height="34" x:Name="DayTue" Source="image/CheckFalse.png" Stretch="Fill" Width="38" MouseDown="DayTue_MouseDown" />
+        <Label MouseDown="lbl_MouseDown" Canvas.Left="376.194" Canvas.Top="333" Content="水" FontSize="24" Foreground="#FFF2E9E9" Height="44" x:Name="Wednesday" Width="55" />
+        <Image Canvas.Left="333" Canvas.Top="338" Height="34" x:Name="DayWed" Source="image/CheckFalse.png" Stretch="Fill" Width="38" MouseDown="DayWed_MouseDown" />
+        <Label MouseDown="lbl_MouseDown" Canvas.Left="477.194" Canvas.Top="333" Content="木" FontSize="24" Foreground="#FFF2E9E9" Height="44" x:Name="Thursday" Width="55" />
+        <Image Canvas.Left="434" Canvas.Top="338" Height="34" x:Name="DayThu" Source="image/CheckFalse.png" Stretch="Fill" Width="38" RenderTransformOrigin="0.548,1.353" MouseDown="DayThu_MouseDown" />
+        <Label MouseDown="lbl_MouseDown" Canvas.Left="579.194" Canvas.Top="335" Content="金" FontSize="24" Foreground="#FFF2E9E9" Height="44" x:Name="Friday" Width="55" />
+        <Image Canvas.Left="539" Canvas.Top="338" Height="34" x:Name="DayFri" Source="image/CheckFalse.png" Stretch="Fill" Width="38" MouseDown="DayFri_MouseDown" />
+        <Label MouseDown="lbl_MouseDown" Canvas.Left="683.194" Canvas.Top="335" Content="土" FontSize="24" Foreground="#FFF2E9E9" Height="44" x:Name="Saturday" Width="55" />
+        <Image Canvas.Left="640" Canvas.Top="338" Height="34" x:Name="DaySat" Source="image/CheckFalse.png" Stretch="Fill" Width="38" MouseDown="DaySat_MouseDown" />
+        <Label Canvas.Left="31.972" Canvas.Top="396.043" Content="Time" FontSize="22" Foreground="#FFF8EFEF" Height="40" x:Name="label3_Copy" Width="64" />
+        <TextBox Canvas.Left="111.972" Canvas.Top="398.043" FontSize="24" FontWeight="Bold" Height="40" x:Name="textBox3" Text="12" TextAlignment="Center" TextWrapping="Wrap" Width="56" Background="{x:Null}" Foreground="#FFEFDCDC" />
+        <Rectangle Canvas.Left="111.972" Canvas.Top="397.043" Fill="Transparent" Height="44" x:Name="rectangle1" Panel.ZIndex="2" Width="56" MouseDown="rectangle1_MouseDown" />
+        <TextBox Canvas.Left="200.972" Canvas.Top="398.043" FontSize="24" FontWeight="Bold" Height="40" x:Name="textBox4" Text="12" TextAlignment="Center" TextWrapping="Wrap" Width="56" Background="{x:Null}" Foreground="#FFEFDCDC" />
+        <Rectangle Canvas.Left="200.972" Canvas.Top="397.043" Fill="Transparent" Height="44" x:Name="rectangle2" Panel.ZIndex="2" Width="56" MouseDown="rectangle2_MouseDown" />
+        <Label Canvas.Left="180.122" Canvas.Top="398.043" Content=":" FontSize="22" Foreground="#FFF8EFEF" Height="40" x:Name="label4" Width="11.701" />
+        <Label Canvas.Left="32" Canvas.Top="424.143" Content="00~23" FontSize="15" Foreground="#FFF2E9E9" Height="32.8" x:Name="label2_Copy7" Width="52.945" />
+
+        <!--cbs-->
+        <Button Content="Reboot OS&#xd;Enable" Canvas.Left="32" Canvas.Top="258" Width="129" Height="61.1" FontWeight="Bold" FontSize="20" Click="useReboot" x:Name="btnUseReboot"/>
+        <Image x:Name="chk_byDay"  Canvas.Left="180.15" Canvas.Top="272" Height="34" Source="image/CheckFalse.png" Stretch="Fill" Width="38" MouseDown="chk_byDay_MouseDown" />
+        <Label x:Name="lbl_byDay"  Canvas.Left="223.194" Canvas.Top="269" Content="Day" FontSize="24" Foreground="#FFF2E9E9" Height="44"  Width="87.612" />
+        <Image x:Name="chk_byweek" Canvas.Left="321.5" Canvas.Top="272" Height="34"  Source="image/CheckFalse.png" Stretch="Fill" Width="38" MouseDown="chk_byweek_MouseDown" />
+        <Label x:Name="lbl_week" Canvas.Left="365.194" Canvas.Top="269" Content="Week" FontSize="24" Foreground="#FFF2E9E9" Height="44"  Width="106.806" />
+        <Label  Canvas.Left="264" Canvas.Top="397" Content="日" FontSize="24" Foreground="#FFF2E9E9" Height="44" x:Name="lbl_Day" Width="219"  />
+
+    </Canvas>
+
+</Page>

@@ -1,0 +1,829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6690F55E-E06B-4BD6-A893-109693BFE530}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuickChargeDisplay</RootNamespace>
+    <AssemblyName>QuickChargeDisplay</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ExpressionBlendVersion>3.0.1927.0</ExpressionBlendVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NO_COMPORT_TEST,_NO_SMARTGRID_TEST</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NO_COMPORT_TEST</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="04_10_IsolationPage.xaml.cs">
+      <DependentUpon>04_10_IsolationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="04_11_ChargeStopPage.xaml.cs">
+      <DependentUpon>04_11_ChargeStopPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_1_4_CardErrorPage.xaml.cs">
+      <DependentUpon>02_1_4_CardErrorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_1_5_CardErrorPage.xaml.cs">
+      <DependentUpon>02_1_5_CardErrorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_1_6_CardErrorPage.xaml.cs">
+      <DependentUpon>02_1_6_CardErrorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="03_9_ChargeStartPage.xaml.cs">
+      <DependentUpon>03_9_ChargeStartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="08_16_Emergency1Page.xaml.cs">
+      <DependentUpon>08_16_Emergency1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="08_17_Emergency2Page.xaml.cs">
+      <DependentUpon>08_17_Emergency2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="09_10_SetupVoltagePage.xaml.cs">
+      <DependentUpon>09_10_SetupVoltagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="09_3_SetupMomentlPage.xaml.cs">
+      <DependentUpon>09_3_SetupMomentlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="09_5_SetupPasswordPage.xaml.cs">
+      <DependentUpon>09_5_SetupPasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="09_1_ManagementPage.xaml.cs">
+      <DependentUpon>09_1_ManagementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="09_2_SetupPowerPage.xaml.cs">
+      <DependentUpon>09_2_SetupPowerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="09_8_LogSamplingPage.xaml.cs">
+      <DependentUpon>09_8_LogSamplingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="09_9_SetupMaxiumCurrentPage.xaml.cs">
+      <DependentUpon>09_9_SetupMaxiumCurrentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="09_99_CompulsionChargePage.xaml.cs">
+      <DependentUpon>09_99_CompulsionChargePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeyPadWindow2.xaml.cs">
+      <DependentUpon>KeyPadWindow2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OkDialog.xaml.cs">
+      <DependentUpon>OkDialog.xaml</DependentUpon>
+    </Compile>
+    <Page Include="01_StandByPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="02_0_CardCheckPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="02_8_ConnectorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="02_7_ChargePassPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="04_12_ChargingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="06_14_ConfirmChargePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="07_15_CompleteChargePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="09_0_AdminMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="09_10_SetupVoltagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="09_3_SetupMomentlPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="09_6_ChargeHistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChargeWarnningDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FaultDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="KeyPadWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="KeyPadWindow2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="00_StopPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="05_13_SeparateConnectorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="09_7_TroubleHistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="09_4_SetupLanguagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="08_PasswordPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PasswordFaultDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PasswordPadWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="FaultDialog.xaml.cs">
+      <DependentUpon>FaultDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="04_10_IsolationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="04_11_ChargeStopPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="02_1_4_CardErrorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="02_1_5_CardErrorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="02_1_6_CardErrorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="03_9_ChargeStartPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="08_16_Emergency1Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="08_17_Emergency2Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="09_5_SetupPasswordPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="09_1_ManagementPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="09_2_SetupPowerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="09_8_LogSamplingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="09_9_SetupMaxiumCurrentPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="09_99_CompulsionChargePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OkDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="01_StandByPage.xaml.cs">
+      <DependentUpon>01_StandByPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_0_CardCheckPage.xaml.cs">
+      <DependentUpon>02_0_CardCheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_8_ConnectorPage.xaml.cs">
+      <DependentUpon>02_8_ConnectorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="02_7_ChargePassPage.xaml.cs">
+      <DependentUpon>02_7_ChargePassPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="04_12_ChargingPage.xaml.cs">
+      <DependentUpon>04_12_ChargingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="06_14_ConfirmChargePage.xaml.cs">
+      <DependentUpon>06_14_ConfirmChargePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="07_15_CompleteChargePage.xaml.cs">
+      <DependentUpon>07_15_CompleteChargePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="09_0_AdminMenuPage.xaml.cs">
+      <DependentUpon>09_0_AdminMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="09_6_ChargeHistoryPage.xaml.cs">
+      <DependentUpon>09_6_ChargeHistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMainWindow.xaml.cs">
+      <DependentUpon>AdminMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHelper.cs" />
+    <Compile Include="Control\AnimatedImage.cs" />
+    <Compile Include="Control\ParseGif.cs" />
+    <Compile Include="Converter\CurrentTimeTwoUnitPrice.cs" />
+    <Compile Include="Converter\DoublePrecisionConverter.cs" />
+    <Compile Include="Converter\FaultColorConverter.cs" />
+    <Compile Include="Converter\SocPercentConverter.cs" />
+    <Compile Include="Converter\SocPercentToRotationConverter.cs" />
+    <Compile Include="Converter\UnitPriceConverter.cs" />
+    <Compile Include="ExtendedBinding.cs" />
+    <Compile Include="ChargeWarnningDialog.xaml.cs">
+      <DependentUpon>ChargeWarnningDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeyPadWindow.xaml.cs">
+      <DependentUpon>KeyPadWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageId.cs" />
+    <Compile Include="PageManager.cs" />
+    <Compile Include="08_PasswordPage.xaml.cs">
+      <DependentUpon>08_PasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordFaultDialog.xaml.cs">
+      <DependentUpon>PasswordFaultDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="00_StopPage.xaml.cs">
+      <DependentUpon>00_StopPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="05_13_SeparateConnectorPage.xaml.cs">
+      <DependentUpon>05_13_SeparateConnectorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QCDV.cs" />
+    <Compile Include="QCDVClasses.cs" />
+    <Compile Include="ResourceHelper.cs" />
+    <Compile Include="09_7_TroubleHistoryPage.xaml.cs">
+      <DependentUpon>09_7_TroubleHistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="09_4_SetupLanguagePage.xaml.cs">
+      <DependentUpon>09_4_SetupLanguagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordPadWindow.xaml.cs">
+      <DependentUpon>PasswordPadWindow.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Resource Include="image\font\DroidSans-Bold.ttf" />
+    <BlendEmbeddedFont Include="image\font\YoonYGO550 TT.ttf">
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+      <Characters>
+      </Characters>
+      <Uppercase>True</Uppercase>
+      <Lowercase>True</Lowercase>
+      <Numbers>True</Numbers>
+      <Punctuation>True</Punctuation>
+    </BlendEmbeddedFont>
+    <Resource Include="font\DroidSans-Bold.ttf" />
+    <BlendEmbeddedFont Include="font\YoonYGO550 TT.ttf">
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+      <Characters>
+      </Characters>
+      <Uppercase>True</Uppercase>
+      <Lowercase>True</Lowercase>
+      <Numbers>True</Numbers>
+      <Punctuation>True</Punctuation>
+    </BlendEmbeddedFont>
+    <None Include="image\10_관리자화면\Thumbs.db" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\01_대기화면.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\02_커넥터연결.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\00_start.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\02_커넥터연결취소버튼.png" />
+    <Resource Include="image\03_충전금액.gif" />
+    <Resource Include="image\03_충전금액화면\직접입력\0.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\00.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\1.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\2.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\3.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\4.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\5.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\6.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\7.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\8.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\9.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\닫기버튼.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\베이스.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\소숫점.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\정정.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\화살표.png" />
+    <Resource Include="image\03_충전금액화면\직접입력\확인.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\10kwh.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\15kwh.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\2000원.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\20kwh.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\3000원.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\4000원.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\50%25.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\5000원.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\5kwh.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\60%25.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\70%25.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\80%25.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\만충전.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\직접입력.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\충전금액비활성.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\충전금액활성.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\취소버튼.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\확인버튼.png" />
+    <Resource Include="image\03_충전금액화면\충전시작팝업\베이스.png" />
+    <Resource Include="image\03_충전금액화면\충전시작팝업\충전시작.png" />
+    <Resource Include="image\03_충전금액화면\충전시작팝업\충전취소.png" />
+    <Resource Include="image\03_충전금액화면\충전잔량표시\충전잔량_10.png" />
+    <Resource Include="image\03_충전금액화면\충전잔량표시\충전잔량_100.png" />
+    <Resource Include="image\03_충전금액화면\충전잔량표시\충전잔량_20.png" />
+    <Resource Include="image\03_충전금액화면\충전잔량표시\충전잔량_30.png" />
+    <Resource Include="image\03_충전금액화면\충전잔량표시\충전잔량_40.png" />
+    <Resource Include="image\03_충전금액화면\충전잔량표시\충전잔량_50.png" />
+    <Resource Include="image\03_충전금액화면\충전잔량표시\충전잔량_60.png" />
+    <Resource Include="image\03_충전금액화면\충전잔량표시\충전잔량_70.png" />
+    <Resource Include="image\03_충전금액화면\충전잔량표시\충전잔량_80.png" />
+    <Resource Include="image\03_충전금액화면\충전잔량표시\충전잔량_90.png" />
+    <Resource Include="image\03_충전금액화면\충전잔량표시\충전잔량_OFF.png" />
+    <Resource Include="image\04_충전중화면\배터리화면\배터리OFF.png" />
+    <Resource Include="image\04_충전중화면\배터리화면\배터리베이스.png" />
+    <Resource Include="image\04_충전중화면\배터리화면\배터리오른쪽.png" />
+    <Resource Include="image\04_충전중화면\배터리화면\배터리왼쪽.png" />
+    <Resource Include="image\04_충전중화면\배터리화면\배터리중간.png" />
+    <Resource Include="image\04_충전중화면\배터리화면\자동차아이콘.png" />
+    <Resource Include="image\04_충전중화면\충전중지버튼.png" />
+    <Resource Include="image\05_커넥터분리.gif" />
+    <Resource Include="image\06_결재확인.gif" />
+    <Resource Include="image\07_완료.gif" />
+    <Resource Include="image\10_관리자화면\관리자기본배경.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\LOGOUT1.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\고장내역_OFF.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\고장내역_ON.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\관리자.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\기기설정_OFF.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\기기설정_ON.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\기기정보_OFF.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\기기정보_ON.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\단가조정_OFF.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\단가조정_ON.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\충전내역_OFF.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\충전내역_ON.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\파워메타_OFF.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\파워메타_ON.gif" />
+    <Resource Include="image\09_패스워드화면\비밀번호오류.png" />
+    <Resource Include="image\09_패스워드화면\비밀번호오류확인.png" />
+    <Resource Include="image\09_패스워드화면\지시아이콘.gif" />
+    <Resource Include="image\09_패스워드화면\패스워드_ON.gif" />
+    <Resource Include="image\09_패스워드화면\패스워드배경.gif" />
+    <Resource Include="image\09_패스워드화면\패스워드제품배경.gif" />
+    <Resource Include="image\09_패스워드화면\패스워드확인버튼%28Admin%29.bmp" />
+    <Resource Include="image\09_패스워드화면\패스워드확인버튼%28Device Admin%29.bmp" />
+    <Resource Include="image\11_충전중지화면\충전중지화면.png" />
+    <Resource Include="image\11_충전중지화면\충전중지확인버튼.png" />
+    <Resource Include="image\03_1_결재방법\03_1_결제방법베이스.gif" />
+    <Resource Include="image\03_1_결재방법\취소버튼_365_614.gif" />
+    <Resource Include="image\03_1_결재방법\전자고지_174_319.png" />
+    <Resource Include="image\03_1_결재방법\카드청구_577_316.png" />
+    <Resource Include="image\00_카드체크화면.gif" />
+    <Resource Include="image\00_시작화면\CardChkStartBtn.png" />
+    <Resource Include="image\04_충전중화면\04_1_절연저항측정.gif" />
+    <Resource Include="image\02_커넥터연결확인버튼.png" />
+    <Resource Include="image\04_충전중화면\04_2_충전종료화면.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\수동충전_OFF.gif" />
+    <Resource Include="image\10_관리자화면\아이콘\수동충전_ON.gif" />
+    <Resource Include="image\10_관리자화면\BATTERY_FINISH.png" />
+    <Resource Include="image\10_관리자화면\BATTERY_START.png" />
+    <Resource Include="image\10_관리자화면\PCS_Init.png" />
+    <Resource Include="image\10_관리자화면\PCS_Ready.png" />
+    <Resource Include="image\10_관리자화면\PCS_READY_ON.png" />
+    <Resource Include="image\10_관리자화면\PRA_RUN.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\SOC충전비활성.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\SOC충전활성.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\충전전력비활성.png" />
+    <Resource Include="image\03_충전금액화면\충전금액버튼들\충전전력활성.png" />
+    <Resource Include="image\04_충전중화면\04_충전중.jpg" />
+    <Resource Include="image\11_충전중지화면\충전준비화면.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\01a01b.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor\02a01b.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor\15a15b15c15d.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03a03b.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor\08a08b.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor\09a09b.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor\10a10b.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\01a_E01b.gif" />
+    <Resource Include="image\10_관리자화면\LOGOUT1.gif" />
+    <Resource Include="image\10_관리자화면\고장내역_OFF.gif" />
+    <Resource Include="image\10_관리자화면\고장내역_ON.gif" />
+    <Resource Include="image\10_관리자화면\공장설정_OFF.gif" />
+    <Resource Include="image\10_관리자화면\공장설정_ON.gif" />
+    <Resource Include="image\10_관리자화면\관리자.gif" />
+    <Resource Include="image\10_관리자화면\기기설정_OFF.gif" />
+    <Resource Include="image\10_관리자화면\기기설정_ON.gif" />
+    <Resource Include="image\10_관리자화면\기기정보_OFF.gif" />
+    <Resource Include="image\10_관리자화면\기기정보_ON.gif" />
+    <Resource Include="image\10_관리자화면\단가조정_OFF.gif" />
+    <Resource Include="image\10_관리자화면\단가조정_ON.gif" />
+    <Resource Include="image\10_관리자화면\수동충전_OFF.gif" />
+    <Resource Include="image\10_관리자화면\수동충전_ON.gif" />
+    <Resource Include="image\10_관리자화면\충전내역_OFF.gif" />
+    <Resource Include="image\10_관리자화면\충전내역_ON.gif" />
+    <Resource Include="image\10_관리자화면\파워메타_OFF.gif" />
+    <Resource Include="image\10_관리자화면\파워메타_ON.gif" />
+    <Resource Include="image\10_관리자화면\관리자기본배경.png" />
+    <Resource Include="image\10_관리자화면\아이콘\강제충전.png" />
+    <Resource Include="image\10_관리자화면\아이콘\관리설정.png" />
+    <Resource Include="image\10_관리자화면\아이콘\로그추출.png" />
+    <Resource Include="image\10_관리자화면\아이콘\수전전력설정.png" />
+    <Resource Include="image\10_관리자화면\아이콘\언어설정.png" />
+    <Resource Include="image\10_관리자화면\아이콘\에러이력.png" />
+    <Resource Include="image\10_관리자화면\아이콘\일시정지.png" />
+    <Resource Include="image\10_관리자화면\아이콘\최대전류설정.png" />
+    <Resource Include="image\10_관리자화면\아이콘\충전이력.png" />
+    <Resource Include="image\10_관리자화면\아이콘\패스워드.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\02\04.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\02\05.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\02\06.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\02\카드03a.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\02\카드03b.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\0.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\03_패스워드_베이스.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\1.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\2.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\3.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\4.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\5.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\6.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\7.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\8.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\9.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\Back_다운.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\CL.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\OK_다운.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\03\패스워드번호.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결08_a.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결08_a00.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결08_a01.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결08_a02.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결08_a03.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결08_a04.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결08_a05.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결08_a06.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결08_b01.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결08_b02.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결09_a.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결09_b.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결10_a.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\04\커넥터연결10_b.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_0.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_0y.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_1.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_1y.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_2.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_2y.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_3.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_3y.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_4.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_4y.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_5.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_5y.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_6.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_6y.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_7.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_7y.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_8.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_8y.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_9.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\b_9y.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\m_0.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\m_1.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\m_2.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\m_3.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\m_4.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\m_5.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\m_6.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\m_7.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\m_8.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\m_9.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\s_0.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\s_1.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\s_2.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\s_3.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\s_4.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\s_5.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\s_6.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\s_7.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\s_8.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\s_9.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\충전바.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\충전완료14.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\충전중11.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\충전중12.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\05\충전중13.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\06\커넥터분리15_a01.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\06\커넥터분리15_a02.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\06\커넥터분리15_b01.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\06\커넥터분리15_b02.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\06\커넥터분리15_b03.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\06\커넥터분리15_c01.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\06\커넥터분리15_c02.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\06\커넥터분리15_c03.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\06\커넥터분리15_d01.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\06\커넥터분리15_d02.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\강제충전.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\관리설정.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\관리자모드_베이스.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\로그추출.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\비상정지.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\수전전력설정.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\언어설정.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\에러이력.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\일시정지.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\최대전류설정.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\충전기이상.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\충전이력.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\07\패스워드.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\01\01a.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\01\01b.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor\01\01c.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\01bc.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\03ab.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\03_패스워드_베이스.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\04.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\05.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\06.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\08a08b.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\09a09b.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\10a10b.gif" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\11.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\12.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\13.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\14.png" />
+    <Resource Include="image\RAPIDAS-R_Monitor-English\15abcd.gif" />
+    <Resource Include="image\CheckFalse.png" />
+    <Resource Include="image\CheckTrue.png" />
+    <Resource Include="image\10_관리자화면\Imgmanu.png" />
+    <Resource Include="image\10_관리자화면\ImgPassword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0%28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0%28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AVRIO\AVRIO.csproj">
+      <Project>{FE3CAC22-4AF6-410B-A304-08A968FE395A}</Project>
+      <Name>AVRIO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BmsThread\BmsThread.csproj">
+      <Project>{2697cd3d-f28a-4d6f-b42e-c824a4051df2}</Project>
+      <Name>BmsThread</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSOS\CSOS.csproj">
+      <Project>{aeee1374-c17e-4c3e-a3a9-c4d951ec9dae}</Project>
+      <Name>CSOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuickChargeConfig\ChargeConfig.csproj">
+      <Project>{39B75B49-0485-4099-A4F1-01BB4376F705}</Project>
+      <Name>ChargeConfig</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\RAPIDAS-R_Monitor\Rapidas_R_Connect.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\RAPIDAS-R_Monitor\07\AdminBg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\20191018_Add\AdminBg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\20191018_Add\icon_setting.png" />
+    <Resource Include="image\20191018_Add\icon_setting_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\20191018_Add\back_12955.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\03_충전금액화면\직접입력\Minus.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!--<Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\Blend\3.0\WPF\Microsoft.Expression.Blend.WPF.targets" />-->
+</Project>

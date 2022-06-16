@@ -1,0 +1,1076 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.ComponentModel;
+
+namespace AVRIO
+{
+    public enum SwBitOffset : int
+    {
+        Run = 0,
+        Stop = 1,
+    }
+
+    public enum SwStatus : int
+    {
+        Run = 1,
+        Stop = 2,
+        Home = 8,
+    }
+
+    public enum TsCommand : int
+    {
+        TsNone = 0,
+        TsStandby = 1,
+        TsReady = 2,
+        TsConnectionCheck = 4,
+        TsRun = 8,
+        TsPause = 16,
+        TsFinish = 32,
+        TsFault = 64,
+        TsResetFault = 128,
+        TsSysCheck = 256,
+        TsChgDis = 512,
+        TsManual = 1024,
+        TsComLock = 2048,
+        TsLamp = 4096,
+        TsSoc = 32768,
+    }
+
+    public enum SysStatus : int
+    {
+        SysNone = 0,
+        SysStandby = 1, // 대기화면
+        SysReady = 2,   // 커넥터 연결
+        //SysConectionCheck = 4, 
+        SysConectionFinish = 4, // 충전금액
+        SysRun = 8,            // 충전중 화면
+        SysPause = 16,          
+        SysFinish = 32,         // 충전완료
+        SysFault = 64,
+        SysCheck = 128,          // 시스템 점검중
+        SysConnectionEject = 2048,     // 커넥터 분리
+        SysPayCheck = 4096,            // 결재확인
+        SysReConfirm = 8192,            // 카드 재확인
+        SysQcSel = 0x8000,          // 급속여부 확인
+    }
+
+    public enum RunningMode : int
+    {
+        Normal = 0,
+        Charging = 1,
+        Admin = 2,
+        Factory = 4,
+        Test = 8,
+        Fault = 16,
+        Lock = 32,
+        Emg = 512,      // 긴급상황
+        Waiting = 1024,         // 대기상태
+        Stop = 2048,            // 점검중
+    }
+
+    public enum AdminPage :int
+    {
+        Ready = 0,
+        Password,
+        AdminPage,
+        ChargeHistory,
+        FaultHistory,
+        UnitPrice,
+        DeviceSetting,
+        PowerMeter,
+        DeviceInfo,
+        FactorySet,
+        ManualControl,
+        VoltSet,
+        TimeSet,
+    }
+
+    public enum MCUMODE : ushort
+    {
+        ChargeStand = 0,
+        QuickCharger = 0x8000,
+    }
+
+    public enum BILLMETHOD : int
+    {
+        None = 0,
+        Card = 1,
+        TMoney = 2,
+        Notice = 3,
+    }
+
+    public enum ChargingMode : int
+    {
+        CC = 0,
+        CV = 1,
+        CP = 2,
+        OTHERS = 3,
+    }
+
+    public enum FaultType : int
+    {
+        None = 0,
+        EmgStop = 1,
+        OverHit = 2,
+        OverCurrent = 3,
+        OverVolt = 4,
+        PowerFail = 5,
+        Leak = 6,
+        PowerCut = 7,
+        CableFail = 8,
+        BatteryFail = 9,
+    }
+
+    public enum SGCMD : byte
+    {
+        None = 0x00,
+        Check = 0xD0,
+        Confirm = 0xD1,
+        ChargeOK = 0xD2,
+        ChargeCancel = 0xD3,
+        ChargeCheck = 0xD4,
+        ChargeStart = 0xD5,
+        ChargeFinish = 0xD6,
+        AfterCard = 0xD7,
+    }
+
+    public enum CSOSCMD : int
+    {
+        None = 0,
+        AuthKey = 0x01,             // 인증키확인
+        VerCheck = 0x02,            // 버전체크
+        DevStart = 0x10,            // 충전기시작
+        DevStop = 0x11,             // 충전기정지
+        DevCtrl = 0x12,             // 충전기제어
+        ChargeStart = 0x20,         // 충전시작
+        ChargeFinish = 0x21,        // 충전종료
+        ChargeCancel = 0x22,        // 충전취소
+        ChargingStat = 0x24,        // 충전중 상태정보 전송
+        ChargeCurrent = 0x27,       // 누적전력량
+        ChargeUsePower = 0x28,      // 충전사용전력
+        ChargeUnitCostReq = 0x30,   // 충전단가 요청
+        TimeStamp = 0x40,           // 시각스탬프
+        TimeSync = 0x41,            // 시각동기화
+        MemberCert = 0x50,          // 회원정보확인
+        CarCert = 0x51,             // 자동차확인
+    }
+
+    public class SysStatusChangeEventArgs : EventArgs
+    {
+        private SysStatus currentSysStatus;
+        private SysStatus previewSysStatus;
+
+        public SysStatusChangeEventArgs(SysStatus currentSysStatus, SysStatus previewSysStatus)
+        {
+            this.currentSysStatus = currentSysStatus;
+            this.previewSysStatus = previewSysStatus;
+        }
+
+        public SysStatus CurrentSysStatus
+        {
+            get { return currentSysStatus; }
+            set { currentSysStatus = value; }
+        }
+        
+        public SysStatus PreviewSysStatus
+        {
+            get { return previewSysStatus; }
+            set { previewSysStatus = value; }
+        }
+    }
+
+    public delegate void SysStatusChangedEvent(SysStatusChangeEventArgs args);
+    public delegate void SysDataChangedEvent(string dataName, object value);
+    public delegate void SysOrderEvent(TsCommand command, params object[] list);
+    public delegate void SmartGridOrderEvent(SGCMD command, params object[] list);
+    public delegate void CSOSOrderEvent(CSOSCMD command, params object[] list);
+    public delegate void AdminModeChangedEvent(AdminPage page);
+
+    public class ChargeWattPerUnitPrice
+    {
+        private double unitPrice;
+        private double chargStartWatt;
+
+        public ChargeWattPerUnitPrice()
+        {
+        }
+
+        public ChargeWattPerUnitPrice(double watt)
+        {
+            unitPrice = 0;
+            chargStartWatt = watt;
+        }
+
+        public ChargeWattPerUnitPrice(double u, double c)
+        {
+            unitPrice = u;
+            chargStartWatt = c;
+        }
+
+        public double UnitPrice
+        {
+            get { return unitPrice; }
+            set { unitPrice = value; }
+        }
+
+        public double ChargStartWatt
+        {
+            get { return chargStartWatt; }
+            set { chargStartWatt = value; }
+        }
+    }
+
+    public class RemindWattPerTimes
+    {
+        private string ymd;
+        private int hh;
+        private int interval;
+        private double kwh;
+        private int kwhBill;
+        private int infraBill;
+        private int serviceBill;
+        private int kwhBillUCost;
+        private int infraBillUCost;
+        private int serviceBillUCost;
+        private DateTime updateTime;
+
+        public DateTime UpdateTime
+        {
+            get { return updateTime; }
+            set { updateTime = value; }
+        }
+
+        public int ServiceBillUCost
+        {
+            get { return serviceBillUCost; }
+            set { serviceBillUCost = value; }
+        }
+
+        public int InfraBillUCost
+        {
+            get { return infraBillUCost; }
+            set { infraBillUCost = value; }
+        }
+
+        public int KwhBillUCost
+        {
+            get { return kwhBillUCost; }
+            set { kwhBillUCost = value; }
+        }
+
+        public int ServiceBill
+        {
+            get { return serviceBill; }
+            set { serviceBill = value; }
+        }
+
+        public int InfraBill
+        {
+            get { return infraBill; }
+            set { infraBill = value; }
+        }
+
+        public int KwhBill
+        {
+            get { return kwhBill; }
+            set { kwhBill = value; }
+        }
+
+        public double Kwh
+        {
+            get { return kwh; }
+            set { kwh = value; }
+        }
+
+        public int Interval
+        {
+            get { return interval; }
+            set { interval = value; }
+        }
+
+        public int Hh
+        {
+            get { return hh; }
+            set { hh = value; }
+        }
+
+        public string Ymd
+        {
+            get { return ymd; }
+            set { ymd = value; }
+        }
+    }
+
+    public class UnitPricePerTimes
+    {
+        private int hour;
+        private double ucost;
+        private int interval;       // 30분단위 0,1
+        private string date;        // YYYYMMDD
+
+        public string Date
+        {
+            get { return date; }
+            set { date = value; }
+        }
+
+        public int Interval
+        {
+            get { return interval; }
+            set { interval = value; }
+        }
+
+        public UnitPricePerTimes()
+        {
+        }
+
+        public UnitPricePerTimes(int h, double u)
+        {
+            hour = h;
+            ucost = u;
+        }
+
+        public UnitPricePerTimes(int h, int i, double u, string d)
+        {
+            hour = h;
+            interval = i;
+            ucost = u;
+            date = d;
+        }
+
+        public double Ucost
+        {
+            get { return ucost; }
+            set { ucost = value; }
+        }
+
+        public int Hour
+        {
+            get { return hour; }
+            set { hour = value; }
+        }
+    }
+
+    public class ChargeListPerTimes
+    {
+        private DateTime startTime;
+        private DateTime endTime;
+        private double chargeWatt;
+        private double chargePrice;
+        private double unitPrice;
+
+        public double UnitPrice
+        {
+            get { return unitPrice; }
+            set { unitPrice = value; }
+        }
+
+        public double ChargePrice
+        {
+            get { return chargePrice; }
+            set { chargePrice = value; }
+        }
+
+        public double ChargeWatt
+        {
+            get { return chargeWatt; }
+            set { chargeWatt = value; }
+        }
+
+        public DateTime EndTime
+        {
+            get { return endTime; }
+            set { endTime = value; }
+        }
+
+        public DateTime StartTime
+        {
+            get { return startTime; }
+            set { startTime = value; }
+        }
+    }
+
+    public class BMSINFO
+    {
+        private double outVolt;
+        private double outCurrent;
+
+        public double OutCurrent
+        {
+            get { return outCurrent; }
+            set { outCurrent = value; }
+        }
+
+        public double OutVolt
+        {
+            get { return outVolt; }
+            set { outVolt = value; }
+        }
+    }
+
+    public static class avrio
+    {
+        // TEST용 변수들
+        private static double chargeTestUnitPrice = 300;      // TEST 용 고정단가정보
+        private static double chargeTestWatt = 5.18;
+        private static double chargeTestStartWatt = 5.18;
+        private static double chargeTestCost = 0;
+
+        public static double ChargeTestCost
+        {
+            get { return avrio.chargeTestCost; }
+            set { avrio.chargeTestCost = value; }
+        }
+
+        public static double ChargeTestStartWatt
+        {
+            get { return avrio.chargeTestStartWatt; }
+            set { avrio.chargeTestStartWatt = value; }
+        }
+
+
+        public static double ChargeTestWatt
+        {
+            get { return avrio.chargeTestWatt; }
+            set { avrio.chargeTestWatt = value; }
+        }
+        
+
+        public static double ChargeTestUnitPrice
+        {
+            get { return avrio.chargeTestUnitPrice; }
+            set { avrio.chargeTestUnitPrice = value; }
+        }
+
+        // mcu
+        private static ushort mcuMode = (ushort)MCUMODE.QuickCharger;
+
+        public static ushort McuMode
+        {
+            get { return avrio.mcuMode; }
+            set { avrio.mcuMode = value; }
+        }
+
+        // 충전단가는 24시간
+        private static int currentTime = 0;
+        private static double[] chargeUnitPriceArray = new double[24]; // 충전단가
+        private static double currentUnitPrice;                     // 현재적용중 충전단가
+        private static int chargeUnitPriceMode = 0;               // 0:Hour, 1:Half(30min)
+        private static List<double> chargeUnitPriceList = new List<double>(); // 충전단가 저장
+        private static List<UnitPricePerTimes> unitPriceList = new List<UnitPricePerTimes>();
+        private static List<UnitPricePerTimes> unitPriceListNext = new List<UnitPricePerTimes>();
+        private static double chargeWatt;                         // 사용(충전)전력량
+        private static double chargePrice;                        // 사용(충전)금액
+        private static double chargeSOC;                          // SOC
+        private static BILLMETHOD billMethod;                       // 결제방법
+        private static int remindPrice;                            // 카드잔액(티머니)
+        private static int cpStat;                                  // 충전기 상태 
+        private static int chargeRemainTime;                        // 충전남은시간
+        private static double currentUnitPricePrev;                     // 현재적용중 충전단가
+
+        public static double CurrentUnitPricePrev
+        {
+            get { return avrio.currentUnitPricePrev; }
+            set { avrio.currentUnitPricePrev = value; }
+        }
+
+        public static List<UnitPricePerTimes> UnitPriceListNext
+        {
+            get { return avrio.unitPriceListNext; }
+            set { avrio.unitPriceListNext = value; }
+        }
+
+        public static List<UnitPricePerTimes> UnitPriceList
+        {
+            get { return avrio.unitPriceList; }
+            set { avrio.unitPriceList = value; }
+        }
+
+        public static int ChargeRemainTime
+        {
+            get { return avrio.chargeRemainTime; }
+            set { avrio.chargeRemainTime = value; }
+        }
+
+        public static int CpStat
+        {
+            get { return avrio.cpStat; }
+            set { avrio.cpStat = value; }
+        }
+
+        public static int RemindPrice
+        {
+            get { return avrio.remindPrice; }
+            set { avrio.remindPrice = value; }
+        }
+
+        private static bool isLocking;                              // 충전중 잠금
+
+        public static double CurrentUnitPrice
+        {
+            get { return avrio.currentUnitPrice; }
+            set { avrio.currentUnitPrice = value; OnSysDataChanged("CurrentUnitPrice", value); }
+        }
+
+        public static BILLMETHOD BillMethod
+        {
+            get { return avrio.billMethod; }
+            set { avrio.billMethod = value; }
+        }
+
+        public static bool IsLocking
+        {
+            get { return avrio.isLocking; }
+            set { avrio.isLocking = value; OnSysDataChanged("IsLocking", value); }
+        }
+
+        private static double chargeStartWatt;                      // 충전시작 전력량
+        private static uint vaildWatt;                              // 현재유효전력량
+        private static double remindBaseWatt;                           // 누적전력량계산용 기준값
+        private static uint chargeStartWattN;                       // watt
+        private static BMSINFO bmsInfo = new BMSINFO();
+
+        public static BMSINFO BmsInfo
+        {
+            get { return avrio.bmsInfo; }
+            set { avrio.bmsInfo = value; }
+        }
+
+        public static uint ChargeStartWattN
+        {
+            get { return avrio.chargeStartWattN; }
+            set { avrio.chargeStartWattN = value; }
+        }
+
+        public static double RemindBaseWatt
+        {
+            get { return avrio.remindBaseWatt; }
+            set { avrio.remindBaseWatt = value; }
+        }
+
+        public static uint VaildWatt
+        {
+            get { return avrio.vaildWatt; }
+            set { avrio.vaildWatt = value; OnSysDataChanged("VaildWatt", value); }
+        }
+
+        public static double ChargeStartWatt
+        {
+            get { return avrio.chargeStartWatt; }
+            set { avrio.chargeStartWatt = value; }
+        }
+
+        private static List<ChargeWattPerUnitPrice> chargingPriceList = new List<ChargeWattPerUnitPrice>(); // 단가와 충전 시작 Watt를 저장
+        private static List<ChargeListPerTimes> chargeHistoryList = new List<ChargeListPerTimes>();
+        private static List<RemindWattPerTimes> remindWattList = new List<RemindWattPerTimes>();
+        private static List<RemindWattPerTimes> remindChargingWattList = new List<RemindWattPerTimes>();
+
+        public static List<RemindWattPerTimes> RemindChargingWattList
+        {
+            get { return avrio.remindChargingWattList; }
+            set { avrio.remindChargingWattList = value; }
+        }
+
+        public static List<ChargeWattPerUnitPrice> ChargingPriceList
+        {
+            get { return avrio.chargingPriceList; }
+            set { avrio.chargingPriceList = value; }
+        }
+
+        public static List<ChargeListPerTimes> ChargeHistoryList
+        {
+            get { return avrio.chargeHistoryList; }
+            set { avrio.chargeHistoryList = value; }
+        }
+        public static List<RemindWattPerTimes> RemindWattList
+        {
+            get { return avrio.remindWattList; }
+            set { avrio.remindWattList = value; }
+        }
+                
+        private static DateTime chargeStartTime;                    // 충전시작시간
+        private static DateTime chargeEndTime;                      // 충전종료시간
+        private static byte[] userInfo = new byte[16];              // 사용자정보
+        private static string cardNo = "0000000000000000";          // 카드넘버
+        private static string userNo;                               // 사용자아이디
+        private static int ctrlCode;                                // 충전기 제어코드
+        private static bool devCtrl;                                // 장치제어
+        private static int devType;                                 // 장치타입
+        private static bool userConfirm;                            // 사용자확인
+
+        public static bool UserConfirm
+        {
+            get { return avrio.userConfirm; }
+            set { avrio.userConfirm = value; }
+        }
+
+        private static FaultType faultType;                         // 고장유형
+        private static uint seqNumFault;                            // 고장이력시퀀스넘버
+        private static uint seqNumHistory;                          // 충전이력시퀀스넘버
+        private static uint seqNumPrice;                            // 단가이력시퀀스넘버
+
+        public static uint SeqNumPrice
+        {
+            get { return avrio.seqNumPrice; }
+            set { avrio.seqNumPrice = value; }
+        }
+
+        public static uint SeqNumHistory
+        {
+            get { return avrio.seqNumHistory; }
+            set { avrio.seqNumHistory = value; }
+        }
+
+        public static uint SeqNumFault
+        {
+            get { return avrio.seqNumFault; }
+            set { avrio.seqNumFault = value; }
+        }
+
+        public static FaultType FaultType
+        {
+            get { return avrio.faultType; }
+            set { avrio.faultType = value; }
+        }
+
+        public static int DevType
+        {
+            get { return avrio.devType; }
+            set { avrio.devType = value; }
+        }
+
+        public static bool DevCtrl
+        {
+            get { return avrio.devCtrl; }
+            set { avrio.devCtrl = value; }
+        }
+
+        // 16:즉시제어, 1:충전가능
+        public static int CtrlCode
+        {
+            get { return avrio.ctrlCode; }
+            set { avrio.ctrlCode = value; }
+        }
+
+        public static string CardNo
+        {
+            get { return avrio.cardNo; }
+            set { avrio.cardNo = value; }
+        }
+
+        public static string UserNo
+        {
+            get { return avrio.userNo; }
+            set { avrio.userNo = value; }
+        }
+
+        private static bool isFaultDialog = false;
+
+        public static bool IsFaultDialog
+        {
+            get { return avrio.isFaultDialog; }
+            set { avrio.isFaultDialog = value; OnSysDataChanged("FaultDialog", value);}
+        }
+
+        // 여기까지 8월8일자
+
+        //public enum ChargeMode
+        //{
+        //    Money,
+        //    Watt,
+        //    Soc,
+        //}
+        private static int chargeMode;                                 // 충전요청 모드 Soc Watt Money
+
+        private static double chargeValue;                             // 실제값
+        private static int sendCommand;                          // 전송명령
+        private static bool isChargeCheck = false;                  // 결제승인여부
+
+        public static bool IsChargeCheck
+        {
+            get { return avrio.isChargeCheck; }
+            set { avrio.isChargeCheck = value; }
+        }
+
+        public static int SendCommand
+        {
+            get { return avrio.sendCommand; }
+            set { avrio.sendCommand = value; }
+        }
+
+        // 운영모드
+        private static RunningMode prevRunMode;
+        private static RunningMode runMode = RunningMode.Normal;
+        // 관리자모드
+        private static AdminPage adminPage = AdminPage.Ready;
+
+        private static TsCommand tsCommand = TsCommand.TsNone;
+        private static TsCommand lastCommand = TsCommand.TsNone;
+
+        private static bool chargeStart = false;
+        private static bool chargingStart = false;
+
+        public static bool ChargingStart
+        {
+            get { return avrio.chargingStart; }
+            set { avrio.chargingStart = value; }
+        }
+
+        public static bool ChargeStart
+        {
+            get { return avrio.chargeStart; }
+            set { avrio.chargeStart = value; }
+        }
+
+        private static CSOSCMD csosCommand = CSOSCMD.None;
+
+        public static CSOSCMD CsosCommand
+        {
+            get { return avrio.csosCommand; }
+            set { 
+                avrio.csosCommand = value;
+                if (SendCSOSOrder != null)
+                {
+                    switch (csosCommand)
+                    {
+                        default:
+                            SendCSOSOrder(csosCommand);
+                            break;
+                    }
+                }
+            }
+        }
+
+        private static SGCMD sgCommand = SGCMD.None ;
+
+        public static SGCMD SgCommand
+        {
+            get { return avrio.sgCommand; }
+            set { 
+                avrio.sgCommand = value;
+                if (SendSmartGridOrder != null)
+                {
+                    switch (sgCommand)
+                    {
+                        default:
+                            SendSmartGridOrder(sgCommand);
+                            break;
+                    }
+                }
+            }
+        }
+
+        private static SysStatus currentStatus = SysStatus.SysStandby;
+        private static SysStatus previousStatus = SysStatus.SysStandby;
+        
+        public static event SysDataChangedEvent SysDataChanged;
+        public static event SysStatusChangedEvent SysStatusChanged;
+        public static event SysOrderEvent SendSysOrder;
+        public static event SmartGridOrderEvent SendSmartGridOrder;
+        public static event CSOSOrderEvent SendCSOSOrder;
+        public static event AdminModeChangedEvent AdminModeChanged;
+
+        private static string receiveData;
+        private static string receiveSmart;
+        private static string receiveServer;
+        private static string eventMsg;
+        private static ushort changeStatus;
+        private static string soundPlayCS;
+        private static string sendMessage;
+        private static bool isReadyCancel = false;
+        private static string priceMsg;
+        private static string soundPlayQS;
+
+        public static string SoundPlayQS
+        {
+            get { return avrio.soundPlayQS; }
+            set { 
+                avrio.soundPlayQS = value;
+                OnSysDataChanged("SoundPlayQS", value);
+                EventMsg = value;
+            }
+        }
+
+        public static string PriceMsg
+        {
+            get { return avrio.priceMsg; }
+            set { avrio.priceMsg = value; OnSysDataChanged("PriceMsg", value); }
+        }
+
+        public static bool IsReadyCancel
+        {
+            get { return avrio.isReadyCancel; }
+            set { avrio.isReadyCancel = value; }
+        }
+
+        public static string SendMessage
+        {
+            get { return avrio.sendMessage; }
+            set { 
+                avrio.sendMessage = value;
+                OnSysDataChanged(value, value);
+                EventMsg = value;
+            }
+        }
+
+        public static string SoundPlayCS
+        {
+            get { return avrio.soundPlayCS; }
+            set { 
+                avrio.soundPlayCS = value; 
+                OnSysDataChanged("SoundPlay", value);
+                EventMsg = value;
+            }
+        }
+
+        public static ushort ChangeStatus
+        {
+            get { return avrio.changeStatus; }
+            set { 
+                avrio.changeStatus = value; 
+                OnSysDataChanged("ChangeStatus", value);
+            }
+        }
+
+        public static string EventMsg
+        {
+            get { return avrio.eventMsg; }
+            set { 
+                avrio.eventMsg = value;
+#if DEBUG
+                System.Diagnostics.Debug.WriteLine(value);
+#else
+                System.Console.WriteLine(value);
+#endif
+                OnSysDataChanged("EventMsg", value); 
+            }
+        }
+
+        public static string ReceiveServer
+        {
+            get { return avrio.receiveServer; }
+            set { avrio.receiveServer = value; OnSysDataChanged("ReceiveServer", value); }
+        }
+
+        public static string ReceiveSmart
+        {
+            get { return avrio.receiveSmart; }
+            set { avrio.receiveSmart = value; OnSysDataChanged("ReceiveSmart", value); }
+        }
+
+        public static string ReceiveData
+        {
+            get { return avrio.receiveData; }
+            set { avrio.receiveData = value; OnSysDataChanged("ReceiveData", value); }
+        }
+
+        public static RunningMode PrevRunMode
+        {
+            get { return avrio.prevRunMode; }
+            set { avrio.prevRunMode = value; }
+        }
+
+        public static RunningMode RunMode
+        {
+            get { return avrio.runMode; }
+            set { avrio.runMode = value; }
+        }
+
+        public static AdminPage AdminPage
+        {
+            get { return avrio.adminPage; }
+            set 
+            { 
+                avrio.adminPage = value;
+                if (AdminModeChanged != null)
+                    AdminModeChanged(avrio.adminPage);
+            }
+        }
+
+        public static TsCommand LastCommand
+        {
+            get { return avrio.lastCommand; }
+            set { avrio.lastCommand = value; }
+        }
+
+        public static int ChargeMode
+        {
+            get { return avrio.chargeMode; }
+            set { avrio.chargeMode = value; }
+        }
+
+        public static double ChargeValue
+        {
+            get { return avrio.chargeValue; }
+            set { avrio.chargeValue = value; }
+        }
+
+        public static int CurrentTime
+        {
+            get { return avrio.currentTime; }
+            set { avrio.currentTime = value; OnSysDataChanged("CurrentTime", value); }
+        }
+
+        public static double[] ChargeUnitPriceArray
+        {
+            get { return avrio.chargeUnitPriceArray; }
+            set { avrio.chargeUnitPriceArray = value; OnSysDataChanged("ChargeUnitPrice", value); }
+        }
+
+        public static double ChargeWatt
+        {
+            get { return avrio.chargeWatt; }
+            set { avrio.chargeWatt = value; OnSysDataChanged("ChargeWatt", value); }
+        }
+
+        public static double ChargePrice
+        {
+            get { return avrio.chargePrice; }
+            set { avrio.chargePrice = value; OnSysDataChanged("ChargePrice", value); }
+        }
+
+        public static double ChargeSOC
+        {
+            get { return avrio.chargeSOC; }
+            set { avrio.chargeSOC = value; OnSysDataChanged("ChargeSOC", value); }
+        }
+
+        public static DateTime ChargeStartTime
+        {
+            get { return avrio.chargeStartTime; }
+            set { avrio.chargeStartTime = value; OnSysDataChanged("ChargeStartTime", value); }
+        }
+
+        public static DateTime ChargeEndTime
+        {
+            get { return avrio.chargeEndTime; }
+            set { avrio.chargeEndTime = value; OnSysDataChanged("ChargeEndTime", value); }
+        }
+        
+        public static byte[] UserInfo
+        {
+            get { return avrio.userInfo; }
+            set { avrio.userInfo = value; OnSysDataChanged("UserInfo", avrio.userInfo); }
+        }
+
+        public static SysStatus CurrentStatus
+        {
+            get { return currentStatus; }
+            set 
+            {
+                previousStatus = currentStatus;
+                currentStatus = value;
+
+                OnSysStatusChanged();
+
+                switch(currentStatus)
+                {
+                    case SysStatus.SysStandby:
+                        {
+                            SgCommand = SGCMD.ChargeCancel;
+                            if (ChargingStart != false)
+                            {
+                                ChargingStart = false;
+                            }
+                        }
+                        break;
+                    case SysStatus.SysReady:
+                        {
+                            if (ChargingStart != false)
+                            {
+                                ChargingStart = false;
+                            }
+                        }
+                        break;
+                    case SysStatus.SysRun:
+                        {
+                            if (ChargingStart != true)
+                            {
+                                ChargingStart = true;
+                                SgCommand = SGCMD.ChargeStart; 
+                                CsosCommand = AVRIO.CSOSCMD.ChargeStart;
+                            }
+                            //CsosCommand = CSOSCMD.ChargeStart;
+                        }
+                        break;
+                    case SysStatus.SysFinish:
+                        {
+                            if (ChargingStart != false)
+                            {
+                                ChargingStart = false;
+                            }
+                        }
+                        break;
+                    case SysStatus.SysConnectionEject:
+                        {
+                            CsosCommand = CSOSCMD.ChargeFinish;
+                        }
+                        break;
+                }
+            }
+        }
+
+        public static SysStatus PreviousStatus
+        {
+            get { return previousStatus; }
+            set
+            {
+                previousStatus = value;
+            }
+        }
+
+        public static TsCommand TsCommand
+        {
+            get { return tsCommand; }
+            set 
+            { 
+                tsCommand = value;
+                if (SendSysOrder != null)
+                {
+#if DEBUG
+                    System.Diagnostics.Debug.WriteLine(tsCommand.ToString());
+#else
+                    System.Console.WriteLine(tsCommand.ToString());
+#endif
+                    switch (tsCommand)
+                    {
+                        case TsCommand.TsRun:
+                            SendSysOrder(TsCommand.TsRun);
+                            //SgCommand = SGCMD.ChargeStart;
+                            //CsosCommand = CSOSCMD.ChargeStart;
+                            ChargingPriceList.Clear();
+                            break;
+                        case TsCommand.TsFinish:
+                            SendSysOrder(TsCommand.TsFinish);
+                            SgCommand = SGCMD.ChargeFinish;
+                            break;
+                        case TsCommand.TsReady:
+                            SendSysOrder(TsCommand.TsReady);
+                            break;
+                        default:
+                            SendSysOrder(tsCommand);
+                            break;
+                    }
+                }
+            }
+        }
+
+        private static void OnSysStatusChanged()
+        {
+            if (SysStatusChanged != null)
+                SysStatusChanged(new SysStatusChangeEventArgs(currentStatus, previousStatus));
+        }
+
+        private static void OnSysDataChanged( string dataName, object value)
+        {
+            if (SysDataChanged != null)
+                SysDataChanged(dataName, value);
+        }
+
+        //public virtual void SetOrder(ushort order);
+        //public virtual ushort GetOrder();
+
+    }
+}

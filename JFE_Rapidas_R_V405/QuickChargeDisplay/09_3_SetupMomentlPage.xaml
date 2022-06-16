@@ -1,0 +1,65 @@
+﻿<Page x:Class="QuickChargeDisplay.SetupMomentlPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="clr-namespace:QuickChargeDisplay"
+      xmlns:convert="clr-namespace:QuickChargeDisplay.Converter"
+      Loaded="Page_Loaded" xmlns:my="clr-namespace:QuickChargeDisplay"
+      Title="SetupMomentlPage" Width="800" Height="480">
+
+
+    <Page.Background>
+        <ImageBrush ImageSource="image\10_관리자화면\관리자기본배경.png" />
+    </Page.Background>
+
+    <Canvas x:Name="Compulsion">
+        <Image x:Name="logOut" Source="image/20191018_Add/back_12955.png" Canvas.Left="719" Canvas.Top="386.344" Width="50" Height="59.47" MouseDown="logOut_MouseDown" />
+        <Label Canvas.Left="79" Canvas.Top="101" Content="Time Set" FontSize="22" Foreground="#FFF8EFEF" Height="40" Name="label1" Width="103" />
+        <Label Canvas.Left="78" Canvas.Top="147" Content="Day" FontSize="22" Foreground="#FFF8EFEF" Height="40" Name="label2" Width="54" />
+        <Label Canvas.Left="78" Canvas.Top="195" Content="Time" FontSize="22" Foreground="#FFF8EFEF" Height="40" Name="label3" Width="64" />
+        <TextBox Canvas.Left="158" Canvas.Top="147" FontSize="24" FontWeight="Bold" Height="40" Name="STimeH" Text="2013" TextAlignment="Center" TextWrapping="Wrap" Width="96" Background="{x:Null}" Foreground="#FFEFDCDC" />
+        <Rectangle Canvas.Left="158" Canvas.Top="147" Fill="Transparent" Height="39" Name="BusinessTimeHHRect" Panel.ZIndex="2" Width="96" MouseDown="BusinessTimeHHRect_MouseDown" />
+        <TextBox Canvas.Left="282" Canvas.Top="148" FontSize="24" FontWeight="Bold" Height="39" Name="textBox1" Text="12" TextAlignment="Center" TextWrapping="Wrap" Width="56" Background="{x:Null}" Foreground="#FFEFDCDC" />
+        <Rectangle Canvas.Left="282" Canvas.Top="145" Fill="Transparent" Height="44" Name="rectangle1" Panel.ZIndex="2" Width="56" MouseDown="rectangle1_MouseDown" />
+        <TextBox Canvas.Left="361" Canvas.Top="146" FontSize="24" FontWeight="Bold" Height="40" Name="textBox2" Text="12" TextAlignment="Center" TextWrapping="Wrap" Width="56" Background="{x:Null}" Foreground="#FFEFDCDC" />
+        <Rectangle Canvas.Left="361" Canvas.Top="143" Fill="Transparent" Height="44" Name="rectangle2" Panel.ZIndex="2" Width="56" MouseDown="rectangle2_MouseDown" />
+        <TextBox Canvas.Left="158" Canvas.Top="197" FontSize="24" FontWeight="Bold" Height="40" Name="textBox3" Text="12" TextAlignment="Center" TextWrapping="Wrap" Width="56" Background="{x:Null}" Foreground="#FFEFDCDC" />
+        <Rectangle Canvas.Left="158" Canvas.Top="195" Fill="Transparent" Height="44" Name="rectangle3" Panel.ZIndex="2" Width="56" MouseDown="rectangle3_MouseDown" />
+        <TextBox Canvas.Left="247" Canvas.Top="197" FontSize="24" FontWeight="Bold" Height="40" Name="textBox4" Text="12" TextAlignment="Center" TextWrapping="Wrap" Width="56" Background="{x:Null}" Foreground="#FFEFDCDC" />
+        <Rectangle Canvas.Left="247" Canvas.Top="196" Fill="Transparent" Height="44" Name="rectangle4" Panel.ZIndex="2" Width="56" MouseDown="rectangle4_MouseDown" />
+        <TextBox Canvas.Left="341" Canvas.Top="197" FontSize="24" FontWeight="Bold" Height="40" Name="textBox5" Text="12" TextAlignment="Center" TextWrapping="Wrap" Width="56" Background="{x:Null}" Foreground="#FFEFDCDC" />
+        <Rectangle Canvas.Left="341" Canvas.Top="196" Fill="Transparent" Height="44" Name="rectangle5" Panel.ZIndex="2" Width="56" MouseDown="rectangle5_MouseDown" />
+        <Label Canvas.Left="78" Canvas.Top="259" Content="Charging Time :" FontSize="22" Foreground="#FFF8EFEF" Height="40" Name="label4" Width="179" />
+        <TextBox Canvas.Left="244" Canvas.Top="259" FontSize="24" FontWeight="Bold" Height="40" Name="TxtCharging" Text="30" TextAlignment="Center" TextWrapping="Wrap" Width="96" Background="{x:Null}" Foreground="#FFEFDCDC" />
+        <Rectangle Canvas.Left="244" Canvas.Top="259" Fill="Transparent" Height="40" Name="RecCharging" Panel.ZIndex="2" Width="96" MouseDown="RecCharging_MouseDown" />
+        <Button Canvas.Left="463" Canvas.Top="145" Content="Time Set" Height="99" Name="button1" Width="161" Click="button1_Click" FontSize="20" Foreground="Black" FontFamily="Yet R" FontWeight="Normal"></Button>
+
+
+
+        <Image Canvas.Left="241" Canvas.Top="0" Height="80" Name="CahrgeHistory" Source="image\10_관리자화면\아이콘/충전이력.png" Width="79" MouseDown="CahrgeHistory_MouseDown" />
+        <Image Canvas.Left="318" Canvas.Top="0" Height="80" Name="TroubleHistory" Source="image\10_관리자화면\아이콘/에러이력.png" Width="79" MouseDown="TroubleHistory_MouseDown" />
+        <Image Canvas.Left="397" Canvas.Top="0" Height="80" Name="PassWord" Source="image\10_관리자화면\아이콘/패스워드.png" Width="79" MouseDown="PassWord_MouseDown" />
+        <Image Canvas.Left="720" Canvas.Top="1" Height="80" Name="LogSampling" Source="image\10_관리자화면\아이콘/로그추출.png" Width="79" MouseDown="LogSampling_MouseDown" />
+        <Image Canvas.Left="562" Canvas.Top="1" Height="78" Name="SetupMaxium" Source="image\10_관리자화면\아이콘/최대전류설정.png" Width="77" MouseDown="SetupMaxium_MouseDown" />
+        <Image Canvas.Left="0" Canvas.Top="1" Height="80" Name="TroubleDetails" Source="image/RAPIDAS-R_Monitor/07/관리설정.png" Width="78" MouseDown="TroubleDetails_MouseDown" />
+        <Image Canvas.Left="478" Canvas.Top="0" Height="80" Name="SetupEquipment" Source="image/RAPIDAS-R_Monitor/07/수전전력설정.png" Width="82" MouseDown="SetupEquipment_MouseDown" />
+        <Image Canvas.Left="161" Canvas.Top="0" Height="80" Name="PowerMeter" Source="image\10_관리자화면\아이콘/언어설정.png" Width="83" MouseDown="PowerMeter_MouseDown" />
+        <Image Canvas.Left="639" Canvas.Top="1" Height="80" Name="EquipmentInfo" Source="image\10_관리자화면\아이콘/강제충전.png" Width="80" MouseDown="EquipmentInfo_MouseDown" />
+        <Label Canvas.Left="0" Canvas.Top="54" Content="管理設定" Height="27" Name="Langanglab1" Width="78" Foreground="#FFF2E9E9" ForceCursor="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="720" Canvas.Top="55" Content="Log抽出" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab2" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="79" Canvas.Top="54" Content="時間の設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab3" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="161" Canvas.Top="54" Content="言語設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab4" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="242" Canvas.Top="54" Content="充電履歴" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab5" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="319" Canvas.Top="53" Content="エラー履歴" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab6" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="398" Canvas.Top="54" Content="パスワード" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab7" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="478" Canvas.Top="54" Content="受電電力設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab8" VerticalContentAlignment="Bottom" Width="81" />
+        <Label Canvas.Left="562" Canvas.Top="54" Content="電流設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab9" VerticalContentAlignment="Bottom" Width="78" />
+        <Label Canvas.Left="640" Canvas.Top="55" Content="Manual" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab10" VerticalContentAlignment="Bottom" Width="78" />
+        <Image Canvas.Left="562" Canvas.Top="-1" Height="81" Name="Imgmanu" Source="/QuickChargeDisplay;component/image/10_관리자화면/Imgmanu.png" Width="238" VerticalAlignment="Top" StretchDirection="Both" />
+        <Label Canvas.Left="74" Canvas.Top="356" Content="SBC Ver" FontSize="22" Foreground="#FFF8EFEF" Height="40" Name="label5" Width="179" />
+        <Label Canvas.Left="370" Canvas.Top="355" Content="DSP Ver" FontSize="22" Foreground="#FFF8EFEF" Height="40" Name="label6" Width="179" />
+        <TextBox Background="{x:Null}" Canvas.Left="171" Canvas.Top="356" FontSize="24" FontWeight="Bold" Foreground="#FFEFDCDC" Height="40" Name="Tsbcversion" Text="V1.00" TextAlignment="Center" TextWrapping="Wrap" Width="124" />
+        <TextBox Background="{x:Null}" Canvas.Left="463" Canvas.Top="355" FontSize="24" FontWeight="Bold" Foreground="#FFEFDCDC" Height="40" Name="Tdspversion" Text="V1.00" TextAlignment="Center" TextWrapping="Wrap" Width="124" />
+        <Label Canvas.Left="71" Canvas.Top="411" Content="Serial Number :" FontSize="22" Foreground="#FFF8EFEF" Height="40" Name="label7" Width="170" />
+        <TextBox Background="{x:Null}" Canvas.Left="247" Canvas.Top="411" FontSize="24" FontWeight="Bold" Foreground="#FFEFDCDC" Height="40" Name="tSerial" Text="0123456789" TextAlignment="Center" TextWrapping="Wrap" Width="312" />
+    </Canvas>
+</Page>

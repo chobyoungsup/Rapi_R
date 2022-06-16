@@ -1,0 +1,2138 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO.Ports;
+using System.Text;
+using System.Threading;
+using QuickChargeDisplay;
+
+namespace ModbusThread
+{
+    public class SysFaultList
+    {
+        private DateTime eventTime;
+        private int num;
+        private string content;
+
+        public SysFaultList(DateTime dt, int n, string s)
+        {
+            eventTime = dt;
+            num = n;
+            content = s;
+        }
+
+        public int Num
+        {
+            get { return num; }
+            set { num = value; }
+        }
+
+        public string Content
+        {
+            get { return content; }
+            set { content = value; }
+        }
+
+        public DateTime EventTime
+        {
+            get { return eventTime; }
+            set { eventTime = value; }
+        }
+    }
+
+    public enum ADMINCMDTYPE
+    {
+        Bit = 1,
+        Long = 2,
+        Short = 3,
+        Int = 4,
+        Double = 5,
+    };
+
+    public enum QCCODE : int
+    {
+        KEPCO = 1,
+        PSTEK = 2,
+        LS_Industrial_Sys = 3,
+        LS_Cable = 4,
+        KODS = 5,
+        HASE_TECH = 6,
+        DBT = 7,
+        PNE = 8,
+    }
+
+    public enum VCODE : int
+    {
+        HYUNDAI_MOTORS = 1,
+        KIA_MOTORS = 2,
+        GM_DAEWOO = 3,
+        RENAULT_SAMSUNG = 4,
+        CTnT = 5,
+        LEO_MOTORS = 6,
+        TESLAR_MOTORS = 7,
+    }
+
+    public struct AdminOrder
+    {
+        public int address;
+        public int offset;
+        public object value;
+        public int type;
+    }
+
+    public class ModbusQC
+    {
+        private static Object obj = new Object();
+        private SerialPort sp = new SerialPort();
+        public string modbusStatus;
+        System.Timers.Timer timer = new System.Timers.Timer();
+        bool isPolling = true;
+        private static int pollCount;
+        private static ushort currentStatus = 0;
+        private static int chargingCount = 0;
+        private static int nFaultSeqNum;
+        private static int nChargeHistorySeqNum;
+
+        // fault 리스트 관리용
+        private static List<SysFaultList> faultList = new List<SysFaultList>();
+
+        private AVRIO.qcio qcio = new AVRIO.qcio();
+        private AVRIO.amiio amiio = new AVRIO.amiio();
+        private int SendCommand;
+        private bool bAdminCommand = false;
+        private bool isFault = false;
+
+        private AdminOrder adminCommand;
+
+        public AdminOrder AdminCommand
+        {
+            get { return adminCommand; }
+            set { adminCommand = value; }
+        }
+
+        private byte modbusCommand;
+        private ushort startAddress = 0;
+        private ushort requestRegisters = 0;
+        private byte mcuid = 1;
+        private byte amiid = 7;
+        private byte currentId = 0;
+
+        private string subRoot = "AVRIO";
+        private string portNum = "COM3";
+        private int boudrate = 38400;
+
+        private bool bQCSel = true;
+
+        public bool IsFault
+        {
+            get { return isFault; }
+            set { isFault = value; }
+        }
+
+        #region 생성자
+        public ModbusQC()
+        {
+            AVRIO.avrio.SendSysOrder += new AVRIO.SysOrderEvent(avrio_SendSysOrder);
+#if DOEVENT
+            sp.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
+#endif
+            QCDV.AdminValueChanged += new AdminValueChangedEvent(QCDV_AdminValueChanged);
+        }
+        #endregion
+
+        #region 관리자화면 명령처리
+        void QCDV_AdminValueChanged(int address, int offset, object value, int type)
+        {
+            adminCommand.address = address;
+            adminCommand.offset = offset;
+            adminCommand.value = value;
+            adminCommand.type = type;
+            bAdminCommand = true;
+        }
+        #endregion
+
+        #region AVIIO events
+        void avrio_SendSysOrder(AVRIO.TsCommand command, params object[] list)
+        {
+            SendCommand = (int)command;
+            AVRIO.avrio.LastCommand = command;
+        }
+        #endregion
+
+        #region Data Received Events
+        void sp_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            if (!sp.IsOpen) return;
+#if AMIEVENT
+            if (currentId != amiid)
+            {
+                sp.DataReceived -= sp_DataReceived;
+                return;
+            }
+#endif
+            int i;
+            //if (currentId == amiid)
+            //{
+            //    Delay();
+            //    Delay();
+            //}
+            //Delay();
+            //wait 350us for문 8개가 350us 정도 딜레이 역할을 함.
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            //wait 350us for문 8개가 350us 정도 딜레이 역할을 함.
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+
+            int bytes = sp.BytesToRead;
+
+            if (bytes < 8) return;
+
+            byte[] data = new byte[bytes];
+
+            sp.Read(data, 0, data.Length);
+
+            int a = currentId;
+
+            if (data[0] > 2 || data[0] == 0)
+                return;
+
+#if AMIEVENT
+            ReadAMIData(data);
+            sp.DataReceived -= sp_DataReceived;
+#else
+            if (data[0] == amiid)
+            {
+                ReadAMIData(data);
+            }
+            else
+            {
+                if (modbusCommand == 16)
+                {
+                    ReadDataWriteCommand(data);
+                }
+                else if (modbusCommand == 3 || modbusCommand == 4)
+                {
+                    ReadDataReadCommand(data);
+                }
+                modbusCommand = 0;
+            }
+#endif
+        }
+        #endregion
+
+        #region Read Data Command
+        bool ReadAMIData(byte[] response)
+        {
+            ushort[] values = new ushort[response[2] * 2];
+            //Evaluate message:
+            if (CheckResponse(response))
+            {
+                //Return requested register values:
+                for (int i = 0; i < (response.Length - 5) / 2; i++)
+                {
+                    values[i] = response[2 * i + 3];
+                    values[i] <<= 8;
+                    values[i] += response[2 * i + 4];
+                }
+                modbusStatus = "Read successful : ";
+
+                ParserAmiReadData(values, (AVRIO.RunningMode)AVRIO.avrio.RunMode);
+
+                return true;
+            }
+            else
+            {
+                modbusStatus = "CRC error";
+                return false;
+            }
+        }
+
+        bool ReadDataWriteCommand(byte[] response)
+        {
+            if (CheckResponse(response))
+            {
+                modbusStatus = "Write successful : ";
+                SendCommand = (int)AVRIO.TsCommand.TsNone;
+                return true;
+            }
+            else
+            {
+                modbusStatus = "CRC error";
+                return false;
+            }
+        }
+
+        bool ReadDataReadCommand(byte[] response)
+        {
+            ushort[] values = new ushort[response[2]*2];
+            //Evaluate message:
+            if (CheckResponse(response))
+            {
+                //Return requested register values:
+                for (int i = 0; i < (response.Length - 5) / 2; i++)
+                {
+                    values[i] = response[2 * i + 3];
+                    values[i] <<= 8;
+                    values[i] += response[2 * i + 4];
+                }
+                modbusStatus = "Read successful : ";
+
+                ParserQCReadData(values, (AVRIO.RunningMode)AVRIO.avrio.RunMode);
+
+                return true;
+            }
+            else
+            {
+                modbusStatus = "CRC error";
+                return false;
+            }
+        }
+        #endregion
+
+        #region etc (Delay...)
+        private void Delay()
+        {
+            int i = 0;
+            //wait 350us for문 8개가 350us 정도 딜레이 역할을 함.
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+            for (i = 0; i < 0xffff; i++) ;
+        }
+        #endregion
+
+        #region Thread Run/Ready ...
+        public void ThreadRun()
+        {
+            //TEST
+#if DEBUG
+#else
+            ThreadReady();
+#endif
+
+            Open(portNum, boudrate, 8, Parity.None, StopBits.One);
+
+#if DEBUG
+            System.Diagnostics.Debug.WriteLine(modbusStatus);
+#else
+            System.Console.WriteLine(modbusStatus);
+#endif
+
+            while (true)
+            {
+                Thread.Sleep(50);
+                PollFunctionQC();             
+            }
+        }
+
+        public void ThreadReady()
+        {
+            string pn = QuickChargeConfig.ChargeConfig.GetConfig(subRoot, "Port", "COM3");
+            string br = QuickChargeConfig.ChargeConfig.GetConfig(subRoot, "Boudrate", "38400");
+            string mid = QuickChargeConfig.ChargeConfig.GetConfig(subRoot, "MCUID", "1");
+            string aid = QuickChargeConfig.ChargeConfig.GetConfig(subRoot, "AMIID", "7");
+
+            portNum = pn;
+            boudrate = Convert.ToInt32(br);
+            mcuid = (byte)Convert.ToInt32(mid);
+            amiid = (byte)Convert.ToInt32(aid);
+        }
+
+        public bool ThreadTerminate()
+        {
+            return Close();
+        }
+        #endregion
+
+        #region AMI 읽어오기
+        public void AmiReadValues(AVRIO.RunningMode runMode)
+        {
+            //Create array to accept read values:
+            ushort[] values = new ushort[amiio.ReadRegisters];
+            ushort pollStart = (ushort)AVRIO.amiio.READADDRESS.Start;
+            ushort pollLength = amiio.ReadRegisters;
+
+            //Read registers and display data in desired format:
+            try
+            {
+                bool ret = SendFc4((byte)amiid, pollStart, pollLength, ref values);
+#if !DOEVENT
+#if !AMIEVENT
+                if (ret)
+                {
+                    ParserAmiReadData(values, runMode);
+                }
+#endif
+#endif
+            }
+            catch (Exception err)
+            {
+                modbusStatus = "Error in modbus read: " + err.Message;
+            }
+        }
+
+        public void ParserAmiReadData(ushort[] values, AVRIO.RunningMode runMode)
+        {
+            byte[] byTemp1 = BitConverter.GetBytes(values[0]);
+            byte[] byTemp2 = BitConverter.GetBytes(values[1]);
+            byte[] byTemp = new byte[4];
+            byTemp[0] = byTemp1[0];
+            byTemp[1] = byTemp1[1];
+            byTemp[2] = byTemp2[0];
+            byTemp[3] = byTemp2[1];
+            AVRIO.avrio.VaildWatt = BitConverter.ToUInt32(byTemp, 0);
+
+#region QC Amdin PowerMeter
+            if (AVRIO.avrio.RunMode == AVRIO.RunningMode.Admin)
+            {
+                for (int i = 0; i < (amiio.ReadRegisters/2); i += 2)
+                {
+                    byte[] byTemp3 = BitConverter.GetBytes(values[i * 2]);
+                    byte[] byTemp4 = BitConverter.GetBytes(values[i * 2 + 1]);
+                    byte[] byTemp0 = new byte[4];
+                    byTemp0[0] = byTemp3[0];
+                    byTemp0[1] = byTemp3[1];
+                    byTemp0[2] = byTemp4[0];
+                    byTemp0[3] = byTemp4[1];
+                    if (i == 0 || i == 1)
+                    {
+                        amiio.readLongData[i] = BitConverter.ToUInt32(byTemp0, 0);
+                    }
+                    else
+                    {
+                        amiio.readFloatData[i - 2] = BitConverter.ToSingle(byTemp0, 0);
+                    }
+                } // for
+
+                QuickChargeDisplay.QCDV.PowerMeter.Value00.Label = "유효전력량";
+                QuickChargeDisplay.QCDV.PowerMeter.Value00.Value = (long)amiio.readLongData[(AVRIO.amiio.READADDRESS.유효전력량 - AVRIO.amiio.READADDRESS.Start) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value01.Label = "무효전력량";
+                QuickChargeDisplay.QCDV.PowerMeter.Value01.Value = (long)amiio.readLongData[(AVRIO.amiio.READADDRESS.무효전력량 - AVRIO.amiio.READADDRESS.Start) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value02.Label = "A상 전압";
+                QuickChargeDisplay.QCDV.PowerMeter.Value02.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.A상전압 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value03.Label = "B상 전압";
+                QuickChargeDisplay.QCDV.PowerMeter.Value03.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.B상전압 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value04.Label = "C상 전압";
+                QuickChargeDisplay.QCDV.PowerMeter.Value04.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.C상전압 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value05.Label = "A상 전류";
+                QuickChargeDisplay.QCDV.PowerMeter.Value05.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.A상전류 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value06.Label = "B상 전류";
+                QuickChargeDisplay.QCDV.PowerMeter.Value06.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.B상전류 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value07.Label = "C상 전류";
+                QuickChargeDisplay.QCDV.PowerMeter.Value07.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.C상전류 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value08.Label = "A상 전압-전류 위상각";
+                QuickChargeDisplay.QCDV.PowerMeter.Value08.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.A상전압전류위상각 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value09.Label = "B상 전압-전류 위상각";
+                QuickChargeDisplay.QCDV.PowerMeter.Value09.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.B상전압전류위상각 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+
+                QuickChargeDisplay.QCDV.PowerMeter.Value10.Label = "C상 전압-전류 위상각";
+                QuickChargeDisplay.QCDV.PowerMeter.Value10.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.C상전압전류위상각 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+
+                //여기까지 왼쪽 필드
+
+                QuickChargeDisplay.QCDV.PowerMeter.Value11.Label = "A상 역률";
+                QuickChargeDisplay.QCDV.PowerMeter.Value11.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.A상역률 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value12.Label = "B상 역률";
+                QuickChargeDisplay.QCDV.PowerMeter.Value12.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.B상역률 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value13.Label = "C상 역률";
+                QuickChargeDisplay.QCDV.PowerMeter.Value13.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.C상역률 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value14.Label = "전체유효전력";
+                QuickChargeDisplay.QCDV.PowerMeter.Value14.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.전체유효전력 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value15.Label = "전체무효전력";
+                QuickChargeDisplay.QCDV.PowerMeter.Value15.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.전체무효전력 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value16.Label = "A상 유효전력";
+                QuickChargeDisplay.QCDV.PowerMeter.Value16.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.A상유효전력 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value17.Label = "B상 유효전력";
+                QuickChargeDisplay.QCDV.PowerMeter.Value17.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.B상유효전력 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value18.Label = "C상 유효전력";
+                QuickChargeDisplay.QCDV.PowerMeter.Value18.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.C상유효전력 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value19.Label = "A상 무효전력";
+                QuickChargeDisplay.QCDV.PowerMeter.Value19.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.A상무효전력 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+
+                QuickChargeDisplay.QCDV.PowerMeter.Value20.Label = "B상 무효전력";
+                QuickChargeDisplay.QCDV.PowerMeter.Value20.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.B상무효전력 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+                QuickChargeDisplay.QCDV.PowerMeter.Value21.Label = "C상 무효전력";
+                QuickChargeDisplay.QCDV.PowerMeter.Value21.Value = amiio.readFloatData[(AVRIO.amiio.READADDRESS.C상무효전력 - AVRIO.amiio.READADDRESS.StartFloat) / 2];
+            }
+#endregion PowerMeter
+
+        }
+
+        #endregion
+
+        #region QC polling function
+        public void SendCommandQC()
+        {
+            bool ret = false;
+
+            //Create array to accept read values:
+            ushort[] values = new ushort[qcio.WriteRegisters];
+            ushort pollStart = (ushort)AVRIO.qcio.WRITEADDRESS.Command;
+            ushort pollLength = qcio.WriteRegisters;
+            values[0] = (ushort)(SendCommand);
+            //values[1] &= (ushort)SendCommand;
+
+            try
+            {
+                ret = SendFc16((byte)mcuid, pollStart, pollLength, values);
+            }
+            catch (Exception err)
+            {
+                modbusStatus = "Error in modbus write: " + err.Message;
+                return;
+            }
+            if (ret)
+            {
+                switch (SendCommand)
+                {
+                    case (int)AVRIO.TsCommand.TsRun:
+                        {
+                            AVRIO.avrio.ChargeStartTime = DateTime.Now;
+                            AVRIO.avrio.ChargeStartWatt = (double)((double)AVRIO.avrio.VaildWatt / (double)1000);
+                            //AVRIO.avrio.CsosCommand = AVRIO.CSOSCMD.ChargeStart;
+                            break;
+                        }
+                    case (int)AVRIO.TsCommand.TsFinish:
+                        {
+                            AVRIO.avrio.ChargeEndTime = DateTime.Now;
+                            break;
+                        }
+                    case (int)AVRIO.TsCommand.TsResetFault:
+                        {
+                            DateTime dt = DateTime.Now;
+                            foreach(SysFaultList sfl in faultList)
+                            {
+                                string msg = dt.Hour.ToString("00") + dt.Minute.ToString("00") + dt.Second.ToString("00") + "," + sfl.Num + "," + sfl.Content + ",N";
+                                QuickChargeConfig.ChargeConfig.SetLog("Fault", AVRIO.avrio.SeqNumFault++, msg, sfl.EventTime);
+                                //QuickChargeConfig.ChargeConfig.SetLog("FAULT", nFaultSeqNum++, msg, sfl.EventTime);
+                            }
+                            faultList.Clear();
+                            break;
+                        }
+                }
+                SendCommand = (int)AVRIO.TsCommand.TsNone;
+            }
+        }
+
+        public void SendAdminCommandQC()
+        {
+            bool ret = false;
+
+#if DEBUG
+            System.Diagnostics.Debug.WriteLine("[Admin] CMD :" + AdminCommand.address + "." + AdminCommand.offset + "=" + AdminCommand.value);
+#endif
+
+            //Create array to accept read values:
+#if ONE_REGISTER
+            ushort[] values = new ushort[qcio.WriteAdminRegisters];
+            ushort pollStart = (ushort)AdminCommand.address;
+            ushort pollLength = qcio.WriteAdminRegisters;
+#else
+            ushort[] values = new ushort[qcio.WriteAdminRegisters];
+            ushort pollStart = (ushort)AVRIO.qcio.WRITEADDRESS.Command;
+            ushort pollLength = qcio.WriteAdminRegisters;
+#endif
+
+            if (QCDV.ManualControl.M_200_10)
+            {
+                values[0] = (ushort)((ushort)1 << 10);
+            }
+
+            switch (adminCommand.type)
+            {
+                case (int)ADMINCMDTYPE.Bit:
+                    if ((bool)adminCommand.value)
+                    {
+#if ONE_REGISTER
+                        values[0] = (ushort)((ushort)1 << adminCommand.offset);
+                        pollLength = 1;
+#else
+                        values[adminCommand.address - (int)AVRIO.qcio.WRITEADDRESS.Command] = (ushort)((ushort)1 << adminCommand.offset);
+#endif
+                    }
+                    break;
+                case (int)ADMINCMDTYPE.Long:
+                    {
+                        int address = adminCommand.address - (int)AVRIO.qcio.WRITEADDRESS.Command;
+                        byte[] ba = BitConverter.GetBytes((long)AVRIO.avrio.ChargePrice);
+
+#if ONE_REGISTER
+                        pollLength = 2;
+                        // 배열순서 1032로 재배치
+                        values[0] = (ushort)((ushort)(ba[1] << 8) | (ushort)ba[0]);
+                        values[1] = (ushort)((ushort)(ba[3] << 8) | (ushort)ba[2]);
+#else
+                        // 배열순서 1032로 재배치
+                        values[0 + address] = (ushort)((ushort)(ba[1] << 8) | (ushort)ba[0]);
+                        values[1 + address] = (ushort)((ushort)(ba[3] << 8) | (ushort)ba[2]);
+#endif
+                    }
+                    break;
+                case (int)ADMINCMDTYPE.Short:
+                    {
+#if ONE_REGISTER
+                        pollLength = 1;
+                        try
+                        {
+                            int n = (int)adminCommand.value;
+                            byte[] ba = BitConverter.GetBytes((ushort)n);
+                            values[0] = (ushort)((ushort)(ba[1] << 8) | (ushort)ba[0]);
+                        }
+                        catch (Exception e)
+                        {
+                            ushort n = (ushort)adminCommand.value;
+                            byte[] ba = BitConverter.GetBytes((ushort)n);
+                            values[0] = (ushort)((ushort)(ba[1] << 8) | (ushort)ba[0]);
+                        }
+#else
+                        try
+                        {
+                            int n = (int)adminCommand.value;
+                            byte[] ba = BitConverter.GetBytes((ushort)n);
+                            values[adminCommand.address - (int)AVRIO.qcio.WRITEADDRESS.Command] = (ushort)((ushort)(ba[1] << 8) | (ushort)ba[0]);
+                        }
+                        catch (Exception e)
+                        {
+                            ushort n = (ushort)adminCommand.value;
+                            byte[] ba = BitConverter.GetBytes((ushort)n);
+                            values[adminCommand.address - (int)AVRIO.qcio.WRITEADDRESS.Command] = (ushort)((ushort)(ba[1] << 8) | (ushort)ba[0]);
+                        }
+#endif
+                    }
+                    break;
+                case (int)ADMINCMDTYPE.Double:
+                    {
+                        int address = adminCommand.address - (int)AVRIO.qcio.WRITEADDRESS.Command;
+                        double d = (double)adminCommand.value;
+                        byte[] ba = BitConverter.GetBytes((float)d);
+
+#if ONE_REGISTER
+                        pollLength = 2;
+                        // 배열순서 1032로 재배치
+                        values[0] = (ushort)((ushort)(ba[1] << 8) | (ushort)ba[0]);
+                        values[1] = (ushort)((ushort)(ba[3] << 8) | (ushort)ba[2]);
+#else
+                        // 배열순서 1032로 재배치
+                        values[0 + address] = (ushort)((ushort)(ba[1] << 8) | (ushort)ba[0]);
+                        values[1 + address] = (ushort)((ushort)(ba[3] << 8) | (ushort)ba[2]);
+#endif
+                    }
+                    break;
+            }
+
+            try
+            {
+                ret = SendFc16((byte)mcuid, pollStart, pollLength, values);
+            }
+            catch (Exception err)
+            {
+                modbusStatus = "Error in modbus write: " + err.Message;
+                return;
+            }
+            if (ret)
+            {
+                bAdminCommand = false;
+                if (adminCommand.address == 201)
+                {
+                    switch (adminCommand.offset)
+                    {
+                        case 0:
+                        case 2:
+                        case 3:
+                            {
+                                if ((bool)adminCommand.value)
+                                {
+                                    adminCommand.value = false;
+                                    bAdminCommand = true;
+                                }
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                if (adminCommand.address == 202)
+                {
+                    switch (adminCommand.offset)
+                    {
+                        case 0:
+                        case 2:
+                            {
+                                if ((bool)adminCommand.value)
+                                {
+                                    adminCommand.value = false;
+                                    bAdminCommand = true;
+                                }
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        // 급속 폴링 함수
+        public void PollFunctionQC()
+        {
+            AVRIO.RunningMode runMode = AVRIO.avrio.RunMode;
+
+            if ((runMode == AVRIO.RunningMode.Normal) || (runMode == AVRIO.RunningMode.Charging))
+            {
+                pollCount %= 2;
+#if TEST
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysRun)
+                {
+                    chargingCount++;
+                    chargingCount %= 10;
+                    if (chargingCount == 0)
+                        AVRIO.avrio.ChargeTestWatt += 0.01;
+                }
+#endif
+
+                if (pollCount == 0)
+                {
+                    if (SendCommand > 0)
+                    {
+                        SendCommandQC();
+                    }
+                    else
+                    {
+                        NormalStatusRequest(runMode);
+                    }
+                }
+                else
+                {
+                    AmiReadValues(runMode);
+                }
+                pollCount++;
+            }
+            else if (runMode == AVRIO.RunningMode.Fault)
+            {
+                if (SendCommand > 0)
+                {
+                    SendCommandQC();
+                }
+                else
+                {
+                    NormalStatusRequest(runMode);
+                }
+            }
+            else if (runMode == AVRIO.RunningMode.Test)
+            {
+            }
+            else if (runMode == AVRIO.RunningMode.Admin)
+            {
+                pollCount %= 2;
+                if (pollCount == 0)
+                {
+                    // 명령이 존재하면
+                    if (bAdminCommand)
+                    {
+                        SendAdminCommandQC();
+                        //bAdminCommand = false;
+                    }
+                    else
+                    {
+                        NormalStatusRequest(runMode);
+                    }
+                }
+                else
+                {
+                    AmiReadValues(runMode);
+                }
+                pollCount++;
+            }
+            else if (runMode == AVRIO.RunningMode.Factory)
+            {
+            }            
+        }
+
+        private void NormalStatusRequest(AVRIO.RunningMode runMode)
+        {
+#if DOEVENT
+            //Create array to accept read values:
+            ushort[] values = new ushort[qcio.ReadRegisters];
+#else
+            ushort[] values = new ushort[qcio.TotalReadRegisters];
+#endif
+
+            ushort pollStart = (ushort)AVRIO.qcio.READADDRESS.Status;
+#if DOEVENT
+            ushort pollLength = qcio.ReadRegisters;
+#else
+            ushort pollLength = qcio.TotalReadRegisters;
+#endif
+
+            //Read registers and display data in desired format:
+            try
+            {
+                bool ret = SendFc4((byte)mcuid, pollStart, pollLength, ref values);
+
+                if (!ret) return;
+
+#if !DOEVENT
+                if (runMode == AVRIO.RunningMode.Normal)
+                {
+                    ReadQCNormalData(values);
+                }
+                else if (runMode == AVRIO.RunningMode.Charging)
+                {
+                    ReadQCChargingFullData(values);
+                }
+                else if (runMode == AVRIO.RunningMode.Admin)
+                {
+                    ReadQCAdminData(values);
+                }
+                else if (runMode == AVRIO.RunningMode.Fault)
+                {
+                    ReadQCFaultData(values);
+                }
+#endif
+            }
+            catch (Exception err)
+            {
+                modbusStatus = "Error in modbus read: " + err.Message;
+                System.Console.WriteLine(modbusStatus);
+            }
+        }
+
+        private void ChagingHalfRegistersRequest()
+        {
+            //Create array to accept read values:
+            ushort[] values = new ushort[qcio.ReadHalfChargingRegisters];
+            ushort pollStart = (ushort)AVRIO.qcio.READADDRESS.ChargingMode;
+            ushort pollLength = qcio.ReadHalfChargingRegisters;
+
+            //Read registers and display data in desired format:
+            try
+            {
+                bool ret = SendFc4((byte)mcuid, pollStart, pollLength, ref values);
+            }
+            catch (Exception err)
+            {
+                modbusStatus = "Error in modbus read: " + err.Message;
+            }
+        }
+
+        private void ChagingFullRegistersRequest()
+        {
+            //Create array to accept read values:
+            ushort[] values = new ushort[qcio.ReadChargingRegisters];
+            ushort pollStart = (ushort)AVRIO.qcio.READADDRESS.Status;
+            ushort pollLength = qcio.ReadChargingRegisters;
+
+            //Read registers and display data in desired format:
+            try
+            {
+                bool ret = SendFc4((byte)mcuid, pollStart, pollLength, ref values);
+#if !DOEVENT
+#endif
+            }
+            catch (Exception err)
+            {
+                modbusStatus = "Error in modbus read: " + err.Message;
+            }
+        }
+        #endregion
+
+        #region QC Data Parse
+        private void ParserQCReadData(ushort[] values, AVRIO.RunningMode runMode)
+        {
+            switch (runMode)
+            {
+                case AVRIO.RunningMode.Normal:
+                    ReadQCNormalData(values);
+                    break;
+                case AVRIO.RunningMode.Charging:
+                    //ReadQCChargingFullData(values);
+                    //int mode = pollCount % 2;
+                    if (startAddress == (ushort)AVRIO.qcio.READADDRESS.ChargingMode)
+                    {
+                    }
+                    else if (startAddress == (ushort)AVRIO.qcio.READADDRESS.Status)
+                    {
+                        ReadQCChargingStatusData(values);
+                    }
+                    break;
+                //  관리자 모드
+                case AVRIO.RunningMode.Admin:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ReadQCChargingStatusData(ushort[] values)
+        {
+            if (values[0] == 0) return;
+            if ((values[0] & 0x8000) == 0) return;
+
+            byte[] byStatus = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.Status - AVRIO.qcio.READADDRESS.Status]);
+
+            if (currentStatus == values[AVRIO.qcio.READADDRESS.Status - AVRIO.qcio.READADDRESS.Status])
+            //if (AVRIO.avrio.CurrentStatus == (AVRIO.SysStatus)byStatus[0])
+            {
+                return;
+            }
+            else
+            {
+                currentStatus = values[0];
+                int val = byStatus[0];
+                int status = val & (int)AVRIO.SysStatus.SysRun;
+                if (status == (int)AVRIO.SysStatus.SysNone)
+                {
+                    status = val & (int)AVRIO.SysStatus.SysFinish;
+                }
+
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysRun && status == (int)AVRIO.SysStatus.SysNone)
+                {
+                    AVRIO.avrio.RunMode = AVRIO.RunningMode.Normal;
+                    return;
+                }
+
+                AVRIO.avrio.CurrentStatus = (AVRIO.SysStatus)status;
+                System.Diagnostics.Debug.WriteLine(AVRIO.avrio.CurrentStatus);
+
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysFinish)
+                {
+                    AVRIO.avrio.RunMode = AVRIO.RunningMode.Normal;
+                    return;
+                    //AVRIO.avrio.RunMode = AVRIO.RunningMode.Charging
+                }
+            }
+
+            byte[] bySwitch = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.Etc - AVRIO.qcio.READADDRESS.Status]);
+            if (bySwitch[0] == (byte)AVRIO.SwStatus.Stop)
+            {
+                SendCommand = (int)AVRIO.TsCommand.TsFinish;
+            }
+        }
+
+        private void SetChargeHistory(double price, double watt, bool confirm, string emsg)
+        {
+            string msg = price + "," + watt + "," + (confirm ? "Y" : "N") + "," + emsg;
+            QuickChargeConfig.ChargeConfig.SetLog("History", AVRIO.avrio.SeqNumHistory++, msg, DateTime.Now);
+            //QuickChargeConfig.ChargeConfig.SetLog("HISTORY", nChargeHistorySeqNum++, msg, DateTime.Now);
+        }
+
+        private void SetFaultLog(ushort[] values)
+        {
+            DateTime dt = DateTime.Now;
+
+            for (int i = 0; i < values.Length - 1; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    int val = (values[i] & (1 << j));
+
+                    if (val > 0)
+                    {
+                        int idx = (i * 8) + (j + 1);
+                        if (idx < qcio.msgFault.Length)
+                        {
+                            string msg = idx + ",," + qcio.msgFault[idx] + ",N";
+                            faultList.Add(new SysFaultList(dt, idx, qcio.msgFault[idx]));
+                        }
+                        else
+                        {
+                            string msg = idx + ",," + "알수없는에러:" + idx + ",N";
+                            faultList.Add(new SysFaultList(dt, idx, "알수없는에러:" + idx));
+                        }
+                        //QuickChargeConfig.ChargeConfig.SetLog("FAULT", nFaultSeqNum++, msg, DateTime.Now);
+
+                        switch (idx)
+                        {
+                            case 1:
+                                {
+                                    AVRIO.avrio.FaultType = AVRIO.FaultType.EmgStop;
+                                }
+                                break;
+                            case 6:
+                            case 7:
+                            case 8:
+                            case 13:
+                            case 21:
+                                {
+                                    AVRIO.avrio.FaultType = AVRIO.FaultType.OverHit;
+                                }
+                                break;
+                            case 30:
+                                {
+                                    AVRIO.avrio.FaultType = AVRIO.FaultType.OverCurrent;
+                                }
+                                break;
+                            case 31:
+                                {
+                                    AVRIO.avrio.FaultType = AVRIO.FaultType.OverVolt;
+                                }
+                                break;
+                            case 5:
+                                {
+                                    AVRIO.avrio.FaultType = AVRIO.FaultType.Leak;
+                                }
+                                break;
+                            case 32:
+                                {
+                                    AVRIO.avrio.FaultType = AVRIO.FaultType.CableFail;
+                                }
+                                break;
+                            case 26:
+                                {
+                                    AVRIO.avrio.FaultType = AVRIO.FaultType.BatteryFail;
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+            //1.     비상정지버튼: EMG (406.00)
+            //2.     과  열: InOTL(406.05), OutOTL(406.06), InOTT(406.07), InvOTS(407.04), ChOTS(408.04)
+            //3.     과전류: OutOc(409.05)
+            //4.     과전압: OutOV(409.06)
+            //5.     단 락: 
+            //6.     누 전: Leakage(406.04)
+            //7.     정 전:
+            //8.     케이블이상: InterLockF(409.07)
+            //9.     배터리이상: BMS_FLT(409.01)
+
+        }
+
+        private void ReadQCAdminData(ushort[] values)
+        {
+            if (values[0] == 0) return;
+            if ((values[0] & (ushort)AVRIO.SysStatus.SysQcSel) == 0) return;
+
+            byte[] ba = new byte[4];
+            byte[] ba1 = new byte[2];
+            byte[] ba2 = new byte[2];
+
+            // 관리자화면 기기정보
+            QCDV.EquipmentInfo.SocPercent = ((double)values[AVRIO.qcio.READADDRESS.BatterySOC - AVRIO.qcio.READADDRESS.Status] / (double)2);
+            QCDV.EquipmentInfo.BatteryCurrent = ((double)((short)values[AVRIO.qcio.READADDRESS.BatteryCurrent - AVRIO.qcio.READADDRESS.Status])/(double)10);
+            QCDV.EquipmentInfo.BatteryVoltage = ((double)values[AVRIO.qcio.READADDRESS.BatteryVolt - AVRIO.qcio.READADDRESS.Status] / (double)10);
+            QCDV.EquipmentInfo.TargetCurrent = ((double)values[AVRIO.qcio.READADDRESS.TargetCurrent - AVRIO.qcio.READADDRESS.Status] / (double)10);
+            QCDV.EquipmentInfo.TargetVoltage = ((double)values[AVRIO.qcio.READADDRESS.TargetVolt - AVRIO.qcio.READADDRESS.Status] / (double)10);
+            QCDV.EquipmentInfo.TargetPower = ((double)values[AVRIO.qcio.READADDRESS.TargetPower - AVRIO.qcio.READADDRESS.Status] / (double)100);
+
+            QCDV.EquipmentInfo.Ready = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 0)) > 0) ? "READY" : "NOT READY");
+            QCDV.EquipmentInfo.Warning = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 1)) > 0) ? "WARNING" : "NORMAL");
+            QCDV.EquipmentInfo.Fault = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 2)) > 0) ? "FAULT" : "NORMAL");
+            QCDV.EquipmentInfo.ChargingRelay = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 3)) > 0) ? "CLOSED" : "OPEN");
+            QCDV.EquipmentInfo.ChargingCondition = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 6)) > 0) ? "DERATED" : "NORMAL");
+            QCDV.EquipmentInfo.ChargingFinish = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 7)) > 0) ? "FINISHED" : "NORMAL");
+
+            QCDV.EquipmentInfo.QcCode = ((QCCODE)values[AVRIO.qcio.READADDRESS.QCCode - AVRIO.qcio.READADDRESS.Status]).ToString();
+            QCDV.EquipmentInfo.VehicleCode = ((VCODE)values[AVRIO.qcio.READADDRESS.CanVCode - AVRIO.qcio.READADDRESS.Status]).ToString();
+            QCDV.EquipmentInfo.ChargingMode = (((AVRIO.ChargingMode)values[AVRIO.qcio.READADDRESS.ChargingMode - AVRIO.qcio.READADDRESS.Status]).ToString() == "CV" ? "CC-CV" : ((AVRIO.ChargingMode)values[AVRIO.qcio.READADDRESS.ChargingMode - AVRIO.qcio.READADDRESS.Status]).ToString() );
+
+            byte[] tm = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.CanMCode - AVRIO.qcio.READADDRESS.Status]);
+            char[] m = new char[tm.Length];
+            for (int i = 0; i < m.Length; i++)
+            {
+                m[i] = (char)tm[m.Length - i - 1];
+            }
+            string ms = new String(m);
+            string mcode = "";
+            switch (ms)
+            {
+                case "HD":
+                    mcode = "AVANTE HD";
+                    break;
+                case "IT":
+                    mcode = "i10";
+                    break;
+                case "YF":
+                    mcode = "SONATA YF";
+                    break;
+                case "HG":
+                    mcode = "GRANDEUR";
+                    break;
+            }
+            QCDV.EquipmentInfo.ManufacturerCode = mcode;
+            byte[] vb = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.CanSWVer - AVRIO.qcio.READADDRESS.Status]);
+            QCDV.EquipmentInfo.BmsVersion = ((double)values[AVRIO.qcio.READADDRESS.CanSWVer - AVRIO.qcio.READADDRESS.Status] / (double)10).ToString("0.0");
+            QCDV.EquipmentInfo.QcVersion = ((double)values[AVRIO.qcio.READADDRESS.QCVer - AVRIO.qcio.READADDRESS.Status]/(double)10).ToString("0.0");
+
+            // 관리자화면 공장설정 - 수동제어
+            QCDV.ManualControl.M_401_01 = (((int)values[AVRIO.qcio.READADDRESS.Inverter - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 1)) > 0 ? true : false);
+            QCDV.ManualControl.M_401_02 = (((int)values[AVRIO.qcio.READADDRESS.Inverter - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 2)) > 0 ? true : false);
+            QCDV.ManualControl.M_401_06 = (((int)values[AVRIO.qcio.READADDRESS.Inverter - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 6)) > 0 ? true : false);
+            QCDV.ManualControl.M_401_07 = (((int)values[AVRIO.qcio.READADDRESS.Inverter - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 7)) > 0 ? true : false);
+            QCDV.ManualControl.M_402_01 = (((int)values[AVRIO.qcio.READADDRESS.Dcdc - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 1)) > 0 ? true : false);
+            QCDV.ManualControl.M_402_02 = (((int)values[AVRIO.qcio.READADDRESS.Dcdc - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 2)) > 0 ? true : false);
+            QCDV.ManualControl.M_402_07 = (((int)values[AVRIO.qcio.READADDRESS.Dcdc - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 7)) > 0 ? true : false);
+            QCDV.ManualControl.M_406_00 = (((int)values[AVRIO.qcio.READADDRESS.FaultMain - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 0)) > 0 ? true : false);
+            QCDV.ManualControl.M_406_01 = !(bool)(((int)values[AVRIO.qcio.READADDRESS.FaultMain - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 1)) > 0 ? true : false);
+            QCDV.ManualControl.M_406_02 = !(bool)(((int)values[AVRIO.qcio.READADDRESS.FaultMain - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 2)) > 0 ? true : false);
+
+            // 관리자화면 공장설정 - 전압/전류교정
+            QCDV.CorrectSetup.C_400_05 = (((int)values[AVRIO.qcio.READADDRESS.Status - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 5)) > 0 ? true : false);
+            QCDV.CorrectSetup.C_400_06 = (((int)values[AVRIO.qcio.READADDRESS.Status - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 6)) > 0 ? true : false);
+
+            QCDV.CorrectSetup.C_403_00 = (((int)values[AVRIO.qcio.READADDRESS.Calibration - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 0)) > 0 ? true : false);
+            QCDV.CorrectSetup.C_403_04 = (((int)values[AVRIO.qcio.READADDRESS.Calibration - AVRIO.qcio.READADDRESS.Status] & (int)(1 << 4)) > 0 ? true : false);
+
+#if DEBUG
+            System.Diagnostics.Debug.WriteLine("403.00(" + QCDV.CorrectSetup.C_403_00.ToString() + "), 403.04(" + QCDV.CorrectSetup.C_403_04.ToString() + ")");
+#endif
+
+            ba1 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.AnalogVc - AVRIO.qcio.READADDRESS.Status]);
+            ba2 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.AnalogVc - AVRIO.qcio.READADDRESS.Status + 1]);
+            ba[0] = ba1[0];
+            ba[1] = ba1[1];
+            ba[2] = ba2[0];
+            ba[3] = ba2[1];
+            QCDV.CorrectSetup.C_424 = (double)BitConverter.ToSingle(ba, 0);
+
+            ba1 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.AnalogIo - AVRIO.qcio.READADDRESS.Status]);
+            ba2 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.AnalogIo - AVRIO.qcio.READADDRESS.Status + 1]);
+            ba[0] = ba1[0];
+            ba[1] = ba1[1];
+            ba[2] = ba2[0];
+            ba[3] = ba2[1];
+            QCDV.CorrectSetup.C_426 = (double)BitConverter.ToSingle(ba, 0);
+            
+            ba1 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.AnalogVo - AVRIO.qcio.READADDRESS.Status]);
+            ba2 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.AnalogVo - AVRIO.qcio.READADDRESS.Status + 1]);
+            ba[0] = ba1[0];
+            ba[1] = ba1[1];
+            ba[2] = ba2[0];
+            ba[3] = ba2[1];
+            QCDV.CorrectSetup.C_428 = (double)BitConverter.ToSingle(ba, 0);
+        }
+
+        private void ChargeFinish()
+        {
+            AVRIO.avrio.ChargePrice = (int)((int)((AVRIO.avrio.ChargeWatt * AVRIO.avrio.CurrentUnitPrice) / 10) * 10);
+            QuickChargeDisplay.QCDV.ConfirmCharge.ChargeWatt = AVRIO.avrio.ChargeWatt;
+            QuickChargeDisplay.QCDV.ConfirmCharge.Payment = AVRIO.avrio.ChargePrice;
+            SetChargeHistory(QuickChargeDisplay.QCDV.ConfirmCharge.Payment, QuickChargeDisplay.QCDV.ConfirmCharge.ChargeWatt, true, "");
+            if (AVRIO.avrio.ChargePrice == 0)
+            {
+#if DEBUG
+                AVRIO.avrio.ChargePrice = 10;
+                Thread.Sleep(100);
+                AVRIO.avrio.SgCommand = AVRIO.SGCMD.ChargeFinish;
+#else
+                AVRIO.avrio.SgCommand = AVRIO.SGCMD.ChargeCancel;
+#endif
+            }
+            else
+            {
+                AVRIO.avrio.SgCommand = AVRIO.SGCMD.ChargeFinish;
+            }
+
+            AVRIO.avrio.EventMsg = "충전종료";
+        }
+
+        private void ReadQCFaultData(ushort[] values)
+        {
+            if (values[0] == 0) return;
+            if ((values[0] & (ushort)AVRIO.SysStatus.SysQcSel) == 0) return;
+
+            byte[] byStatus = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.Status - AVRIO.qcio.READADDRESS.Status]);
+
+            // Fault처리
+            if ((values[0] & (ushort)AVRIO.SysStatus.SysFault) == 0)
+            {
+                AVRIO.avrio.RunMode = AVRIO.RunningMode.Normal;
+                AVRIO.avrio.FaultType = AVRIO.FaultType.None;
+                
+                if (AVRIO.avrio.CurrentStatus != AVRIO.SysStatus.SysFinish)
+                {
+                    AVRIO.avrio.TsCommand = AVRIO.TsCommand.TsStandby;
+                }
+
+                return;
+            }
+            else
+            {
+                currentStatus = values[0];
+                if (!AVRIO.avrio.IsFaultDialog)
+                {
+                    ushort[] faultArray = new ushort[5];
+                    Array.Copy(values, (int)(AVRIO.qcio.READADDRESS.FaultMain - AVRIO.qcio.READADDRESS.Status), faultArray, 0, faultArray.Length);
+                    SetFaultLog(faultArray);
+                    AVRIO.avrio.IsFaultDialog = true;
+                }
+            }
+
+            if ((byStatus[0] & (int)AVRIO.SysStatus.SysStandby) > 0)
+            {
+                AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysStandby;
+            }
+            else if ((byStatus[0] & (int)AVRIO.SysStatus.SysRun) > 0)
+            {
+                AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysRun;
+            }
+            else if ((byStatus[0] & (int)AVRIO.SysStatus.SysReady) > 0)
+            {
+                AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysReady;
+            }
+            else if ((byStatus[0] & (int)AVRIO.SysStatus.SysConectionFinish) > 0)
+            {
+                AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysConectionFinish;
+            }
+            //else if ((byStatus[0] & (int)AVRIO.SysStatus.SysFinish) > 0)
+            //{
+            //    AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysFinish;
+            //}
+
+            switch (AVRIO.avrio.CurrentStatus)
+            {
+                case AVRIO.SysStatus.SysRun:
+                    {
+                        AVRIO.avrio.TsCommand = AVRIO.TsCommand.TsFinish;
+                    }
+                    break;
+                case AVRIO.SysStatus.SysFinish:
+                    break;
+                case AVRIO.SysStatus.SysStandby:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private double CalcChargePrice(double watt)
+        {
+            double val = 0;
+
+            if (AVRIO.avrio.CurrentUnitPrice != AVRIO.avrio.CurrentUnitPricePrev || AVRIO.avrio.ChargingPriceList.Count == 0)
+            {
+                AVRIO.avrio.CurrentUnitPricePrev = AVRIO.avrio.CurrentUnitPrice;
+                if (AVRIO.avrio.ChargingPriceList.Count == 0 && AVRIO.avrio.BillMethod == AVRIO.BILLMETHOD.Card)
+                {
+                    AVRIO.avrio.ChargingPriceList.Add(new AVRIO.ChargeWattPerUnitPrice(1000, watt));
+                }
+                else
+                {
+                    AVRIO.avrio.ChargingPriceList.Add(new AVRIO.ChargeWattPerUnitPrice(watt));
+                }
+            }
+
+            //AVRIO.ChargeWattPerUnitPrice cp = new AVRIO.ChargeWattPerUnitPrice(watt);
+            int i = 0;
+
+            foreach (AVRIO.ChargeWattPerUnitPrice cp in AVRIO.avrio.ChargingPriceList)
+            {
+                i++;
+                if (i == AVRIO.avrio.ChargingPriceList.Count)
+                {
+                    cp.UnitPrice += (int)((int)(((watt - cp.ChargStartWatt) * AVRIO.avrio.CurrentUnitPrice) / 10) * 10);
+                }
+                val += cp.UnitPrice;
+            }
+
+            return val;
+        }
+
+        private void ReadQCChargingFullData(ushort[] values)
+        {
+            if (values[0] == 0) return;
+            if ((values[0] & (ushort)AVRIO.SysStatus.SysQcSel) == 0) return;
+
+            byte[] byStatus = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.Status - AVRIO.qcio.READADDRESS.Status]);
+
+            byte[] byTemp1 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.BatterySOC - AVRIO.qcio.READADDRESS.Status]);
+            byte[] byTemp = new byte[2];
+            byTemp[0] = byTemp1[0];
+            byTemp[1] = byTemp1[1];
+            //ushort val = BitConverter.ToUInt16(byTemp, 0);
+            ushort val = (ushort)values[AVRIO.qcio.READADDRESS.BatterySOC - AVRIO.qcio.READADDRESS.Status];
+
+
+            byte[] ba = new byte[4];
+            byte[] ba1 = new byte[2];
+            byte[] ba2 = new byte[2];
+
+            // 관리자화면 기기정보
+            QCDV.BmsInfo.Data22 = ((double)values[AVRIO.qcio.READADDRESS.BatterySOC - AVRIO.qcio.READADDRESS.Status] / (double)2).ToString("0.0");
+            QCDV.BmsInfo.Data23 = ((double)values[AVRIO.qcio.READADDRESS.TargetVolt - AVRIO.qcio.READADDRESS.Status] / (double)10).ToString("0.0");
+            QCDV.BmsInfo.Data24 = ((double)values[AVRIO.qcio.READADDRESS.TargetCurrent - AVRIO.qcio.READADDRESS.Status] / (double)10).ToString("0.0");
+            QCDV.BmsInfo.Data25 = ((double)values[AVRIO.qcio.READADDRESS.TargetPower - AVRIO.qcio.READADDRESS.Status] / (double)100).ToString("0.00");
+            QCDV.BmsInfo.Data26 = ((double)values[AVRIO.qcio.READADDRESS.BatteryVolt - AVRIO.qcio.READADDRESS.Status] / (double)10).ToString("0.0");
+            QCDV.BmsInfo.Data27 = ((double)((short)values[AVRIO.qcio.READADDRESS.BatteryCurrent - AVRIO.qcio.READADDRESS.Status]) / (double)10).ToString("0.0");
+
+            QCDV.BmsInfo.Data2 = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 0)) > 0) ? "READY" : "NOT READY");
+            QCDV.BmsInfo.Data3 = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 1)) > 0) ? "WARNING" : "NORMAL");
+            QCDV.BmsInfo.Data4 = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 2)) > 0) ? "FAULT" : "NORMAL");
+            QCDV.BmsInfo.Data5 = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 3)) > 0) ? "CLOSED" : "OPEN");
+            QCDV.BmsInfo.Data6 = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 6)) > 0) ? "DERATED" : "NORMAL");
+            QCDV.BmsInfo.Data7 = (((values[AVRIO.qcio.READADDRESS.Bms - AVRIO.qcio.READADDRESS.Status] & (1 << 7)) > 0) ? "FINISHED" : "NORMAL");
+
+            AVRIO.BMSINFO bi = new AVRIO.BMSINFO();
+
+            ba1 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.AnalogIo - AVRIO.qcio.READADDRESS.Status]);
+            ba2 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.AnalogIo - AVRIO.qcio.READADDRESS.Status + 1]);
+            ba[0] = ba1[0];
+            ba[1] = ba1[1];
+            ba[2] = ba2[0];
+            ba[3] = ba2[1];
+            AVRIO.avrio.BmsInfo.OutCurrent = (double)BitConverter.ToSingle(ba, 0);
+            QCDV.BmsInfo.Data21 = ((double)BitConverter.ToSingle(ba, 0)).ToString("0.0");
+
+            ba1 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.AnalogVo - AVRIO.qcio.READADDRESS.Status]);
+            ba2 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.AnalogVo - AVRIO.qcio.READADDRESS.Status + 1]);
+            ba[0] = ba1[0];
+            ba[1] = ba1[1];
+            ba[2] = ba2[0];
+            ba[3] = ba2[1];
+            AVRIO.avrio.BmsInfo.OutVolt = (double)BitConverter.ToSingle(ba, 0);
+            QCDV.BmsInfo.Data1 = ((double)BitConverter.ToSingle(ba, 0)).ToString("0.0");
+            //AVRIO.avrio.BmsInfo = bi;
+
+
+#if TEST
+            //QuickChargeDisplay.QCDV.Charging.RemainTime = (QuickChargeDisplay.QCDV.Charging.RemainTime + 2) % 50;
+#endif
+
+            //if (AVRIO.avrio.ChargeSOC != (double)val)
+            //{
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysRun)
+                {
+                    QuickChargeDisplay.QCDV.Charging.ChargingSoc = (double)val / 2;
+                    if(AVRIO.avrio.ChargeMode == (int)QuickChargeDisplay.ChargeMode.Soc)
+                    {
+                        if (QuickChargeDisplay.QCDV.Charging.ChargingSoc >= AVRIO.avrio.ChargeValue)
+                        {
+                            SendCommand = (int)AVRIO.TsCommand.TsFinish;
+                        }
+                    }
+                }
+                else
+                {
+                    QuickChargeDisplay.QCDV.ChargeMoney.ChargedSoc = (double)val / 2;
+                }
+                AVRIO.avrio.ChargeSOC = (double)val / (double)2;
+                //AVRIO.avrio.CurrentUnitPrice = (double)AVRIO.avrio.ChargeTestUnitPrice;
+                QuickChargeDisplay.QCDV.ChargeMoney.CurrentUnitPrice = AVRIO.avrio.CurrentUnitPrice;
+            //}
+
+            if ((AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysRun))
+            {
+                // remaind Time
+                byte[] byTemp2 = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.ChargingRemainMin - AVRIO.qcio.READADDRESS.Status]);
+                byTemp[0] = byTemp2[0];
+                byTemp[1] = byTemp2[1];
+                ushort val2 = BitConverter.ToUInt16(byTemp, 0);
+
+                QuickChargeDisplay.QCDV.Charging.RemainTime = val2;
+                AVRIO.avrio.ChargeRemainTime = val2;
+
+                double tempWatt = (double)((double)AVRIO.avrio.VaildWatt / (double)1000) - AVRIO.avrio.ChargeStartWatt;
+
+                if (tempWatt >= 0)
+                {
+                    AVRIO.avrio.ChargeWatt = tempWatt;
+                }
+
+                if (AVRIO.avrio.BillMethod == AVRIO.BILLMETHOD.Card)
+                {
+                    AVRIO.avrio.ChargePrice = 1000 + (int)((int)((AVRIO.avrio.ChargeWatt * AVRIO.avrio.CurrentUnitPrice) / 10) * 10);
+                }
+                else
+                {
+                    AVRIO.avrio.ChargePrice = (int)((int)((AVRIO.avrio.ChargeWatt * AVRIO.avrio.CurrentUnitPrice) / 10) * 10);
+                }
+                //(int)(AVRIO.avrio.ChargeWatt * AVRIO.avrio.CurrentUnitPrice);
+
+                if ((AVRIO.avrio.ChargeMode == (int)QuickChargeDisplay.ChargeMode.Money)
+                    && (AVRIO.avrio.ChargePrice >= AVRIO.avrio.ChargeValue))
+                {
+                    AVRIO.avrio.ChargePrice = AVRIO.avrio.ChargeValue;
+                    AVRIO.avrio.TsCommand = AVRIO.TsCommand.TsFinish;
+                }
+
+                if ((AVRIO.avrio.ChargeMode == (int)QuickChargeDisplay.ChargeMode.Watt)
+                    && (AVRIO.avrio.ChargeWatt >= AVRIO.avrio.ChargeValue))
+                {
+                    AVRIO.avrio.ChargeWatt = AVRIO.avrio.ChargeValue;
+                    AVRIO.avrio.TsCommand = AVRIO.TsCommand.TsFinish;
+                }
+
+                QuickChargeDisplay.QCDV.Charging.ChargingWatt = AVRIO.avrio.ChargeWatt;
+                QuickChargeDisplay.QCDV.Charging.ChargingMoney = AVRIO.avrio.ChargePrice;
+            }
+
+
+            byte[] bySwitch = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.Etc - AVRIO.qcio.READADDRESS.Status]);
+            int sw = (int)bySwitch[0];
+
+            if ((sw & (int)AVRIO.SwStatus.Run) > 0)
+            {
+                System.Diagnostics.Debug.WriteLine(">>>>>>>>시작버튼클릭");
+            }
+            if ((sw & (int)AVRIO.SwStatus.Stop) > 0)
+            {
+                System.Diagnostics.Debug.WriteLine(">>>>>>>>종료버튼클릭");
+            }
+
+            // 충전금액입력창에서 충전시작버튼을 누르면 SoC 80 즉, 만충전 된다.
+            //if (((sw & (int)AVRIO.SwStatus.Stop) > 0) && (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysConectionFinish))
+            if (((sw & (int)AVRIO.SwStatus.Run) > 0) && (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysConectionFinish))
+            {
+                System.Diagnostics.Debug.WriteLine("시작버튼");
+                if (QuickChargeDisplay.QCDV.ChargeMoney.ChargeValue == 0)
+                {
+                    AVRIO.avrio.ChargeMode = (int)QuickChargeDisplay.ChargeMode.Soc;
+                    AVRIO.avrio.ChargeValue = 80;
+                    System.Diagnostics.Debug.WriteLine("만충전시작");
+                }
+                else
+                {
+                    AVRIO.avrio.ChargeMode = (int)QuickChargeDisplay.QCDV.ChargeMoney.ChargeMode;
+                    AVRIO.avrio.ChargeValue = QuickChargeDisplay.QCDV.ChargeMoney.ChargeValue;
+                    System.Diagnostics.Debug.WriteLine(QuickChargeDisplay.QCDV.ChargeMoney.ChargeMode.ToString() + "(" + AVRIO.avrio.ChargeValue  + ")");
+                }
+                AVRIO.avrio.TsCommand = AVRIO.TsCommand.TsRun;
+                return;
+            }
+
+            if (((sw & (byte)AVRIO.SwStatus.Stop) > 0) && (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysRun))
+            {
+                System.Diagnostics.Debug.WriteLine("중지버튼");
+                AVRIO.avrio.TsCommand = AVRIO.TsCommand.TsFinish;
+                return;
+            }
+
+
+            if (currentStatus == values[AVRIO.qcio.READADDRESS.Status - AVRIO.qcio.READADDRESS.Status])
+            //if (AVRIO.avrio.CurrentStatus == (AVRIO.SysStatus)byStatus[0])
+            {
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysNone)
+                {
+                    currentStatus = 0;
+                }
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysRun && ((byStatus[0] & (int)AVRIO.SysStatus.SysFinish) > 0))
+                {
+                    currentStatus = 0;
+                }
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysRun && ((byStatus[0] & (int)AVRIO.SysStatus.SysStandby) > 0))
+                {
+                    currentStatus = 0;
+                }
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysRun && ((byStatus[0] & (int)AVRIO.SysStatus.SysReady) > 0))
+                {
+                    currentStatus = 0;
+                }
+                if ((AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysFault) && (false == AVRIO.avrio.IsFaultDialog))
+                {
+                    currentStatus = 0;
+                }
+                return;
+            }
+
+            // Fault처리
+            if ((values[0] & (ushort)AVRIO.SysStatus.SysFault) != 0)
+            {
+                currentStatus = values[0];
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysRun)
+                {
+                    AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysFinish;
+                    ChargeFinish();
+                }
+
+                if (!AVRIO.avrio.IsFaultDialog)
+                {
+                    ushort[] faultArray = new ushort[5];
+                    Array.Copy(values, (int)(AVRIO.qcio.READADDRESS.FaultMain - AVRIO.qcio.READADDRESS.Status), faultArray, 0, faultArray.Length);
+                    SetFaultLog(faultArray);
+                    AVRIO.avrio.RunMode = AVRIO.RunningMode.Fault;
+                    AVRIO.avrio.IsFaultDialog = true;
+                }
+                return;
+            }
+            else
+            {
+                currentStatus = values[0];
+                int st = byStatus[0];
+
+                switch (AVRIO.avrio.CurrentStatus)
+                {
+                    case AVRIO.SysStatus.SysConectionFinish:
+                        {
+                            int connect = byStatus[0] & (int)AVRIO.SysStatus.SysConectionFinish;
+                            // 커넥터가 분리되면
+                            if (connect == 0)
+                            {
+                                AVRIO.avrio.RunMode = AVRIO.RunningMode.Normal;
+                                AVRIO.avrio.TsCommand = AVRIO.TsCommand.TsReady;
+                                currentStatus = 0;
+                                //return;
+                            }
+
+                            // Standby
+                            else if ((st & (int)AVRIO.SysStatus.SysStandby) > 0)
+                            {
+                                AVRIO.avrio.RunMode = AVRIO.RunningMode.Normal;
+                                AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysStandby;
+                                AVRIO.avrio.SgCommand = AVRIO.SGCMD.ChargeCancel;
+                            }
+                            else if ((st & (int)AVRIO.SysStatus.SysRun) > 0)
+                            {
+                                AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysRun;
+                                System.Diagnostics.Debug.WriteLine("충전시작");
+                            }
+                            else if ((st & (int)AVRIO.SysStatus.SysReady) > 0)
+                            {
+                                AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysReady;
+                                System.Diagnostics.Debug.WriteLine("커넥터연결해제");
+                            }
+                        }
+                        break;
+                    case AVRIO.SysStatus.SysRun:
+                        {
+                            int status = st & (int)AVRIO.SysStatus.SysFinish;
+                            // 충전종료
+                            if (status > 0)
+                            {
+                                AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysFinish;
+                                ChargeFinish();
+                            }
+                            status = st & (int)AVRIO.SysStatus.SysStandby;
+                            // 충전종료
+                            if (status > 0)
+                            {
+                                AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysStandby;
+                            }
+                        }
+                        break;
+                    case AVRIO.SysStatus.SysFinish:
+                        {
+                            AVRIO.avrio.RunMode = AVRIO.RunningMode.Normal;
+                        }
+                        break;
+                    case AVRIO.SysStatus.SysStandby:
+                        {
+                            AVRIO.avrio.RunMode = AVRIO.RunningMode.Normal;
+                        }
+                        break;
+                    case AVRIO.SysStatus.SysReady:
+                        {
+                            AVRIO.avrio.RunMode = AVRIO.RunningMode.Normal;
+                        }
+                        break;
+                    default:
+                        {
+                        }
+                        break;
+                }
+
+                if (!((AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysConectionFinish) || (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysRun)))
+                {
+                    AVRIO.avrio.RunMode = AVRIO.RunningMode.Normal;
+                    //AVRIO.avrio.RunMode = AVRIO.RunningMode.Charging
+                }
+
+                System.Diagnostics.Debug.WriteLine(AVRIO.avrio.CurrentStatus);
+                System.Diagnostics.Debug.WriteLine(AVRIO.avrio.RunMode);
+            }
+        }
+
+        private void ReadQCNormalData(ushort[] values)
+        {
+            if (values[0] == 0) return;
+            if ((values[0] & (ushort)AVRIO.SysStatus.SysQcSel) == 0) return;
+
+            byte[] byStatus = BitConverter.GetBytes(values[AVRIO.qcio.READADDRESS.Status - AVRIO.qcio.READADDRESS.Status]);
+            int doorclose = values[AVRIO.qcio.READADDRESS.Etc - AVRIO.qcio.READADDRESS.Status] & (1 << (int)AVRIO.qcio.STMainBitOffSet.DoorClose);
+            if (doorclose > 0)
+            {
+                values[0] = (ushort)(values[0] | (1 << (int)AVRIO.qcio.STMainBitOffSet.HomeSw));
+            }
+
+#if TEST
+            // TEST
+            //QuickChargeDisplay.QCDV.Charging.ChargingMoney = (QuickChargeDisplay.QCDV.Charging.ChargingMoney + 1) % 1000;
+            //QuickChargeDisplay.QCDV.Charging.ChargingWatt = (QuickChargeDisplay.QCDV.Charging.ChargingWatt + 0.1) % 20;
+            //QuickChargeDisplay.QCDV.Charging.RemainTime = (QuickChargeDisplay.QCDV.Charging.RemainTime + 2) % 50;
+            //QuickChargeDisplay.QCDV.Charging.ChargingSoc = (QuickChargeDisplay.QCDV.Charging.ChargingSoc + 1) % 100;
+            
+            //AVRIO.avrio.VaildWatt = (AVRIO.avrio.VaildWatt + 10) % 50000;
+#endif
+
+            if (currentStatus == values[AVRIO.qcio.READADDRESS.Status - AVRIO.qcio.READADDRESS.Status])
+            //if (AVRIO.avrio.CurrentStatus == (AVRIO.SysStatus)byStatus[0])
+            {
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysNone)
+                {
+                    currentStatus = 0;
+                }
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysRun && ((byStatus[0] & (int)AVRIO.SysStatus.SysFinish) > 0 ))
+                {
+                    currentStatus = 0;
+                }
+                return;
+            }
+
+            // Fault처리
+            if((values[0] & (ushort)AVRIO.SysStatus.SysFault) != 0)
+            {
+                currentStatus = values[0];
+                if (!AVRIO.avrio.IsFaultDialog)
+                {
+                    ushort[] faultArray = new ushort[5];
+                    Array.Copy(values, (int)(AVRIO.qcio.READADDRESS.FaultMain - AVRIO.qcio.READADDRESS.Status), faultArray, 0, faultArray.Length);
+                    SetFaultLog(faultArray);
+                    AVRIO.avrio.RunMode = AVRIO.RunningMode.Fault;
+                    AVRIO.avrio.IsFaultDialog = true;
+                }
+                return;
+            }
+            else
+            {
+                currentStatus = values[0];
+
+                int homesw = values[0] & (1 << (int)AVRIO.qcio.STMainBitOffSet.HomeSw);
+
+                if ((AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysConnectionEject))
+                {
+                    int status = byStatus[0];
+                    if ((status & (int)AVRIO.SysStatus.SysStandby) > 0)
+                    {
+                        AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysStandby;
+                    }
+                    else if ((status & (int)AVRIO.SysStatus.SysRun) > 0)
+                    {
+                    }
+                    else if ((status & (int)AVRIO.SysStatus.SysFinish) > 0)
+                    {
+                    }
+                    else if ((status & (int)AVRIO.SysStatus.SysConectionFinish) > 0)
+                    {
+                    }
+                    else
+                    {
+                        if( status != 0 )
+                            AVRIO.avrio.CurrentStatus = (AVRIO.SysStatus)status;
+                    }
+                }
+                else if ((AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysFinish) && (homesw > 0))
+                {
+                    if (AVRIO.avrio.IsChargeCheck)
+                    {
+                        AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysConnectionEject;
+                        AVRIO.avrio.IsChargeCheck = false;
+                    }
+                }
+                else if ((AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysFinish) && (doorclose > 0))
+                {
+                    if (AVRIO.avrio.IsChargeCheck)
+                    {
+                        AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysConnectionEject;
+                        AVRIO.avrio.IsChargeCheck = false;
+                    }
+                }
+                else if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysFinish)
+                {
+                    int status = byStatus[0];
+                    if ((status & (int)AVRIO.SysStatus.SysRun) > 0)
+                    {
+                    }
+                    else if ((status & (int)AVRIO.SysStatus.SysConectionFinish) > 0)
+                    {
+                    }
+                    else
+                    {
+                        if (status != 0)
+                            AVRIO.avrio.CurrentStatus = (AVRIO.SysStatus)status;
+                    }
+                }
+                else if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysConectionFinish)
+                {
+                    int status = byStatus[0];
+                    if ((status & (int)AVRIO.SysStatus.SysReady) > 0)
+                    {
+                        AVRIO.avrio.CurrentStatus = AVRIO.SysStatus.SysReady;
+                    }
+                }
+                else
+                {
+                    int status = byStatus[0];
+                    if ((status & (int)AVRIO.SysStatus.SysRun) > 0)
+                    {
+                        AVRIO.avrio.CurrentStatus = (AVRIO.SysStatus)AVRIO.SysStatus.SysRun;
+                        AVRIO.avrio.RunMode = AVRIO.RunningMode.Charging;
+                        AVRIO.avrio.SgCommand = AVRIO.SGCMD.ChargeStart;
+                    }
+                    else if ((status & (int)AVRIO.SysStatus.SysStandby) > 0)
+                    {
+                        AVRIO.avrio.CurrentStatus = (AVRIO.SysStatus)AVRIO.SysStatus.SysStandby;
+                        AVRIO.avrio.SgCommand = AVRIO.SGCMD.ChargeCancel;
+                    }
+                    else
+                    {
+                        if (status != 0)
+                        {
+                            if (status != (int)AVRIO.avrio.CurrentStatus)
+                            {
+                                AVRIO.avrio.CurrentStatus = (AVRIO.SysStatus)status;
+                            }
+                        }
+                    }
+                }
+
+                if (AVRIO.avrio.LastCommand == AVRIO.TsCommand.TsReady && AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysReady)
+                {
+                    AVRIO.avrio.TsCommand = AVRIO.TsCommand.TsConnectionCheck;
+                }
+
+                if (AVRIO.avrio.CurrentStatus == AVRIO.SysStatus.SysConectionFinish)
+                {
+                    AVRIO.avrio.RunMode = AVRIO.RunningMode.Charging;
+                }
+                System.Diagnostics.Debug.WriteLine(AVRIO.avrio.CurrentStatus);
+                System.Diagnostics.Debug.WriteLine(AVRIO.avrio.RunMode);
+            }
+
+        }
+        #endregion
+
+        #region Open / Close Procedures
+        public bool Open(string portName, int baudRate, int databits, Parity parity, StopBits stopBits)
+        {
+            //Ensure port isn't already opened:
+            if (!sp.IsOpen)
+            {
+                //Assign desired settings to the serial port:
+                sp.PortName = portName;
+                sp.BaudRate = baudRate;
+                sp.DataBits = databits;
+                sp.Parity = parity;
+                sp.StopBits = stopBits;
+
+                sp.RtsEnable = false;
+                //These timeouts are default and cannot be editted through the class at this point:
+                sp.ReadTimeout = 1000;
+                sp.WriteTimeout = 1000;
+
+                try
+                {
+                    sp.Open();
+                }
+                catch (Exception err)
+                {
+                    modbusStatus = "Error opening " + portName + ": " + err.Message;
+                    return false;
+                }
+                modbusStatus = portName + " opened successfully";
+                return true;
+            }
+            else
+            {
+                modbusStatus = portName + " already opened";
+                return false;
+            }
+        }
+
+        public bool Close()
+        {
+            //Ensure port is opened before attempting to close:
+            if (sp.IsOpen)
+            {
+                try
+                {
+                    sp.Close();
+                }
+                catch (Exception err)
+                {
+                    modbusStatus = "Error closing " + sp.PortName + ": " + err.Message;
+                    return false;
+                }
+                modbusStatus = sp.PortName + " closed successfully";
+                return true;
+            }
+            else
+            {
+                modbusStatus = sp.PortName + " is not open";
+                return false;
+            }
+        }
+        #endregion
+
+        #region CRC Computation
+        private void GetCRC(byte[] message, ref byte[] CRC)
+        {
+            //Function expects a modbus message of any length as well as a 2 byte CRC array in which to 
+            //return the CRC values:
+
+            ushort CRCFull = 0xFFFF;
+            byte CRCHigh = 0xFF, CRCLow = 0xFF;
+            char CRCLSB;
+
+            for (int i = 0; i < (message.Length) - 2; i++)
+            {
+                CRCFull = (ushort)(CRCFull ^ message[i]);
+
+                for (int j = 0; j < 8; j++)
+                {
+                    CRCLSB = (char)(CRCFull & 0x0001);
+                    CRCFull = (ushort)((CRCFull >> 1) & 0x7FFF);
+
+                    if (CRCLSB == 1)
+                        CRCFull = (ushort)(CRCFull ^ 0xA001);
+                }
+            }
+            CRC[1] = CRCHigh = (byte)((CRCFull >> 8) & 0xFF);
+            CRC[0] = CRCLow = (byte)(CRCFull & 0xFF);
+        }
+        #endregion
+
+        #region Build Message
+        private void BuildMessage(byte address, byte type, ushort start, ushort registers, ref byte[] message)
+        {
+            //Array to receive CRC bytes:
+            byte[] CRC = new byte[2];
+
+            message[0] = address;
+            message[1] = type;
+            message[2] = (byte)(start >> 8);
+            message[3] = (byte)start;
+            message[4] = (byte)(registers >> 8);
+            message[5] = (byte)registers;
+
+            GetCRC(message, ref CRC);
+            message[message.Length - 2] = CRC[0];
+            message[message.Length - 1] = CRC[1];
+        }
+        #endregion
+
+        #region Check Response
+        private bool CheckResponse(byte[] response)
+        {
+            //Perform a basic CRC check:
+            byte[] CRC = new byte[2];
+            GetCRC(response, ref CRC);
+//#if DEBUG
+            return true;
+//#endif
+            if (CRC[0] == response[response.Length - 2] && CRC[1] == response[response.Length - 1])
+                return true;
+            else
+                return false;
+        }
+        #endregion
+
+        #region Get Response
+        private void GetResponse(ref byte[] response)
+        {
+            //There is a bug in .Net 2.0 DataReceived Event that prevents people from using this
+            //event as an interrupt to handle data (it doesn't fire all of the time).  Therefore
+            //we have to use the ReadByte command for a fixed length as it's been shown to be reliable.
+            for (int i = 0; i < response.Length; i++)
+            {
+                response[i] = (byte)(sp.ReadByte());
+            }
+        }
+        #endregion
+
+        #region Function 16 - Write Multiple Registers
+        public bool SendFc16(byte address, ushort start, ushort registers, ushort[] values)
+        {
+            //Ensure port is open:
+            if (sp.IsOpen)
+            {
+                Monitor.Enter(ModbusQC.obj);
+
+                //Clear in/out buffers:
+                sp.DiscardOutBuffer();
+                sp.DiscardInBuffer();
+                //Message is 1 addr + 1 fcn + 2 start + 2 reg + 1 count + 2 * reg vals + 2 CRC
+                byte[] message = new byte[9 + 2 * registers];
+                //Function 16 response is fixed at 8 bytes
+                byte[] response = new byte[8];
+
+                //Add bytecount to message:
+                message[6] = (byte)(registers * 2);
+                //Put write values into message prior to sending:
+                for (int i = 0; i < registers; i++)
+                {
+                    message[7 + 2 * i] = (byte)(values[i] >> 8);
+                    message[8 + 2 * i] = (byte)(values[i]);
+                }
+                //Build outgoing message:
+                BuildMessage(address, (byte)16, start, registers, ref message);
+
+                //Send Modbus message to Serial Port:
+                try
+                {
+                    int i;
+                    sp.RtsEnable = true;
+
+                    //wait 350us for문 8개가 350us 정도 딜레이 역할을 함.
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+
+                    sp.Write(message, 0, message.Length);
+
+                    //wait 350us for문 8개가 350us 정도 딜레이 역할을 함.
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+
+                    sp.RtsEnable = false;
+
+                    //wait 350us for문 8개가 350us 정도 딜레이 역할을 함.
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+
+#if DOEVENT
+                currentId = address;
+                startAddress = start;
+                modbusCommand = 16;
+                return true;
+#else
+                    GetResponse(ref response);
+
+                    //Evaluate message:
+                    if (CheckResponse(response))
+                    {
+                        modbusStatus = "Write successful";
+                        return true;
+                    }
+                    else
+                    {
+                        modbusStatus = "CRC error";
+                        return false;
+                    }
+#endif
+                }
+                catch (Exception err)
+                {
+                    modbusStatus = "Error in write event: " + err.Message;
+                    return false;
+                }
+                finally
+                {
+                    Monitor.Exit(ModbusQC.obj);
+                }
+
+            }
+            else
+            {
+                modbusStatus = "Serial port not open";
+                return false;
+            }
+        }
+        #endregion
+
+        #region Function 4 - Read Registers
+        public bool SendFc4(byte address, ushort start, ushort registers, ref ushort[] values)
+        {
+            //Ensure port is open:
+            if (sp.IsOpen)
+            {
+                lock(this)
+                {
+                //Monitor.Enter(Modbus.obj);
+
+                //Clear in/out buffers:
+                sp.DiscardOutBuffer();
+                sp.DiscardInBuffer();
+                //Function 3 request is always 8 bytes:
+                byte[] message = new byte[8];
+                //Function 3 response buffer:
+                byte[] response = new byte[5 + 2 * registers];
+                //Build outgoing modbus message:
+                BuildMessage(address, (byte)4, start, registers, ref message);
+                //Send modbus message to Serial Port:
+
+                try
+                {
+                    int i;
+#if AMIEVENT
+                    if (address == amiid)
+                    {
+                        currentId = amiid;
+                        sp.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
+                    }
+#endif
+
+                    sp.RtsEnable = true;
+
+                    //wait 350us for문 8개가 350us 정도 딜레이 역할을 함.
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+
+                    sp.Write(message, 0, message.Length);
+
+                    //wait 350us for문 8개가 350us 정도 딜레이 역할을 함.
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+
+                    sp.RtsEnable = false;
+
+                    //wait 350us for문 8개가 350us 정도 딜레이 역할을 함.
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+                    //for (i = 0; i < 0xffff; i++) ;
+
+#if DOEVENT
+                    currentId = address;
+                startAddress = start;
+                modbusCommand = 4;
+
+                return true;
+#else
+                    //Thread recvThread = new Thread();
+                    GetResponse(ref response);
+
+                    //Evaluate message:
+                    if (CheckResponse(response))
+                    {
+                        //Return requested register values:
+                        for (int j = 0; j < (response.Length - 5) / 2; j++)
+                        {
+                            values[j] = response[2 * j + 3];
+                            values[j] <<= 8;
+                            values[j] += response[2 * j + 4];
+                        }
+                        modbusStatus = "Read successful";
+                        return true;
+                    }
+                    else
+                    {
+                        modbusStatus = "CRC error";
+                        return false;
+                    }
+#endif
+                }
+                catch (Exception err)
+                {
+                    modbusStatus = "Error in read event: " + err.Message;
+                    //System.Diagnostics.Debug.WriteLine("(" + pollCount + ")" + modbusStatus);
+                    
+                    return false;
+                }
+                finally
+                {
+                    //Monitor.Exit(Modbus.obj);
+                }
+
+                } // lock
+            }
+            else
+            {
+                modbusStatus = "Serial port not open";
+                return false;
+            }
+
+        }
+        #endregion
+
+        #region 변환함수
+
+        /// <summary> Convert a string of hex digits (ex: E4 CA B2) to a byte array. </summary>
+        /// <param name="s"> The string containing the hex digits (with or without spaces). </param>
+        /// <returns> Returns an array of bytes. </returns>
+        private byte[] HexStringToByteArray(string s)
+        {
+            s = s.Replace(" ", "");
+            byte[] buffer = new byte[s.Length / 2];
+            for (int i = 0; i < s.Length; i += 2)
+                buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
+            return buffer;
+        }
+
+        /// <summary> Converts an array of bytes into a formatted string of hex digits (ex: E4 CA B2)</summary>
+        /// <param name="data"> The array of bytes to be translated into a string of hex digits. </param>
+        /// <returns> Returns a well formatted string of hex digits with spacing. </returns>
+        private string ByteArrayToHexString(byte[] data)
+        {
+            StringBuilder sb = new StringBuilder(data.Length * 3);
+            foreach (byte b in data)
+                sb.Append(Convert.ToString(b, 16).PadLeft(2, '0').PadRight(3, ' '));
+
+            return sb.ToString().ToUpper();
+        }
+        #endregion
+    }
+}

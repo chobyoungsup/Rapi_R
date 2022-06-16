@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/QuickCharge/!svn/ver/340/trunk/CSOS
+END
+CSOS.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/QuickCharge/!svn/ver/330/trunk/CSOS/CSOS.csproj
+END
+KDNNet.cs
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/QuickCharge/!svn/ver/340/trunk/CSOS/KDNNet.cs
+END
+SNONet.cs
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/QuickCharge/!svn/ver/340/trunk/CSOS/SNONet.cs
+END
+csos.cs
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/QuickCharge/!svn/ver/340/trunk/CSOS/csos.cs
+END

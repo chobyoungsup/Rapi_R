@@ -1,0 +1,98 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace AVRIO
+{
+    /// <summary>
+    /// 완속장비 IO 정의
+    /// </summary>
+    public class csio
+    {
+        private ushort readRegisters = 16;
+        private ushort totalReadRegisters = 16;
+
+        public ushort ReadRegisters
+        {
+            get { return readRegisters; }
+            set { readRegisters = value; }
+        }
+
+        private ushort status;
+        private ushort rev_status;
+        private ushort fault;
+        private ushort sw;      // switch 
+        private static bool lockMode = false;
+
+        public static bool LockMode
+        {
+            get { return csio.lockMode; }
+            set { csio.lockMode = value; }
+        }
+        private ushort[] rd_analog = new ushort[3];
+        private ushort[] chargerdata = new ushort[3];
+
+        public enum READADDRESS { status = 400, fault = 402, sw = 403, analog_pay = 404, analog_watt = 406, analog_cost = 408, ver = 410, volt = 412, current = 414 };
+
+        enum STMainBitOffSet
+        {
+            SysStandby = 0,
+            SysReady = 1,
+            SysConnectionFinish = 2,
+            SysRun = 3,
+            SysFinish = 5,
+            SysFault = 6,
+            SysReset = 7,
+            ForceGo = 8,
+            ChargeMode = 9,
+            SysMode = 10,           // Auto/Man
+            HomeSw = 11,
+            CsQc = 15
+        };
+
+        private ushort writeRegisters = 8;
+        private ushort writeAnalogRegisters = 6;
+
+        public ushort WriteAnalogRegisters
+        {
+            get { return writeAnalogRegisters; }
+            set { writeAnalogRegisters = value; }
+        }
+
+        public ushort WriteRegisters
+        {
+            get { return writeRegisters; }
+            set { writeRegisters = value; }
+        }
+        private ushort command;
+        private ushort rev_command;
+        private ushort[] wr_analog = new ushort[3];
+
+        public enum WRITEADDRESS { command = 200, comlock = 201, analog_pay = 202, analog_watt = 204, analog_cost = 206 };
+
+        public enum CMDMainBitOffset
+        {
+            TsStanby = 0,
+            TsReady = 1,
+            TsConnectionCheck = 2,
+            TsRun = 3,
+            Tspause = 4,
+            TsFinish = 5,
+            TsFault = 6,
+            TsResetFault = 7,
+            ComLock = 0,
+            DoorLamp = 1,
+            WindowLamp = 2,
+            FND1_Bling = 3,
+            FND2_Bling = 4,
+            FND3_Bling = 5,
+        };
+
+        public csio()
+        {
+        }
+
+
+    }
+}

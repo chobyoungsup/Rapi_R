@@ -1,0 +1,140 @@
+﻿<Page x:Class="QuickChargeDisplay.SetupPowerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Loaded="Page_Loaded"
+    Title="SetupPowerPage" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="480" d:DesignWidth="800">
+
+    <Page.Background>
+        <ImageBrush ImageSource="image\10_관리자화면\관리자기본배경.png" />
+    </Page.Background>
+    <Canvas x:Name="Compulsion">
+        <Image x:Name="logOut" MouseDown="logOut_MouseDown" Source="image/20191018_Add/back_12955.png" Canvas.Left="719" Canvas.Top="386.348" Width="50" Height="59.47"/>
+        <Rectangle x:Name="Rectime1" Height="38.806" Canvas.Left="83" Canvas.Top="128" Width="58.582"/>
+        <TextBox x:Name="time_0_0" Height="38.806" Canvas.Left="83" TextWrapping="Wrap" Text="22" Canvas.Top="128" Width="58.582" FontSize="22" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy" Height="38.806" Canvas.Left="173" Canvas.Top="128" Width="58.582"/>
+        <TextBox x:Name="time_0_1" Height="38.806" Canvas.Left="173" TextWrapping="Wrap" Text="00" Canvas.Top="128" Width="58.582" FontSize="22" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy1" Height="38.806" Canvas.Left="286" Canvas.Top="128" Width="58.582"/>
+        <TextBox x:Name="time_0_2" Height="38.806" Canvas.Left="286" TextWrapping="Wrap" Text="10" Canvas.Top="128" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy2" Height="38.806" Canvas.Left="379" Canvas.Top="128" Width="58.582"/>
+        <TextBox x:Name="time_0_3" Height="38.806" Canvas.Left="379" TextWrapping="Wrap" Text="00" Canvas.Top="128" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy3" Height="38.806" Canvas.Left="489" Canvas.Top="128" Width="58.582"/>
+        <TextBox x:Name="time_0_4" Height="38.806" Canvas.Left="489" TextWrapping="Wrap" Text="28" Canvas.Top="128" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy4" Height="38.806" Canvas.Left="83" Canvas.Top="175" Width="58.582"/>
+        <TextBox x:Name="time_1_0" Height="38.806" Canvas.Left="83" TextWrapping="Wrap" Text="10" Canvas.Top="175" Width="58.582" FontSize="22" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy5" Height="38.806" Canvas.Left="173" Canvas.Top="175" Width="58.582"/>
+        <TextBox x:Name="time_1_1" Height="38.806" Canvas.Left="173" TextWrapping="Wrap" Text="00" Canvas.Top="175" Width="58.582" FontSize="22" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy6" Height="38.806" Canvas.Left="286" Canvas.Top="175" Width="58.582"/>
+        <TextBox x:Name="time_1_2" Height="38.806" Canvas.Left="286" TextWrapping="Wrap" Text="14" Canvas.Top="175" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy7" Height="38.806" Canvas.Left="379" Canvas.Top="175" Width="58.582"/>
+        <TextBox x:Name="time_1_3" Height="38.806" Canvas.Left="379" TextWrapping="Wrap" Text="00" Canvas.Top="175" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy8" Height="38.806" Canvas.Left="489" Canvas.Top="175" Width="58.582"/>
+        <TextBox x:Name="time_1_4" Height="38.806" Canvas.Left="489" TextWrapping="Wrap" Text="20" Canvas.Top="175" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy9" Height="38.806" Canvas.Left="83" Canvas.Top="222" Width="58.582"/>
+        <TextBox x:Name="time_2_0" Height="38.806" Canvas.Left="83" TextWrapping="Wrap" Text="14" Canvas.Top="222" Width="58.582" FontSize="22" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy10" Height="38.806" Canvas.Left="173" Canvas.Top="222" Width="58.582"/>
+        <TextBox x:Name="time_2_1" Height="38.806" Canvas.Left="173" TextWrapping="Wrap" Text="00" Canvas.Top="222" Width="58.582" FontSize="22" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy11" Height="38.806" Canvas.Left="286" Canvas.Top="222" Width="58.582"/>
+        <TextBox x:Name="time_2_2" Height="38.806" Canvas.Left="286" TextWrapping="Wrap" Text="18" Canvas.Top="222" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy12" Height="38.806" Canvas.Left="379" Canvas.Top="222" Width="58.582"/>
+        <TextBox x:Name="time_2_3" Height="38.806" Canvas.Left="379" TextWrapping="Wrap" Text="30" Canvas.Top="222" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy13" Height="38.806" Canvas.Left="489" Canvas.Top="222" Width="58.582"/>
+        <TextBox x:Name="time_2_4" Height="38.806" Canvas.Left="489" TextWrapping="Wrap" Text="10" Canvas.Top="222" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy14" Height="38.806" Canvas.Left="83" Canvas.Top="268" Width="58.582"/>
+        <TextBox x:Name="time_3_0" Height="38.806" Canvas.Left="83" TextWrapping="Wrap" Text="18" Canvas.Top="268" Width="58.582" FontSize="22" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy15" Height="38.806" Canvas.Left="173" Canvas.Top="268" Width="58.582"/>
+        <TextBox x:Name="time_3_1" Height="38.806" Canvas.Left="173" TextWrapping="Wrap" Text="30" Canvas.Top="268" Width="58.582" FontSize="22" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy16" Height="38.806" Canvas.Left="286" Canvas.Top="268" Width="58.582"/>
+        <TextBox x:Name="time_3_2" Height="38.806" Canvas.Left="286" TextWrapping="Wrap" Text="21" Canvas.Top="268" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy17" Height="38.806" Canvas.Left="379" Canvas.Top="268" Width="58.582"/>
+        <TextBox x:Name="time_3_3" Height="38.806" Canvas.Left="379" TextWrapping="Wrap" Text="30" Canvas.Top="268" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy18" Height="38.806" Canvas.Left="489" Canvas.Top="268" Width="58.582"/>
+        <TextBox x:Name="time_3_4" Height="38.806" Canvas.Left="489" TextWrapping="Wrap" Text="20" Canvas.Top="268" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy19" Height="38.806" Canvas.Left="83" Canvas.Top="312" Width="58.582"/>
+        <TextBox x:Name="time_4_0" Height="38.806" Canvas.Left="83" TextWrapping="Wrap" Text="21" Canvas.Top="312" Width="58.582" FontSize="22" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy20" Height="38.806" Canvas.Left="173" Canvas.Top="312" Width="58.582"/>
+        <TextBox x:Name="time_4_1" Height="38.806" Canvas.Left="173" TextWrapping="Wrap" Text="30" Canvas.Top="312" Width="58.582" FontSize="22" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy21" Height="38.806" Canvas.Left="286" Canvas.Top="312" Width="58.582"/>
+        <TextBox x:Name="time_4_2" Height="38.806" Canvas.Left="286" TextWrapping="Wrap" Text="22" Canvas.Top="312" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy22" Height="38.806" Canvas.Left="379" Canvas.Top="312" Width="58.582"/>
+        <TextBox x:Name="time_4_3" Height="38.806" Canvas.Left="379" TextWrapping="Wrap" Text="00" Canvas.Top="312" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Rectangle x:Name="Rectime1_Copy23" Height="38.806" Canvas.Left="489" Canvas.Top="312" Width="58.582"/>
+        <TextBox x:Name="time_4_4" Height="38.806" Canvas.Left="489" TextWrapping="Wrap" Text="20" Canvas.Top="312" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" />
+        <Label Canvas.Left="55" Canvas.Top="126" Content="1:" Height="45" Name="label1" Width="24" Foreground="#FFF8EFEF" FontSize="22" />
+        <Label Canvas.Left="55" Canvas.Top="173" Content="2:" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label2" Width="24" />
+        <Label Canvas.Left="55" Canvas.Top="220" Content="3:" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label3" Width="24" />
+        <Label Canvas.Left="55" Canvas.Top="266" Content="4:" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label4" Width="24" />
+        <Label Canvas.Left="55" Canvas.Top="310" Content="5:" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label5" Width="24" />
+        <Label Canvas.Left="150" Canvas.Top="126" Content=":" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label6" Width="18" />
+        <Label Canvas.Left="150" Canvas.Top="173" Content=":" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label7" Width="18" />
+        <Label Canvas.Left="150" Canvas.Top="216" Content=":" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label8" Width="18" />
+        <Label Canvas.Left="150" Canvas.Top="266" Content=":" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label9" Width="18" />
+        <Label Canvas.Left="150" Canvas.Top="305" Content=":" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label10" Width="18" />
+        <Label Canvas.Left="248" Canvas.Top="128" Content="~" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label11" Width="28" />
+        <Label Canvas.Left="355" Canvas.Top="173" Content=":" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label12" Width="18" />
+        <Label Canvas.Left="355" Canvas.Top="216" Content=":" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label13" Width="18" />
+        <Label Canvas.Left="355" Canvas.Top="266" Content=":" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label14" Width="18" />
+        <Label Canvas.Left="355" Canvas.Top="305" Content=":" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label15" Width="18" />
+        <Label Canvas.Left="248" Canvas.Top="173" Content="~" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label16" Width="28" />
+        <Label Canvas.Left="248" Canvas.Top="224" Content="~" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label17" Width="28" />
+        <Label Canvas.Left="248" Canvas.Top="262" Content="~" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label18" Width="28" />
+        <Label Canvas.Left="248" Canvas.Top="305" Content="~" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label19" Width="28" />
+        <Label Canvas.Left="355" Canvas.Top="126" Content=":" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label20" Width="18" />
+        <Label Canvas.Left="551" Canvas.Top="125" Content="kW" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label21" Width="48" />
+        <Label Canvas.Left="551" Canvas.Top="173" Content="kW" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label22" Width="48" />
+        <Label Canvas.Left="551" Canvas.Top="221" Content="kW" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label23" Width="48" />
+        <Label Canvas.Left="551" Canvas.Top="266" Content="kW" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label24" Width="48" />
+        <Label Canvas.Left="551" Canvas.Top="309" Content="kW" FontSize="22" Foreground="#FFF8EFEF" Height="45" Name="label25" Width="48" />
+        <Button Canvas.Left="469.6" Canvas.Top="386.4" Content="Confirm" Height="60.7" Name="button2" Width="155.4" Click="button2_Click" FontSize="20" Foreground="Black" ForceCursor="True" FontWeight="Normal" />
+        <Rectangle Canvas.Left="83" Canvas.Top="127" Fill="Transparent" Height="39" Name="Rectime_0_0" Panel.ZIndex="2" Width="59" MouseDown="Rectime_0_0_MouseDown" />
+        <Rectangle Canvas.Left="173" Canvas.Top="127" Fill="Transparent" Height="39" Name="Rectime_0_1" Panel.ZIndex="2" Width="59" MouseDown="Rectime_0_1_MouseDown" />
+        <Rectangle Canvas.Left="286" Canvas.Top="127" Fill="Transparent" Height="39" Name="Rectime_0_2" Panel.ZIndex="2" Width="59" MouseDown="Rectime_0_2_MouseDown" />
+        <Rectangle Canvas.Left="379" Canvas.Top="127" Fill="Transparent" Height="39" Name="Rectime_0_3" Panel.ZIndex="2" Width="59" MouseDown="Rectime_0_3_MouseDown" />
+        <Rectangle Canvas.Left="489" Canvas.Top="127" Fill="Transparent" Height="39" Name="Rectime_0_4" Panel.ZIndex="2" Width="59" MouseDown="Rectime_0_4_MouseDown" />
+        <Rectangle Canvas.Left="83" Canvas.Top="174" Fill="Transparent" Height="39" Name="Rectime_1_0" Panel.ZIndex="2" Width="59" MouseDown="Rectime_1_0_MouseDown" />
+        <Rectangle Canvas.Left="173" Canvas.Top="174" Fill="Transparent" Height="39" Name="Rectime_1_1" Panel.ZIndex="2" Width="59" MouseDown="Rectime_1_1_MouseDown" />
+        <Rectangle Canvas.Left="286" Canvas.Top="174" Fill="Transparent" Height="39" Name="Rectime_1_2" Panel.ZIndex="2" Width="59" MouseDown="Rectime_1_2_MouseDown" />
+        <Rectangle Canvas.Left="379" Canvas.Top="174" Fill="Transparent" Height="39" Name="Rectime_1_3" Panel.ZIndex="2" Width="59" MouseDown="Rectime_1_3_MouseDown" />
+        <Rectangle Canvas.Left="489" Canvas.Top="174" Fill="Transparent" Height="39" Name="Rectime_1_4" Panel.ZIndex="2" Width="59" MouseDown="Rectime_1_4_MouseDown" />
+        <Rectangle Canvas.Left="83" Canvas.Top="220" Fill="Transparent" Height="39" Name="Rectime_2_0" Panel.ZIndex="2" Width="59" MouseDown="Rectime_2_0_MouseDown" />
+        <Rectangle Canvas.Left="173" Canvas.Top="221" Fill="Transparent" Height="39" Name="Rectime_2_1" Panel.ZIndex="2" Width="59" MouseDown="Rectime_2_1_MouseDown" />
+        <Rectangle Canvas.Left="286" Canvas.Top="221" Fill="Transparent" Height="39" Name="Rectime_2_2" Panel.ZIndex="2" Width="59" MouseDown="Rectime_2_2_MouseDown" />
+        <Rectangle Canvas.Left="379" Canvas.Top="221" Fill="Transparent" Height="39" Name="Rectime_2_3" Panel.ZIndex="2" Width="59" MouseDown="Rectime_2_3_MouseDown" />
+        <Rectangle Canvas.Left="489" Canvas.Top="220" Fill="Transparent" Height="39" Name="Rectime_2_4" Panel.ZIndex="2" Width="59" MouseDown="Rectime_2_4_MouseDown" />
+        <Rectangle Canvas.Left="83" Canvas.Top="268" Fill="Transparent" Height="39" Name="Rectime_3_0" Panel.ZIndex="2" Width="59" MouseDown="Rectime_3_0_MouseDown" />
+        <Rectangle Canvas.Left="173" Canvas.Top="267" Fill="Transparent" Height="39" Name="Rectime_3_1" Panel.ZIndex="2" Width="59" MouseDown="Rectime_3_1_MouseDown" />
+        <Rectangle Canvas.Left="286" Canvas.Top="267" Fill="Transparent" Height="39" Name="Rectime_3_2" Panel.ZIndex="2" Width="59" MouseDown="Rectime_3_2_MouseDown" />
+        <Rectangle Canvas.Left="379" Canvas.Top="267" Fill="Transparent" Height="39" Name="Rectime_3_3" Panel.ZIndex="2" Width="59" MouseDown="Rectime_3_3_MouseDown" />
+        <Rectangle Canvas.Left="489" Canvas.Top="268" Fill="Transparent" Height="39" Name="Rectime_3_4" Panel.ZIndex="2" Width="59" MouseDown="Rectime_3_4_MouseDown" />
+        <Rectangle Canvas.Left="83" Canvas.Top="312" Fill="Transparent" Height="39" Name="Rectime_4_0" Panel.ZIndex="2" Width="59" MouseDown="Rectime_4_0_MouseDown" />
+        <Rectangle Canvas.Left="173" Canvas.Top="312" Fill="Transparent" Height="39" Name="Rectime_4_1" Panel.ZIndex="2" Width="59" MouseDown="Rectime_4_1_MouseDown" />
+        <Rectangle Canvas.Left="286" Canvas.Top="312" Fill="Transparent" Height="39" Name="Rectime_4_2" Panel.ZIndex="2" Width="59" MouseDown="Rectime_4_2_MouseDown" />
+        <Rectangle Canvas.Left="379" Canvas.Top="312" Fill="Transparent" Height="39" Name="Rectime_4_3" Panel.ZIndex="2" Width="59" MouseDown="Rectime_4_3_MouseDown" />
+        <Rectangle Canvas.Left="489" Canvas.Top="312" Fill="Transparent" Height="39" Name="Rectime_4_4" Panel.ZIndex="2" Width="59" MouseDown="Rectime_4_4_MouseDown" />
+        <Image Canvas.Left="241" Canvas.Top="0" Height="80" Name="CahrgeHistory" Source="image\10_관리자화면\아이콘/충전이력.png" Width="79" MouseDown="CahrgeHistory_MouseDown" />
+        <Image Canvas.Left="318" Canvas.Top="0" Height="80" Name="TroubleHistory" Source="image\10_관리자화면\아이콘/에러이력.png" Width="79" MouseDown="TroubleHistory_MouseDown" />
+        <Image Canvas.Left="397" Canvas.Top="0" Height="80" Name="PassWord" Source="image\10_관리자화면\아이콘/패스워드.png" Width="79" MouseDown="PassWord_MouseDown" />
+        <Image Canvas.Left="720" Canvas.Top="1" Height="80" Name="LogSampling" Source="image\10_관리자화면\아이콘/로그추출.png" Width="79" MouseDown="LogSampling_MouseDown" />
+        <Image Canvas.Left="562" Canvas.Top="1" Height="78" Name="SetupMaxium" Source="image\10_관리자화면\아이콘/최대전류설정.png" Width="77" MouseDown="SetupMaxium_MouseDown" />
+        <Image Canvas.Left="0" Canvas.Top="1" Height="80" Name="TroubleDetails" Source="image/RAPIDAS-R_Monitor/07/관리설정.png" Width="78" MouseDown="TroubleDetails_MouseDown" />
+        <Image Canvas.Left="79" Canvas.Top="0" Height="80" Name="AdjustUnitPrice" RenderTransformOrigin="0.5,0.5" Source="image/RAPIDAS-R_Monitor/07/일시정지.png" Width="82" MouseDown="AdjustUnitPrice_MouseDown" />
+        <Image Canvas.Left="161" Canvas.Top="0" Height="80" Name="PowerMeter" Source="image\10_관리자화면\아이콘/언어설정.png" Width="83" MouseDown="PowerMeter_MouseDown" />
+        <Image Canvas.Left="639" Canvas.Top="1" Height="80" Name="EquipmentInfo" Source="image\10_관리자화면\아이콘/강제충전.png" Width="80" MouseDown="EquipmentInfo_MouseDown" />
+        <Label Canvas.Left="0" Canvas.Top="54" Content="管理設定" Height="27" Name="Langanglab1" Width="78" Foreground="#FFF2E9E9" ForceCursor="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="720" Canvas.Top="55" Content="Log抽出" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab2" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="79" Canvas.Top="54" Content="時間の設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab3" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="161" Canvas.Top="54" Content="言語設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab4" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="242" Canvas.Top="54" Content="充電履歴" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab5" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="319" Canvas.Top="53" Content="エラー履歴" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab6" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="398" Canvas.Top="54" Content="パスワード" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab7" Width="78" VerticalContentAlignment="Bottom" />
+        <Label Canvas.Left="478" Canvas.Top="54" Content="受電電力設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab8" VerticalContentAlignment="Bottom" Width="81" />
+        <Label Canvas.Left="562" Canvas.Top="54" Content="電流設定" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab9" VerticalContentAlignment="Bottom" Width="78" />
+        <Label Canvas.Left="640" Canvas.Top="55" Content="Manual" ForceCursor="False" Foreground="#FFF2E9E9" Height="27" HorizontalContentAlignment="Center" Name="Langanglab10" VerticalContentAlignment="Bottom" Width="78" />
+        <Image Canvas.Left="562" Canvas.Top="-1" Height="81" Name="Imgmanu" Source="/QuickChargeDisplay;component/image/10_관리자화면/Imgmanu.png" Width="238" VerticalAlignment="Top" StretchDirection="Both" />
+        <Image Canvas.Left="60.2" Canvas.Top="407.3" Height="34" Name="ImgGrid" Source="/QuickChargeDisplay;component/image/CheckFalse.png" Stretch="Fill" Width="38" MouseDown="ImgGrid_MouseDown" />
+        <Label Canvas.Left="104" Canvas.Top="401.7" Content="OnlyGrid" FontSize="24" Foreground="#FFF2E9E9" Height="44" Name="label26" Width="140" />
+        <Label Canvas.Left="230" Canvas.Top="397" Content="Battery Charge &#xd;Start SOC" FontSize="18" Foreground="#FFF2E9E9" Height="55" x:Name="label26_Copy" Width="144" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        <TextBox x:Name="txtSocSet" Height="40.503" Canvas.Left="380" TextWrapping="Wrap" Text="0" Canvas.Top="404.9" Width="58.582" FontSize="22" RenderTransformOrigin="1.683,0.448" TextAlignment="Center" Background="{x:Null}" Foreground="#FFF8EFEF" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Rectangle Canvas.Left="379.3" Canvas.Top="405" Fill="Transparent" Height="39" x:Name="Rectime_3_3_Copy" Panel.ZIndex="2" Width="59" MouseDown="SetSOC_MouseDown" />
+    </Canvas>
+
+</Page>

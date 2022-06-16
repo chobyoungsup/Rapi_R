@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/QuickCharge/!svn/ver/221/trunk/QuickChargeDisplay/Converter
+END
+SocPercentConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/QuickCharge/!svn/ver/48/trunk/QuickChargeDisplay/Converter/SocPercentConverter.cs
+END
+CurrentTimeTwoUnitPrice.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/QuickCharge/!svn/ver/190/trunk/QuickChargeDisplay/Converter/CurrentTimeTwoUnitPrice.cs
+END
+DoublePrecisionConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/QuickCharge/!svn/ver/145/trunk/QuickChargeDisplay/Converter/DoublePrecisionConverter.cs
+END
+SocPercentToRotationConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/QuickCharge/!svn/ver/46/trunk/QuickChargeDisplay/Converter/SocPercentToRotationConverter.cs
+END
+FaultColorConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/QuickCharge/!svn/ver/221/trunk/QuickChargeDisplay/Converter/FaultColorConverter.cs
+END
+UnitPriceConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/QuickCharge/!svn/ver/44/trunk/QuickChargeDisplay/Converter/UnitPriceConverter.cs
+END

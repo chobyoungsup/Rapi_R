@@ -1,0 +1,21 @@
+JFE Rapidas Program Ver Issue
+
+V0.9
+1) 내장 배터리 75% 충전 시작 90%까지
+2) 설정 값 레지스트리 방식
+3) Port 1 과금 , Port 2 485 DSP , Port 4 Can 
+4) 관리자 모드 1) Admin , 2)MANU
+5) 영업 시간 설정
+6) 결재 방식 선택
+7) log Backup
+8) PassWord 초기화 및 변경
+9) 수전 전력 설정
+10) 시간 설정
+11) 언엉 설정
+12) 이력조회
+
+V1.0
+1) 레지스트리 설정 값 Load/Save 변경
+   -> D:\ 저장 방식 전원 ON 시 D:\Config.xml 리딩후
+      값을 레지스트리에 설정
+2) 충전시간 이상현상 수정

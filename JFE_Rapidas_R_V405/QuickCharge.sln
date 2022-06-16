@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickChargeApp", "QuickChargeMain\QuickChargeApp.csproj", "{230F4A61-AC8D-4CC3-84BF-2DB10B417D3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVRIO", "AVRIO\AVRIO.csproj", "{FE3CAC22-4AF6-410B-A304-08A968FE395A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModbusThread", "ModbusThread\ModbusThread.csproj", "{63DFAB1E-7417-4D9C-9B6F-9293FA47F359}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChargeConfig", "QuickChargeConfig\ChargeConfig.csproj", "{39B75B49-0485-4099-A4F1-01BB4376F705}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickChargeDisplay", "QuickChargeDisplay\QuickChargeDisplay.csproj", "{6690F55E-E06B-4BD6-A893-109693BFE530}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BmsThread", "BmsThread\BmsThread.csproj", "{2697CD3D-F28A-4D6F-B42E-C824A4051DF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSOS", "CSOS\CSOS.csproj", "{AEEE1374-C17E-4C3E-A3A9-C4D951EC9DAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{230F4A61-AC8D-4CC3-84BF-2DB10B417D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{230F4A61-AC8D-4CC3-84BF-2DB10B417D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{230F4A61-AC8D-4CC3-84BF-2DB10B417D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{230F4A61-AC8D-4CC3-84BF-2DB10B417D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE3CAC22-4AF6-410B-A304-08A968FE395A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE3CAC22-4AF6-410B-A304-08A968FE395A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE3CAC22-4AF6-410B-A304-08A968FE395A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE3CAC22-4AF6-410B-A304-08A968FE395A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63DFAB1E-7417-4D9C-9B6F-9293FA47F359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63DFAB1E-7417-4D9C-9B6F-9293FA47F359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63DFAB1E-7417-4D9C-9B6F-9293FA47F359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63DFAB1E-7417-4D9C-9B6F-9293FA47F359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39B75B49-0485-4099-A4F1-01BB4376F705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B75B49-0485-4099-A4F1-01BB4376F705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B75B49-0485-4099-A4F1-01BB4376F705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B75B49-0485-4099-A4F1-01BB4376F705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6690F55E-E06B-4BD6-A893-109693BFE530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6690F55E-E06B-4BD6-A893-109693BFE530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6690F55E-E06B-4BD6-A893-109693BFE530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6690F55E-E06B-4BD6-A893-109693BFE530}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2697CD3D-F28A-4D6F-B42E-C824A4051DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2697CD3D-F28A-4D6F-B42E-C824A4051DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2697CD3D-F28A-4D6F-B42E-C824A4051DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2697CD3D-F28A-4D6F-B42E-C824A4051DF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEEE1374-C17E-4C3E-A3A9-C4D951EC9DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEEE1374-C17E-4C3E-A3A9-C4D951EC9DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEEE1374-C17E-4C3E-A3A9-C4D951EC9DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEEE1374-C17E-4C3E-A3A9-C4D951EC9DAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

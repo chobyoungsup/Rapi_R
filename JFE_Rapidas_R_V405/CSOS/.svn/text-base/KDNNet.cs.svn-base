@@ -1,0 +1,1820 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Net;
+using System.Net.Sockets;
+using System.Net.NetworkInformation;
+using System.IO;
+using System.Threading;
+using QuickChargeConfig;
+using AVRIO;
+
+namespace CSOS
+{
+    public enum KDNCMD : byte
+    {
+        NONE = 0x00,
+        GLOBAL_INIT_START = 0x11,       // 충전기 - 시작
+        GLOBAL_INIT_END = 0x12,         // 충전기 - 종료
+        GLOB_CONF_SYNC = 0x13,          // 구성정보 동기화 (2차에서 적용)
+        GLOB_TIME_SYNC = 0x14,          // 충전기 - 시각 동기화
+        GLOB_CHARGE_CTL = 0x15,         // 충전기 - 제어
+        INFO_UCOST_PUSH = 0x21,         // 결제 - 실시간 단가통보
+        INFO_CHARGEUCOST_REQ = 0x22,    // 결제 - 충전단가 요청
+        INFO_V2GUCOST_REQ = 0x2B,       // 결제 - V2G 단가 요청
+        INFO_CHARGE_UPWR = 0x23,        // 결제 - 충전 전력사용량 통보/요청
+        INFO_V2G_UPWR = 0x24,           // 결제 - V2G 방전전력량 통보/요청
+        INFO_CHARGE_SPWR = 0x29,        // 결제 - 충전 구간전력량 통보/요청
+        INFO_V2G_SPWR = 0x26,           // 결제 - V2G 구간전력량 통보/요청
+        EV_MEMB_CERT = 0x31,            // 전기차 - 회원정보 확인
+        EV_CAR_CERT = 0x32,             // 전기차 - 차량정보 확인
+        EV_CHARGE_STAT = 0x34,          // 전기차 - 충전기 상태
+        EV_CHARGE_END = 0x35,           // 전기차 - 충전종료
+        V2G_MEMB_CERT = 0x41,           // V2G - V2G정보 확인
+        V2G_DCHARGE_STAT = 0x42,        // V2G - V2G 상태
+        V2G_DCHARGE_END = 0x44,         // V2G - V2G 종료
+        LBC_CHARGE_CTL = 0x51,          // 대용량배터리 - 대용량배터리 충전기 제어
+        INFO_LB_STAT = 0x52,            // 대용량배터리 - 대용량배터리 상태
+        LBC_CHARGE_STAT = 0x53,         // 대용량배터리 - 대용량배터리 충전기 상태
+        LBC_CHARGE_END = 0x55,          // 대용량배터리 - 대용량배터리 충전기 종료
+    };
+
+    public enum KDNRET : byte
+    {
+        PKT_COMT = 0x43,            // 'C' 작업완료
+        PKT_DATA = 0x44,            // 'D' 데이터
+        PKT_ERROR = 0x45,           // 'E' 에러(데이터적인 오류)
+        PKT_FAIL = 0x46,            // 'F' 에러(시스템적인 오류)
+        PKT_MSG = 0x4D,             // 'M' 메시지
+        PKT_NEXT = 0x4E,            // 'N' 연속된 다음데이터 요청
+        PKT_PUSH = 0x50,            // 'P' 일방적 데이터 전달
+        PKT_REQUEST = 0x52,         // 'R' 데이터요청
+        PKT_NOT = 0x58,             // 'X' 존재하지 않음
+        PKT_YES = 0x59,             // 'Y' 성공(OK)
+    };
+
+    public enum KDNCPSTAT : int
+    {
+        NOTCONNECT = 0,
+        WAITING = 1,
+        CH_START = 2,
+        CH_CONNECTFINISH = 3,
+        CH_OPTIONSELECT = 4,
+        CH_CARDCONFIRM = 5,
+        CH_CHARGECANCEL = 6,
+        ING_CHARGING = 7,
+        ING_COMPLETE = 8,
+        ING_STOP = 9,
+        ING_PAYCHECK = 10,
+        ING_CONNECTEJECT = 11,
+        V2G_ING = 12,
+        V2G_COMPLETE = 13,
+        V2G_STOP = 14,
+        V2G_EJECT = 15,
+        WORK_TEST = 16,
+        WORK_REPAIR = 17,
+        WORK_LIMIT = 18,
+        ERROR_FAULT = 19,
+        ERROR_CANCEL = 20,
+        ERROR_CHARGING = 21,
+        ERROR_STOP = 22,
+        ERROR_PAYCHECK = 23,
+        ERROR_CARD = 24,
+        ERROR_EJECT = 25,
+    };
+
+    /// <summary>
+    /// KDN Server
+    /// </summary>
+    public class KDNNet // : csos
+    {
+        bool isPolling = false;
+
+        uint remindCurrentBase = 0;
+        int currentHour = 0;
+        int currentHourPrev = 0;
+        int currentMin = 0;
+        int currentMinPrev = 0;
+        int currentPollCount = -1;
+        int currentChangeHour = -1;
+        int currentChangeHalf = -1;
+
+        uint[,] RemindCurrentTableToday = new uint[24, 4];
+        uint[,] RemindCurrentTableYesterday = new uint[24, 4];
+        uint[,] RemindCurrentCharging = new uint[24, 4];
+
+        //private Socket sock;
+        private Socket serverSock = null;
+        private Socket clientSock = null;
+
+        Thread recvThread;
+
+        NetworkStream ns;
+        StreamWriter sw = null;
+        StreamReader sr = null;
+
+        bool isTerminated = false;
+
+        IPAddress myip;
+
+        /// <summary>
+        /// EMBLEM  | PKT.ID  |  DST.IP | SRC.IP | DST.DCE | SRC.DCE | SRC.THR | DST.THR | Length 
+        ///    4    |   4     |    4    |   4    |    2    |    2    |    2    |    2    |   4   
+        /// total : 28 bytes
+        /// </summary>
+        byte[] header = new byte[28];
+        byte[] authkey = new byte[16];
+        byte[] cpid = new byte[2];
+        string version;
+        string recvMsg;
+        ushort serverThread = 0x10;
+
+        private KDNCMD sendCommand;
+
+        /// <summary>
+        /// 엠블렘
+        /// </summary>
+        byte[] EMBLEM = { 0x00, 0x00, 0xDB, 0x09 };
+
+        string[] cp_stat = { 
+                               "연결안됨", 
+                               "대기중", 
+                               "충전기 사용시작",
+                               "커넥터 연결",
+                               "옵션 선택",
+                               "카드 선 승인",
+                               "충전취소",
+                               "충전중",
+                               "충전중-완료",
+                               "충전중-일시정지중",
+                               "충전중-지불 결제",
+                               "충전중-커넥터 분리",
+                               "V2G 중",
+                               "V2G 완료",
+                               "V2G 일시정지",
+                               "V2G 커넥터 분리",
+                               "시험",
+                               "보수",
+                               "부하제한",
+                               "고장",
+                               "충전취소 지연",
+                               "충전중 지연",
+                               "정지중 지연",
+                               "결제중 오류",
+                               "분리중 카드 인식오류",
+                               "분리중 지연",
+                           };
+
+        string message;
+
+        #region construct/
+        public KDNNet()
+        {
+            ConfigInit();
+            AVRIO.avrio.SendCSOSOrder += new CSOSOrderEvent(avrio_SendCSOSOrder);
+            recvThread = new Thread(RecvThreadRun);
+        }
+
+        void avrio_SendCSOSOrder(CSOSCMD command, params object[] list)
+        {
+            SendCSOSCommand(command);
+        }
+
+        private void ConfigInit()
+        {
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+            myip = host.AddressList[0];
+
+            csos.Serverip = ChargeConfig.GetConfig("CSOS", "IP", "175.196.125.215");
+            csos.Serverport = Convert.ToInt32(ChargeConfig.GetConfig("CSOS", "Port", "8282"));
+
+            cpid = BitConverter.GetBytes(csos.Cpid);
+
+            //version = csos.Version;
+            CSOS.version ver = csos.GetVersion();
+            version = ver.service + "." + ver.major + "." + ver.minor;
+#if _DEBUG
+            version = "0.6.0";
+#endif
+
+            string value = ChargeConfig.GetConfig("CSOS", "AuthKey", "077042384932b4f2");
+            csos.Authkey = value;
+
+            //char[] key = csos.Authkey.ToCharArray();
+            byte[] key = Encoding.ASCII.GetBytes(csos.Authkey);
+            for (int i = 0; i < authkey.Length; i++)
+            {
+                if (i == key.Length) break;
+
+                authkey[i] = key[i];
+            }
+        }
+        #endregion
+
+        #region Thread Start/End
+        public void ThreadStart()
+        {
+            bool ret1 = Connect();
+
+            while (!ret1)
+            {
+                // 5분마다 연결시도
+                Thread.Sleep(1000 * 60 * 5);
+                ret1 = Connect();
+            }
+
+            bool ret2 = VersionCheck();
+
+            bool ret3 = ConfirmAuthKey();
+
+            while (!isTerminated)
+            {
+                Thread.Sleep(100);
+            }
+        }
+
+        public void ThreadEnd()
+        {
+            serverSock.Shutdown(SocketShutdown.Both);
+            serverSock.Close();
+            isTerminated = true ;
+        }
+
+        private void ThreadReadStart()
+        {
+            while (!isTerminated)
+            {
+                Thread.Sleep(1);
+            }
+        }
+        #endregion
+
+        #region Polling Func
+        public void PollFunction()
+        {
+            bool ret;
+
+            do
+            {
+                Thread.Sleep(5000);     // 5 sec
+                ret = Connect();
+            } while (!ret);
+
+            AVRIO.avrio.EventMsg = "[KDN] Connect OK!!";
+
+            bool ret2 = VersionCheck();
+
+            try
+            {
+                if (recvThread != null)
+                {
+                    isPolling = true;
+                    {
+                        recvThread.Start();
+                    }
+                    Thread.Sleep(100);
+                }
+            }
+            catch (Exception e)
+            {
+                AVRIO.avrio.EventMsg = e.Message;
+            }
+
+            bool ret3 = ConfirmAuthKey();
+
+            AVRIO.avrio.EventMsg = "[KDN] AuthKey !!";
+
+            Thread.Sleep(100);
+
+            AVRIO.avrio.CsosCommand = CSOSCMD.ChargeUnitCostReq;
+
+            while (isPolling)
+            {
+                DateTime dt = DateTime.Now;
+                string today = dt.ToString("yyyyMMdd");
+                currentHour = dt.Hour;
+                currentMin = dt.Minute;
+
+                if ((dt.Minute % 15) == 0)
+                {
+                    if ((currentMin != currentMinPrev) || (currentHour != currentHourPrev))
+                    {
+                        currentHourPrev = currentHour;
+                        currentMinPrev = currentMin;
+                        if (currentHourPrev == 0 && currentMinPrev == 0)
+                        {
+                            Array.Copy(RemindCurrentTableToday, RemindCurrentTableYesterday, RemindCurrentTableToday.Length);
+                            Array.Clear(RemindCurrentTableToday, 0, RemindCurrentTableToday.Length);
+                        }
+
+                        avrio.CsosCommand = CSOSCMD.ChargeCurrent;
+                    }
+                }
+
+                int tHour = currentHourPrev;
+                int iMin = (currentMinPrev == 0) ? 0 : ((currentMinPrev == 15) ? 1 : ((currentMinPrev == 30) ? 2 : 3));
+                RemindCurrentTableToday[tHour, iMin] = avrio.VaildWatt;
+
+                if (AVRIO.avrio.CurrentStatus == SysStatus.SysRun)
+                {
+                    RemindCurrentCharging[tHour, iMin] = avrio.ChargeStartWattN - avrio.VaildWatt;
+                }
+                else
+                {
+                    RemindCurrentCharging[tHour, iMin] = 0;
+                }
+
+                // 단가적용 30분간격
+                if ((dt.Minute % 30) == 0)
+                {
+                    if (dt.Minute == 0)
+                    {
+                        currentChangeHalf = 1;
+                    }
+                    else if (dt.Minute == 30)
+                    {
+                        currentChangeHalf = 2;
+                    }
+
+                    // 매시간마다 단가적용변경
+                    if (currentHour != currentChangeHour)
+                    {
+                        currentChangeHour = currentHour;
+
+                        //AVRIO.avrio.CurrentUnitPrice = AVRIO.avrio.UnitPriceList.Select();
+                        if (currentChangeHour == 0)
+                        {
+                            if (today == AVRIO.avrio.UnitPriceListNext.First().Date)
+                            {
+                                AVRIO.avrio.UnitPriceList.Clear();
+                                // 다음날 단가적용
+                                foreach (AVRIO.UnitPricePerTimes ut in AVRIO.avrio.UnitPriceListNext)
+                                {
+                                    AVRIO.avrio.UnitPriceList.Add(ut);
+                                }
+                            }
+                        }
+                    }
+
+                    foreach (AVRIO.UnitPricePerTimes up in AVRIO.avrio.UnitPriceList)
+                    {
+                        if (up.Hour == currentHour && up.Interval == currentChangeHalf)
+                        {
+                            AVRIO.avrio.CurrentUnitPrice = up.Ucost;
+                            break;
+                        }
+                    }
+                }
+
+                Thread.Sleep(100);
+
+                if (serverSock.Connected == false)
+                {
+                    try
+                    {
+                        IPEndPoint ipep2 = new IPEndPoint(IPAddress.Parse(csos.Serverip), csos.Serverport);
+                        serverSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                        //serverSock.ReceiveTimeout = 3000;
+                        serverSock.Blocking = true;
+                        serverSock.Connect(ipep2);
+                        clientSock = serverSock;
+                    }
+                    catch (Exception e)
+                    {
+                        System.Diagnostics.Debug.WriteLine(e.Message);
+                        Thread.Sleep(100);
+                        continue;
+                    }
+
+                    bool ret4 = VersionCheck();
+
+                    bool ret5 = ConfirmAuthKey();
+
+                    Thread.Sleep(100);
+
+                    AVRIO.avrio.CsosCommand = CSOSCMD.ChargeUnitCostReq;
+
+                }
+            }
+            AVRIO.avrio.EventMsg = "[KDN] Thread Terminate";
+        }
+        #endregion
+
+        #region CSOS command send
+        public void SendCSOSCommand(CSOSCMD cmd)
+        {
+            if (csos.Company == "SNO") return;
+            if (serverSock == null) return;
+
+            if (serverSock.Connected == false)
+            {
+                return;
+            }
+            Socket sock = clientSock;
+
+            switch (cmd)
+            {
+                // 차량인증
+                case CSOSCMD.CarCert:
+                    break;
+                // 사용자인증
+                case CSOSCMD.MemberCert:
+                    {
+                        try
+                        {
+                            byte[] data = MakeCommand(KDNCMD.EV_MEMB_CERT, KDNRET.PKT_REQUEST);
+                            sock.Send(data);
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                // 충전시작
+                case CSOSCMD.ChargeStart:
+                    {
+                        try
+                        {
+                            byte[] data = MakeCommand(KDNCMD.EV_CHARGE_STAT, KDNRET.PKT_DATA);
+                            sock.Send(data);
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                // 충전종료
+                case CSOSCMD.ChargeFinish:
+                    {
+                        try
+                        {
+                            byte[] data = MakeCommand(KDNCMD.EV_CHARGE_END, KDNRET.PKT_DATA);
+                            sock.Send(data);
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                // 충전취소
+                case CSOSCMD.ChargeCancel:
+                    break;
+                // 충전중 구간전력량
+                case CSOSCMD.ChargeUsePower:
+                    {
+                        try
+                        {
+                            byte[] data = MakeCommand(KDNCMD.INFO_CHARGE_SPWR, KDNRET.PKT_DATA);
+                            sock.Send(data);
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                // 충전단가요청
+                case CSOSCMD.ChargeUnitCostReq:
+                    {
+                        try
+                        {
+                            byte[] data = MakeCommand(KDNCMD.INFO_CHARGEUCOST_REQ, KDNRET.PKT_REQUEST);
+                            sock.Send(data);
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                // 충전기 제어
+                case CSOSCMD.DevCtrl:
+                    break;
+                // 충전기 시작
+                case CSOSCMD.DevStart:
+                    {
+                        try
+                        {
+                            byte[] data = MakeCommand(KDNCMD.GLOBAL_INIT_START, KDNRET.PKT_REQUEST);
+                            sock.Send(data);
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                // 충전기 정지
+                case CSOSCMD.DevStop:
+                    {
+                        try
+                        {
+                            byte[] data = MakeCommand(KDNCMD.GLOBAL_INIT_END, KDNRET.PKT_REQUEST);
+                            sock.Send(data);
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                // 시각동기화
+                case CSOSCMD.TimeSync:
+                    {
+                        try
+                        {
+                            byte[] data = MakeCommand(KDNCMD.GLOB_TIME_SYNC, KDNRET.PKT_REQUEST);
+                            sock.Send(data);
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                // 누적전력량
+                case CSOSCMD.ChargeCurrent:
+                    {
+                        try
+                        {
+                            byte[] data = MakeCommand(KDNCMD.INFO_CHARGE_UPWR, KDNRET.PKT_DATA);
+                            sock.Send(data);
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+            }
+        }
+        #endregion
+
+        #region Recv Thread
+        public void RecvThreadRun()
+        {
+            Socket sock = clientSock;
+            try
+            {
+                while (sock != null)
+                {
+                    byte[] byReadBuffer = new byte[32767];
+                    int numberOfBytesRead = sock.Receive(byReadBuffer, byReadBuffer.Length, 0); ;
+
+                    if (numberOfBytesRead == 0)
+                    {
+                        continue;
+                    }
+                    byte[] byRead = new byte[numberOfBytesRead];
+                    Array.Copy(byReadBuffer, byRead, numberOfBytesRead);
+                    AVRIO.avrio.ReceiveServer = "(" + numberOfBytesRead + ")" + ByteArrayToHexString(byRead);
+
+                    ParserReadBuffer(byRead);
+
+                    if (isPolling == false)
+                    {
+                        break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                AVRIO.avrio.EventMsg = "[KDN-RecvThread]" + e.Message;
+            }
+        }
+        #endregion
+
+        #region Paser Read Buffer
+        public void ParserReadBuffer(byte[] _byBuffer)
+        {
+            int datalen = 0;
+            bool ret = ParserReadHeader(_byBuffer, ref datalen);
+
+            if (ret == false)
+            {
+                AVRIO.avrio.EventMsg = "[KDN] Recv Header Data Error";
+                return;
+            }
+
+            byte cmd = _byBuffer[28];
+            byte pkt = _byBuffer[29];
+            switch ((KDNCMD)cmd)
+            {
+                // 충전기 시작
+                case KDNCMD.GLOBAL_INIT_START:
+                    {
+                        byte[] byTime = new byte[19];
+
+                        csos.Cpid = (ushort)((int)_byBuffer[30] + (int)((int)_byBuffer[31]<<8));
+
+                        AVRIO.avrio.EventMsg = "[KDN-R]CPID:" + csos.Cpid;
+                        for (int i = 0; i < byTime.Length; i++)
+                        {
+                            byTime[i] = _byBuffer[i + 32];
+                        }
+
+                        char[] ArrayOfChar = { (char)byTime[0], (char)byTime[1], (char)byTime[2], (char)byTime[3], (char)byTime[4], (char)byTime[5], (char)byTime[6], (char)byTime[7], (char)byTime[8], (char)byTime[9], (char)byTime[10], (char)byTime[11], (char)byTime[12], (char)byTime[13], (char)byTime[14], (char)byTime[15], (char)byTime[16], (char)byTime[17], (char)byTime[18] };
+                        string s = new String(ArrayOfChar);
+                        AVRIO.avrio.EventMsg = "[KDN-R]시작시간:" + s;
+                    }
+                    break;
+                case KDNCMD.GLOBAL_INIT_END:
+                    {
+                        byte[] byTime = new byte[19];
+                        //string str = null;
+
+                        csos.Cpid = (ushort)((int)_byBuffer[30] + (int)((int)_byBuffer[31] << 8));
+
+                        AVRIO.avrio.EventMsg = "[KDN-R]CPID:" + csos.Cpid;
+                        for (int i = 0; i < byTime.Length; i++)
+                        {
+                            byTime[i] = _byBuffer[i + 32];
+                            //str = str + byTime[i].ToString;
+                        }
+
+                        char[] ArrayOfChar = { (char)byTime[0], (char)byTime[1], (char)byTime[2], (char)byTime[3], (char)byTime[4], (char)byTime[5], (char)byTime[6], (char)byTime[7], (char)byTime[8], (char)byTime[9], (char)byTime[10], (char)byTime[11], (char)byTime[12], (char)byTime[13], (char)byTime[14], (char)byTime[15], (char)byTime[16], (char)byTime[17], (char)byTime[18] };
+                        string s = new String(ArrayOfChar);
+                        AVRIO.avrio.EventMsg = "[KDN-R]종료시간:" + s;
+                    }
+                    break;
+                case KDNCMD.GLOB_TIME_SYNC:
+                    {
+                        byte[] byTime = new byte[19];
+                        //string str = null;
+
+                        ushort id = (ushort)((int)_byBuffer[30] + (int)((int)_byBuffer[31] << 8));
+
+                        AVRIO.avrio.EventMsg = "[KDN-R]CPID:" + id;
+                        for (int i = 0; i < byTime.Length; i++)
+                        {
+                            byTime[i] = _byBuffer[i + 32];
+                            //str = str + byTime[i].ToString;
+                        }
+
+                        char[] ArrayOfChar = { (char)byTime[0], (char)byTime[1], (char)byTime[2], (char)byTime[3], (char)byTime[4], (char)byTime[5], (char)byTime[6], (char)byTime[7], (char)byTime[8], (char)byTime[9], (char)byTime[10], (char)byTime[11], (char)byTime[12], (char)byTime[13], (char)byTime[14], (char)byTime[15], (char)byTime[16], (char)byTime[17], (char)byTime[18] };
+                        string s = new String(ArrayOfChar);
+                        AVRIO.avrio.EventMsg = "[KDN-R]종료시간:" + s;
+                    }
+                    break;
+                case KDNCMD.GLOB_CHARGE_CTL:
+                    {
+                        try
+                        {
+                            if (_byBuffer[29] == (byte)KDNRET.PKT_DATA)
+                            {
+                                StringBuilder sb = new StringBuilder();
+                                for (int i = 30; i < _byBuffer.Length; i++)
+                                {
+                                    if ((char)_byBuffer[i] == (char)'\0')
+                                    {
+                                        break;
+                                    }
+                                    sb.AppendFormat("{0}", (char)_byBuffer[i]);
+                                }
+                                AVRIO.avrio.EventMsg = sb.ToString();
+                                if (sb.Length > 0)
+                                {
+                                    string[] str = sb.ToString().Split('|');
+                                }
+
+                                byte[] data = MakeCommand((KDNCMD)cmd, KDNRET.PKT_YES);
+                                serverSock.Send(data);
+                            }
+                            else if (_byBuffer[29] == (byte)KDNRET.PKT_REQUEST)
+                            {
+                                int cpid = _byBuffer[30] + (_byBuffer[31]<<8);
+                                AVRIO.avrio.EventMsg = "[KDN] " + cmd + " - " + cpid;
+                                byte[] data = MakeCommand((KDNCMD)cmd, KDNRET.PKT_DATA);
+                                serverSock.Send(data);
+                            }
+                            else if (_byBuffer[29] == (byte)KDNRET.PKT_YES)
+                            {
+                                StringBuilder sb = new StringBuilder();
+                                int cpid = _byBuffer[30] + (_byBuffer[31] << 8);
+
+                                for (int i = 32; i < _byBuffer.Length; i++)
+                                {
+                                    if ((char)_byBuffer[i] == (char)'\0')
+                                    {
+                                        break;
+                                    }
+                                    sb.AppendFormat("{0}", (char)_byBuffer[i]);
+                                }
+                                AVRIO.avrio.EventMsg = "[KDN]" + cpid + "-" + sb.ToString();
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                case KDNCMD.INFO_UCOST_PUSH:
+                    {
+                        try
+                        {
+                            StringBuilder sb = new StringBuilder();
+                            for (int i = 30; i < _byBuffer.Length; i++)
+                            {
+                                if ((char)_byBuffer[i] == (char)'\0')
+                                {
+                                    break;
+                                }
+                                sb.AppendFormat("{0}", (char)_byBuffer[i]);
+                            }
+                            if (sb.Length > 0)
+                            {
+                                QuickChargeConfig.ChargeConfig.SetLog("Price", AVRIO.avrio.SeqNumPrice++, sb.ToString(), DateTime.Now);
+                                string[] str = sb.ToString().Split('|');
+                                DateTime dt = DateTime.Now;
+                                string today = dt.ToString("yyyyMMdd");
+                                string date = str[0].Trim();
+                                int hour = Convert.ToInt32(str[1]);
+                                int interval = Convert.ToInt32(str[2]);
+                                int type = Convert.ToInt32(str[3]);
+                                double cost = Convert.ToDouble(str[4]);
+                                if (hour == 0 && interval == 1)
+                                {
+                                    AVRIO.avrio.PriceMsg = "Clear";
+                                    AVRIO.avrio.UnitPriceListNext.Clear();
+                                }
+
+                                AVRIO.avrio.UnitPriceListNext.Add(new UnitPricePerTimes(hour, interval, cost, date));
+
+                                if ( hour == dt.Hour && date == today )
+                                {
+                                    if (interval == 1 && dt.Minute < 30)
+                                    {
+                                        AVRIO.avrio.CurrentUnitPrice = cost;
+                                    }
+                                    else if (interval == 2)
+                                    {
+                                        AVRIO.avrio.CurrentUnitPrice = cost;
+                                    }
+                                }
+                                AVRIO.avrio.PriceMsg = sb.ToString();
+                                QuickChargeConfig.ChargeConfig.SetUnitPrice();
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                case KDNCMD.INFO_CHARGEUCOST_REQ:
+                    {
+                        try
+                        {
+                            if ((KDNRET)pkt == KDNRET.PKT_DATA)
+                            {
+                                StringBuilder sb = new StringBuilder();
+                                for (int i = 32; i < _byBuffer.Length; i++)
+                                {
+                                    if ((char)_byBuffer[i] == (char)'\0')
+                                    {
+                                        break;
+                                    }
+                                    sb.AppendFormat("{0}", (char)_byBuffer[i]);
+                                }
+                                if (sb.Length > 0)
+                                {
+                                    QuickChargeConfig.ChargeConfig.SetLog("Price", AVRIO.avrio.SeqNumPrice++, sb.ToString(), DateTime.Now);
+                                    string[] str = sb.ToString().Split('|');
+                                    DateTime dt = DateTime.Now;
+                                    string date = str[0].Trim();
+                                    int hour = Convert.ToInt32(str[1]);
+                                    int interval = Convert.ToInt32(str[2]);
+                                    int type = Convert.ToInt32(str[3]);
+                                    double cost = Convert.ToDouble(str[4]);
+                                    if (hour == 0 && interval == 1)
+                                    {
+                                        AVRIO.avrio.PriceMsg = "Clear";
+                                        AVRIO.avrio.UnitPriceList.Clear();
+                                    }
+
+                                    AVRIO.avrio.UnitPriceList.Add(new UnitPricePerTimes(hour, interval, cost, date));
+
+                                    if (hour == dt.Hour)
+                                    {
+                                        if (interval == 1 && dt.Minute < 30)
+                                        {
+                                            AVRIO.avrio.CurrentUnitPrice = cost;
+                                        }
+                                        else if (interval == 2)
+                                        {
+                                            AVRIO.avrio.CurrentUnitPrice = cost;
+                                        }
+                                    }
+                                    AVRIO.avrio.PriceMsg = sb.ToString();
+                                }
+
+                                recvMsg = sb.ToString();
+                                byte[] data = MakeCommand((KDNCMD)cmd, KDNRET.PKT_NEXT);
+                                serverSock.Send(data);
+                            }
+                            else if ((KDNRET)pkt == KDNRET.PKT_COMT)
+                            {
+                                int cpid = _byBuffer[30] + (_byBuffer[31] << 8);
+                                AVRIO.avrio.EventMsg = "[KDN] " + cmd + " - " + cpid;
+                                byte[] data = MakeCommand((KDNCMD)cmd, KDNRET.PKT_YES);
+                                serverSock.Send(data);
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                case KDNCMD.EV_MEMB_CERT:
+                    {
+                        try
+                        {
+                            ushort id = (ushort)((int)_byBuffer[30] + (int)((int)_byBuffer[31] << 8));
+                            AVRIO.avrio.EventMsg = "[KDN-R]CPID:" + id;
+
+                            StringBuilder sb = new StringBuilder();
+                            for (int i = 32; i < _byBuffer.Length; i++)
+                            {
+                                if ((char)_byBuffer[i] == (char)'\0')
+                                {
+                                    break;
+                                }
+                                sb.AppendFormat("{0}", (char)_byBuffer[i]);
+                            }
+                            AVRIO.avrio.EventMsg = sb.ToString();
+                            if (sb.Length > 0)
+                            {
+                                string[] str = sb.ToString().Split('|');
+                                if (str[0].Trim() == AVRIO.avrio.CardNo)
+                                {
+                                    AVRIO.avrio.EventMsg = "[KDN] 회원인증 성공";
+                                }
+                            }
+                            byte[] data = MakeCommand((KDNCMD)cmd, KDNRET.PKT_YES);
+                            serverSock.Send(data);
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                case KDNCMD.EV_CHARGE_STAT:
+                case KDNCMD.EV_CHARGE_END:
+                    {
+                        try
+                        {
+                            ushort id = (ushort)((int)_byBuffer[30] + (int)((int)_byBuffer[31] << 8));
+                            AVRIO.avrio.EventMsg = "[KDN-R]CPID:" + id;
+
+                            StringBuilder sb = new StringBuilder();
+                            for (int i = 32; i < _byBuffer.Length; i++)
+                            {
+                                if ((char)_byBuffer[i] == (char)'\0')
+                                {
+                                    break;
+                                }
+                                sb.AppendFormat("{0}", (char)_byBuffer[i]);
+                            }
+                            AVRIO.avrio.EventMsg = sb.ToString();
+
+
+                        }
+                        catch (Exception e)
+                        {
+                            AVRIO.avrio.EventMsg = e.Message;
+                        }
+                    }
+                    break;
+                case KDNCMD.INFO_CHARGE_UPWR:
+                    {
+                        if ((KDNRET)pkt == KDNRET.PKT_YES)
+                        {
+                            try
+                            {
+                                ushort id = (ushort)((int)_byBuffer[30] + (int)((int)_byBuffer[31] << 8));
+                                AVRIO.avrio.EventMsg = "[KDN-R]CPID:" + id;
+
+                                StringBuilder sb = new StringBuilder();
+                                for (int i = 32; i < _byBuffer.Length; i++)
+                                {
+                                    if ((char)_byBuffer[i] == (char)'\0')
+                                    {
+                                        break;
+                                    }
+                                    sb.AppendFormat("{0}", (char)_byBuffer[i]);
+                                }
+                                AVRIO.avrio.EventMsg = sb.ToString();
+
+
+                            }
+                            catch (Exception e)
+                            {
+                                AVRIO.avrio.EventMsg = e.Message;
+                            }
+                        }
+                        else if ((KDNRET)pkt == KDNRET.PKT_REQUEST)
+                        {
+                            try
+                            {
+                                ushort id = (ushort)((int)_byBuffer[30] + (int)((int)_byBuffer[31] << 8));
+                                AVRIO.avrio.EventMsg = "[KDN-R]CPID:" + id;
+
+                                StringBuilder sb = new StringBuilder();
+                                for (int i = 32; i < _byBuffer.Length; i++)
+                                {
+                                    if ((char)_byBuffer[i] == (char)'\0')
+                                    {
+                                        break;
+                                    }
+                                    sb.AppendFormat("{0}", (char)_byBuffer[i]);
+                                }
+                                AVRIO.avrio.EventMsg = sb.ToString();
+
+
+                            }
+                            catch (Exception e)
+                            {
+                                AVRIO.avrio.EventMsg = e.Message;
+                            }
+                        }
+                    }
+                    break;
+                case KDNCMD.INFO_CHARGE_SPWR:
+                    {
+                        if ((KDNRET)pkt == KDNRET.PKT_YES)
+                        {
+                            try
+                            {
+                                ushort id = (ushort)((int)_byBuffer[30] + (int)((int)_byBuffer[31] << 8));
+                                AVRIO.avrio.EventMsg = "[KDN-R]CPID:" + id;
+
+                                StringBuilder sb = new StringBuilder();
+                                for (int i = 32; i < _byBuffer.Length; i++)
+                                {
+                                    if ((char)_byBuffer[i] == (char)'\0')
+                                    {
+                                        break;
+                                    }
+                                    sb.AppendFormat("{0}", (char)_byBuffer[i]);
+                                }
+                                AVRIO.avrio.EventMsg = sb.ToString();
+
+
+                            }
+                            catch (Exception e)
+                            {
+                                AVRIO.avrio.EventMsg = e.Message;
+                            }
+                        }
+                        else if ((KDNRET)pkt == KDNRET.PKT_REQUEST)
+                        {
+                            try
+                            {
+                                ushort id = (ushort)((int)_byBuffer[30] + (int)((int)_byBuffer[31] << 8));
+                                AVRIO.avrio.EventMsg = "[KDN-R]CPID:" + id;
+
+                                StringBuilder sb = new StringBuilder();
+                                for (int i = 32; i < _byBuffer.Length; i++)
+                                {
+                                    if ((char)_byBuffer[i] == (char)'\0')
+                                    {
+                                        break;
+                                    }
+                                    sb.AppendFormat("{0}", (char)_byBuffer[i]);
+                                }
+                                AVRIO.avrio.EventMsg = sb.ToString();
+
+
+                            }
+                            catch (Exception e)
+                            {
+                                AVRIO.avrio.EventMsg = e.Message;
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+
+        private bool ParserReadHeader(byte[] _byBuffer, ref int datalen)
+        {
+            byte[] byIP = new byte[4];
+            int i = 0;
+
+            // EMBLEM
+            for (i = 0; i < EMBLEM.Length; i++)
+            {
+                if (_byBuffer[i] != EMBLEM[i])
+                {
+                    AVRIO.avrio.EventMsg = "[KDN] EMBLEM Error";
+                    return false;
+                }
+            }
+
+            // length
+            datalen = _byBuffer[27];
+            datalen <<= 8;
+            datalen += _byBuffer[26];
+            datalen <<= 8;
+            datalen += _byBuffer[25];
+            datalen <<= 8;
+            datalen += _byBuffer[24];
+
+            byIP = myip.GetAddressBytes();
+
+            for (i = 0; i < byIP.Length; i++)
+            {
+                if (_byBuffer[i + 8] != byIP[i])
+                {
+#if !DEBUG
+                    AVRIO.avrio.EventMsg = "[KDN] DestIP Error";
+                    return false;
+#endif
+                }
+            }
+
+            ushort iThr = 0;
+
+            iThr = (ushort)((int)_byBuffer[23] + (int)(_byBuffer[22] << 8));
+            if (serverThread != iThr)
+            {
+                AVRIO.avrio.EventMsg = "[KDN] Dest Thread Error";
+                return false;
+            }
+
+            return true;
+        }
+        #endregion
+
+        #region Connect/Version Check
+        public bool Connect()
+        {
+            try
+            {
+                IPEndPoint ipep = new IPEndPoint(IPAddress.Parse(csos.Serverip), csos.Serverport);
+                serverSock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                serverSock.Blocking = true;
+                serverSock.Connect(ipep);
+                clientSock = serverSock;
+            }
+            catch (SocketException ex)
+            {
+                AVRIO.avrio.EventMsg = ex.Message;
+                if (serverSock.Connected == true) serverSock.Close(); // 통신종료 리소스 해제
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool VersionCheck()
+        {
+            serverSock.Send(Encoding.ASCII.GetBytes("Smart Transportation : " + version + "\r\n"));
+
+            NetworkStream ns = new NetworkStream(serverSock);
+            StreamReader sr = new StreamReader(ns);
+            string str = sr.ReadLine();
+
+            string[] stemp = str.Split(':');
+            stemp[0].Trim();
+
+            AVRIO.avrio.EventMsg = "[KDN] VersionCheck - " + str;
+
+            if (stemp[0].ToUpper() == "ERROR")
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// 인증키 확인
+        /// </summary>
+        /// <returns></returns>
+        public bool ConfirmAuthKey()
+        {
+            byte[] response = new byte[61];  // 28 + 24
+
+            if (!serverSock.Connected) return false;
+
+            byte[] data = MakeCommand(KDNCMD.GLOBAL_INIT_START, KDNRET.PKT_REQUEST);
+
+            /*
+            //0770 4238 4932 b4f2
+            data[32] = (byte)'0';
+            data[33] = (byte)'7';
+            data[34] = (byte)'7';
+            data[35] = (byte)'0';
+            data[36] = (byte)'4';
+            data[37] = (byte)'2';
+            data[38] = (byte)'3';
+            data[39] = (byte)'8';
+            data[40] = (byte)'4';
+            data[41] = (byte)'9';
+            data[42] = (byte)'3';
+            data[43] = (byte)'2';
+            data[44] = (byte)'b';
+            data[45] = (byte)'4';
+            data[46] = (byte)'f';
+            data[47] = (byte)'2';
+            data[48] = 0x00;
+             */
+
+
+            serverSock.Send(data);
+
+            Thread.Sleep(100);
+
+            //ReceiveData(ref response);
+
+            return true;
+        }
+        #endregion
+
+        #region socket data receive
+        private bool ReceiveData(ref byte[] byBuffer)
+        {
+            int n = byBuffer.Length;
+            int ret = 0;
+            byte[] buf = new byte[n];
+
+            try
+            {
+                do
+                {
+                    ret = serverSock.Receive(buf);
+                    for (int i = 0; i < ret; i++)
+                    {
+                        byBuffer[(byBuffer.Length - n) + i] = buf[i];
+                    }
+                    //buf.CopyTo(byBuffer, (byBuffer.Length - n));
+                    n -= ret;
+                } while (n > 0);
+            }
+            catch (Exception err)
+            {
+                message = err.Message;
+                return false;
+            }
+
+            return true;
+        }
+        #endregion
+
+        #region make send data
+        /// <summary>
+        /// CSOS <-- CP
+        /// </summary>
+        private byte[] MakeHeader(int iLen)
+        {
+            byte[] byIP = new byte[4];
+
+            // EMBLEM
+            header[0] = EMBLEM[0];
+            header[1] = EMBLEM[1];
+            header[2] = EMBLEM[2];
+            header[3] = EMBLEM[3];
+
+            //Packet ID
+            header[4] = 0x00;
+            header[5] = 0x00;
+            header[6] = 0x00;
+            header[7] = 0x01;
+
+            // DST IP
+            header[8] = 0x00;
+            header[9] = 0x00;
+            header[10] = 0x00;
+            header[11] = 0x00;
+
+            byIP = myip.GetAddressBytes();
+
+            // SRC IP
+            header[12] = byIP[0];
+            header[13] = byIP[1];
+            header[14] = byIP[2];
+            header[15] = byIP[3];
+
+            // DCE
+            header[16] = 0x00;
+            header[17] = 0x00;
+
+            header[18] = 0x00;
+            header[19] = 0x00;
+
+            // THR
+            header[20] = (byte)((serverThread >> 8) & 0xFF);
+            header[21] = (byte)(serverThread & 0xFF);
+
+            header[22] = 0x00;
+            header[23] = 0x00;
+
+            // length
+            header[27] = (byte)(iLen & 0xFF);
+            iLen >>= 8;
+            header[26] = (byte)(iLen & 0xFF);
+            iLen >>= 8;
+            header[25] = (byte)(iLen & 0xFF);
+            iLen >>= 8;
+            header[24] = (byte)(iLen & 0xFF);
+
+            //byBuffer[i++] = (byte)((len >> 24) & 0xFF);
+            //byBuffer[i++] = (byte)((len >> 16) & 0xFF);
+            //byBuffer[i++] = (byte)((len >> 8) & 0xFF);
+            //byBuffer[i++] = (byte)(len & 0xFF);
+            return header;
+        }
+
+        private byte[] MakeCommand(KDNCMD cmd, KDNRET pkt)
+        {
+            switch (cmd)
+            {
+                // 충전기 시작
+                case KDNCMD.GLOBAL_INIT_START:
+                    {
+                        byte[] byBuffer = new byte[28 + 4 + authkey.Length + 1];
+                        int i = 28;
+                        int j = 0;
+
+                        byBuffer[i++] = (byte)cmd;
+                        byBuffer[i++] = (byte)pkt;
+                        byBuffer[i++] = 0;
+                        byBuffer[i++] = 0;
+                        for (j = 0; j < authkey.Length; j++)
+                        {
+                            byBuffer[i++] = authkey[j];
+                        }
+                        byBuffer[i++] = (byte)'\0';
+
+                        Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+
+                        return byBuffer;
+                    }
+                    break;
+                // 충전기 종료
+                case KDNCMD.GLOBAL_INIT_END:
+                    {
+                        byte[] byBuffer = new byte[28 + 4];
+                        int i = 28;
+                        int j = 0;
+
+                        byBuffer[i++] = (byte)cmd;
+                        byBuffer[i++] = (byte)pkt;
+                        byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                        byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                        Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+
+                        return byBuffer;
+                    }
+                    break;
+                // 시각동기화
+                case KDNCMD.GLOB_TIME_SYNC:
+                    {
+                        byte[] byBuffer = new byte[28 + 4];
+                        int i = 28;
+                        int j = 0;
+
+                        byBuffer[i++] = (byte)cmd;
+                        byBuffer[i++] = (byte)pkt;
+                        byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                        byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                        Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+
+                        return byBuffer;
+                    }
+                    break;
+                case KDNCMD.GLOB_CHARGE_CTL:
+                    {
+                        if (pkt == KDNRET.PKT_YES)
+                        {
+                            byte[] byBuffer = new byte[28 + 2];
+                            int i = 28;
+                            int j = 0;
+
+                            byBuffer[i++] = (byte)cmd;
+                            byBuffer[i++] = (byte)pkt;
+
+                            Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+
+                            return byBuffer;
+                        }
+                        if (pkt == KDNRET.PKT_DATA)
+                        {
+                            string str = AVRIO.avrio.CtrlCode.ToString();
+                            byte[] temp = Encoding.ASCII.GetBytes(str);
+                            byte[] byBuffer = new byte[header.Length + temp.Length + 2 + 1];
+                            int i = 28;
+                            int j = 0;
+
+                            byBuffer[i++] = (byte)cmd;
+                            byBuffer[i++] = (byte)pkt;
+
+                            Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+                            Array.Copy(temp, 0, byBuffer, i, temp.Length);
+                            byBuffer[byBuffer.Length - 1] = (byte)'\0';
+
+                            return byBuffer;
+                        }
+                    }
+                    break;
+                case KDNCMD.INFO_UCOST_PUSH:
+                    {
+                        byte[] byBuffer = new byte[header.Length + 2];
+                        int i = 28;
+                        int j = 0;
+
+                        byBuffer[i++] = (byte)cmd;
+                        byBuffer[i++] = (byte)pkt;
+
+                        Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+
+                        return byBuffer;
+                    }
+                    break;
+                case KDNCMD.INFO_CHARGEUCOST_REQ:
+                    {
+                        if (pkt == KDNRET.PKT_REQUEST)
+                        {
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendFormat("{0:yyyyMMdd}", DateTime.Now);
+                            sb.Append("|");
+                            sb.Append(AVRIO.avrio.DevType);
+                            byte[] temp = Encoding.ASCII.GetBytes(sb.ToString());
+                            byte[] byBuffer = new byte[header.Length + temp.Length + 4 + 1];
+                            int i = header.Length;
+                            int j = 0;
+
+                            byBuffer[i++] = (byte)cmd;
+                            byBuffer[i++] = (byte)pkt;
+                            byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                            byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                            Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+                            Array.Copy(temp, 0, byBuffer, i, temp.Length);
+                            byBuffer[byBuffer.Length - 1] = (byte)'\0';
+
+                            return byBuffer;
+                        }
+                        else if (pkt == KDNRET.PKT_NEXT)
+                        {
+                            StringBuilder sb = new StringBuilder();
+                            sb.Append(recvMsg);
+                            //sb.AppendFormat("{0:yyyyMMdd}", DateTime.Now);
+                            //sb.Append("|");
+                            //sb.Append(AVRIO.avrio.DevType);
+                            byte[] temp = Encoding.ASCII.GetBytes(sb.ToString());
+                            byte[] byBuffer = new byte[header.Length + temp.Length + 4 + 1];
+                            int i = header.Length;
+                            int j = 0;
+
+                            byBuffer[i++] = (byte)cmd;
+                            byBuffer[i++] = (byte)pkt;
+                            byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                            byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                            Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+                            Array.Copy(temp, 0, byBuffer, i, temp.Length);
+                            byBuffer[byBuffer.Length - 1] = (byte)'\0';
+
+                            return byBuffer;
+                        }
+                        else if (pkt == KDNRET.PKT_YES)
+                        {
+                            byte[] byBuffer = new byte[28 + 4];
+                            int i = 28;
+                            int j = 0;
+
+                            byBuffer[i++] = (byte)cmd;
+                            byBuffer[i++] = (byte)pkt;
+                            byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                            byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                            Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+
+                            return byBuffer;
+                        }
+                    }
+                    break;
+                // 결제 - 충전 전력사용량 통보/요청
+                case KDNCMD.INFO_CHARGE_UPWR:
+                    {
+                        DateTime dt = DateTime.Now;
+                        string today = dt.ToString("yyyyMMdd");
+
+                        StringBuilder sb = new StringBuilder();
+
+                        sb.Append(today);
+                        sb.Append("|");
+                        sb.Append(dt.Hour);
+                        sb.Append("|");
+                        sb.Append(((int)(dt.Minute / 5)) + 1);
+                        sb.Append("|");
+                        uint cur = 0;
+
+                        int tHour = currentHourPrev;
+                        int iMin = (currentMinPrev + 3) % 4;
+                        if (iMin == 3)
+                        {
+                            tHour -= 1;
+                            tHour = ((tHour < 0) ? 23 : tHour);
+                        }
+                        if ((tHour == 23) && (iMin == 3))
+                        {
+                            cur = RemindCurrentTableYesterday[tHour, iMin];
+                        }
+                        else
+                        {
+                            cur = RemindCurrentTableToday[tHour, iMin];
+                        }
+                        sb.Append((double)((double)cur / (double)1000));
+
+                        for (int j = 0; j < AVRIO.avrio.RemindWattList.Count(); j++)
+                        {
+                        }
+
+                        byte[] temp = Encoding.ASCII.GetBytes(sb.ToString());
+                        byte[] byBuffer = new byte[header.Length + temp.Length + 4 + 1];
+                        int i = header.Length;
+
+                        byBuffer[i++] = (byte)cmd;
+                        byBuffer[i++] = (byte)pkt;
+                        byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                        byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                        Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+                        Array.Copy(temp, 0, byBuffer, i, temp.Length);
+                        byBuffer[byBuffer.Length - 1] = (byte)'\0';
+
+                        return byBuffer;
+                    }
+                    break;
+                // 결제 - 충전 구간전력량 통보/요청
+                case KDNCMD.INFO_CHARGE_SPWR:
+                    {
+                        DateTime dt = DateTime.Now;
+                        string today = dt.ToString("yyyyMMdd");
+
+                        StringBuilder sb = new StringBuilder();
+
+                        sb.Append(AVRIO.avrio.ChargeStartTime.ToString("yyyy-MM-dd HH:mm:SS"));
+                        sb.Append("|");
+                        sb.Append(today);
+                        sb.Append("|");
+                        sb.Append(dt.Hour);
+                        sb.Append("|");
+                        sb.Append(((int)(dt.Minute / 5)) + 1);
+                        sb.Append("|");
+                        // 구간전력량
+                        uint cur = 0;
+
+                        int tHour = currentHourPrev;
+                        int iMin = (currentMinPrev + 3) % 4;
+                        if (iMin == 3)
+                        {
+                            tHour -= 1;
+                            tHour = ((tHour < 0) ? 23 : tHour);
+                        }
+                        if ((tHour == 23) && (iMin == 3))
+                        {
+                            cur = RemindCurrentTableYesterday[tHour, iMin];
+                        }
+                        else
+                        {
+                            cur = RemindCurrentTableToday[tHour, iMin];
+                        }
+                        sb.Append((double)((double)cur / (double)1000));
+                        sb.Append("|");
+                        // 구간전력요금
+                        sb.Append(AVRIO.avrio.ChargePrice);
+                        sb.Append("|");
+                        // 구간인프라요금
+                        sb.Append("|");
+                        // 구간서비스요금
+                        sb.Append("|");
+                        // 구간전력요금단가
+                        sb.Append(AVRIO.avrio.CurrentUnitPrice);
+                        sb.Append("|");
+                        // 구간인프라요금단가
+                        sb.Append("|");
+                        // 구간서비스요금단가
+                        sb.Append("|");
+                        // 갱신일시
+                        sb.Append(dt.ToString("yyyy-MM-dd HH:mm:SS"));
+
+                        for (int j = 0; j < AVRIO.avrio.RemindWattList.Count(); j++)
+                        {
+                        }
+
+                        byte[] temp = Encoding.ASCII.GetBytes(sb.ToString());
+                        byte[] byBuffer = new byte[header.Length + temp.Length + 4 + 1];
+                        int i = header.Length;
+
+                        byBuffer[i++] = (byte)cmd;
+                        byBuffer[i++] = (byte)pkt;
+                        byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                        byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                        Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+                        Array.Copy(temp, 0, byBuffer, i, temp.Length);
+                        byBuffer[byBuffer.Length - 1] = (byte)'\0';
+
+                        return byBuffer;
+                    }
+                    break;
+                // 충전-회원정보확인
+                case KDNCMD.EV_MEMB_CERT:
+                    {
+                        if (pkt == KDNRET.PKT_REQUEST)
+                        {
+                            byte[] temp = Encoding.ASCII.GetBytes(AVRIO.avrio.CardNo);
+                            byte[] byBuffer = new byte[header.Length + temp.Length + 4 + 1];
+                            int i = header.Length;
+                            int j = 0;
+
+                            byBuffer[i++] = (byte)cmd;
+                            byBuffer[i++] = (byte)pkt;
+                            byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                            byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                            Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+                            Array.Copy(temp, 0, byBuffer, i, temp.Length);
+                            byBuffer[byBuffer.Length - 1] = (byte)'\0';
+
+                            return byBuffer;
+                        }
+                        else if (pkt == KDNRET.PKT_YES)
+                        {
+                            byte[] byBuffer = new byte[28 + 4];
+                            int i = 28;
+                            int j = 0;
+
+                            byBuffer[i++] = (byte)cmd;
+                            byBuffer[i++] = (byte)pkt;
+                            byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                            byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                            return byBuffer;
+                        }
+                    }
+                    break;
+                // 충전-차량정보확인
+                case KDNCMD.EV_CAR_CERT:
+                    {
+                        byte[] byBuffer = new byte[28 + 4];
+                        int i = 28;
+                        int j = 0;
+
+                        byBuffer[i++] = (byte)cmd;
+                        byBuffer[i++] = (byte)pkt;
+                        byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                        byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                        return byBuffer;
+                    }
+                    break;
+                // 충전-충전상태통보
+                //
+                // 상태갱신일시(YYYYMMDD) | 충전기상태 | 회원카드번호 | 차량등록번호 |
+                // 충전V2G(1:급속,2:완속,3:V2G안함) | 충전요구량확인방법 (1:FULL,2:전력량,3:금액) | 충전요구전력량 |
+                // 충전요구금액 | 결제방법(1:카드,2:교통,3:전기요금합산) | 충전시작일시 | 작업진행율 | 현재충방전전력량 |
+                // 현재 충반전금액 | 현재 충방전단가 | 고장유형(01~09) | 전기요금 고객번호 | 전기사용 청구자명 |
+                // 충전모드(1:CC,2:CV,3:CP) | 배터리상태 | 배터리용량 | 배터리잔량 | 배터리전압 | 배터리전류 | 배터리온도 |
+                // 충전누적시간 | 자동차종류 | BMS S/W버전 | 충전종료예상일시
+                case KDNCMD.EV_CHARGE_STAT:
+                    {
+                        StringBuilder sb = new StringBuilder();
+
+                        sb.AppendFormat("{0:yyyyMMdd}", DateTime.Now);
+                        sb.Append("|");
+                        sb.Append(AVRIO.avrio.CpStat);
+                        sb.Append("|");
+                        sb.Append(AVRIO.avrio.CardNo);
+                        sb.Append("|");
+                        // 차량등록번호
+                        sb.Append("|");
+                        sb.Append(AVRIO.avrio.DevType);
+                        sb.Append("|");
+                        // 완속은 무조건 FULL
+                        if (AVRIO.avrio.DevType == 1)
+                        {
+                            sb.Append("1");
+                        }
+                        else
+                        {
+                            sb.Append((byte)AVRIO.avrio.ChargeMode + (byte)1);
+                        }
+                        sb.Append("|");
+                        // 충전요구전력량
+                        if (AVRIO.avrio.ChargeMode == 1)
+                        {
+                            sb.Append(AVRIO.avrio.ChargeValue);
+                        }
+                        else
+                        {
+                        }
+                        sb.Append("|");
+                        // 충전요구금액
+                        if (AVRIO.avrio.ChargeMode == 2)
+                        {
+                            sb.Append(AVRIO.avrio.ChargeValue);
+                        }
+                        else
+                        {
+                        }
+                        sb.Append("|");
+                        // 결제방법
+                        sb.Append((int)AVRIO.avrio.BillMethod);
+                        sb.Append("|");
+                        sb.AppendFormat("{0:yyyyMMdd}", AVRIO.avrio.ChargeStartTime);
+                        sb.Append("|");
+                        // 작업진행률
+                        sb.Append("|");
+                        sb.Append(AVRIO.avrio.ChargeWatt);
+                        sb.Append("|");
+                        sb.Append(AVRIO.avrio.ChargePrice);
+                        sb.Append("|");
+                        sb.Append(AVRIO.avrio.CurrentUnitPrice);
+                        sb.Append("|");
+                        // 고장유형
+                        sb.Append(((int)AVRIO.avrio.FaultType).ToString("00"));
+                        sb.Append("|");
+                        // 고객번호
+                        sb.Append("|");
+                        // 청구자명
+                        sb.Append("|");
+                        // 충전모드
+                        sb.Append((int)AVRIO.avrio.ChargeMode);
+                        sb.Append("|");
+                        // 배터리상태
+                        sb.Append("|");
+                        // 배터리용량
+                        sb.Append("|");
+                        // 배터리잔량
+                        sb.Append(AVRIO.avrio.ChargeSOC);
+                        sb.Append("|");
+                        // 배터리전압
+                        sb.Append("|");
+                        // 배터리전류
+                        sb.Append("|");
+                        // 배터리온도
+                        sb.Append("|");
+                        // 충전누적시간
+                        TimeSpan t = new TimeSpan();
+                        if (AVRIO.avrio.CurrentStatus == SysStatus.SysFinish || AVRIO.avrio.CurrentStatus == SysStatus.SysPayCheck || AVRIO.avrio.CurrentStatus == SysStatus.SysConnectionEject)
+                        {
+                            t = AVRIO.avrio.ChargeEndTime.Subtract(AVRIO.avrio.ChargeStartTime);
+                        }
+                        else if (AVRIO.avrio.CurrentStatus == SysStatus.SysRun)
+                        {
+                            t = DateTime.Now.Subtract(AVRIO.avrio.ChargeStartTime);
+                        }
+                        sb.Append(t.TotalSeconds);
+                        sb.Append("|");
+                        // 자동차종류
+                        sb.Append("|");
+                        // BMS S/W버젼
+                        sb.Append("|");
+                        // 충전종료예상일시
+                        DateTime dt = DateTime.Now.AddMinutes(AVRIO.avrio.ChargeRemainTime);
+                        sb.AppendFormat("{0:yyyyMMdd}", dt);
+
+                        byte[] temp = Encoding.ASCII.GetBytes(sb.ToString());
+                        byte[] byBuffer = new byte[header.Length + temp.Length + 4 + 1];
+                        int i = header.Length;
+                        int j = 0;
+
+                        byBuffer[i++] = (byte)cmd;
+                        byBuffer[i++] = (byte)pkt;
+                        byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                        byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                        Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+                        Array.Copy(temp, 0, byBuffer, i, temp.Length);
+                        byBuffer[byBuffer.Length - 1] = (byte)'\0';
+
+                        return byBuffer;
+                    }
+                    break;
+                // 충전-충전종료
+                //
+                // 시작일시 | 완료일시 | 충전유형(1:완속,2:급속,3:비접촉) | 충전량 | 충전시간 |
+                // 전력요금 | 인프라요금 | 서비스요금 | 세금 | 지불방법(1:카드, 2:교통, 3:전기요금합산) |
+                // 충전완료상태 | 회원카드번호 | 갱신일시
+                case KDNCMD.EV_CHARGE_END:
+                    {
+                        StringBuilder sb = new StringBuilder();
+
+                        sb.AppendFormat("{0:yyyyMMdd}", AVRIO.avrio.ChargeStartTime);
+                        sb.Append("|");
+                        sb.AppendFormat("{0:yyyyMMdd}", AVRIO.avrio.ChargeEndTime);
+                        sb.Append("|");
+                        // 충전유형
+                        sb.Append(AVRIO.avrio.DevType);
+                        sb.Append("|");
+                        // 충전량
+                        sb.Append(AVRIO.avrio.ChargeWatt);
+                        sb.Append("|");
+                        // 충전시간
+                        TimeSpan t = AVRIO.avrio.ChargeEndTime.Subtract(AVRIO.avrio.ChargeStartTime);
+                        sb.Append(t);
+                        sb.Append("|");
+                        // 전력요금
+                        sb.Append(AVRIO.avrio.ChargePrice);
+                        sb.Append("|");
+                        // 인프라요금
+                        sb.Append("|");
+                        // 서비스요금
+                        sb.Append("|");
+                        // 세금
+                        sb.Append("|");
+                        // 결제방법
+                        sb.Append((int)AVRIO.avrio.BillMethod);
+                        sb.Append("|");
+                        // 충전완료상태
+                        sb.Append("|");
+                        // 회원카드번호
+                        sb.Append(AVRIO.avrio.CardNo);
+                        sb.Append("|");
+                        // 갱신일시
+                        sb.AppendFormat("yyyy-MM-dd hh:mm:ss", DateTime.Now);
+
+                        if (AVRIO.avrio.BillMethod == BILLMETHOD.Card)
+                        {
+                            sb.Append("|");
+                            // 결제카드번호
+                            sb.Append(AVRIO.avrio.CardNo);
+                            sb.Append("|");
+                            // 카드유효기간
+                            sb.Append("|");
+                            // 카드승인번호
+                            sb.Append("|");
+                            // 승인금액
+                            sb.Append("|");
+                            // 결제상태
+                            sb.Append("|");
+                            // 결제일자
+                            sb.Append("|");
+                            // 취소일자
+                            sb.Append("|");
+                            // 차감마일리지
+                        }
+
+                        byte[] temp = Encoding.ASCII.GetBytes(sb.ToString());
+                        byte[] byBuffer = new byte[header.Length + temp.Length + 4 + 1];
+                        int i = header.Length;
+                        int j = 0;
+
+                        byBuffer[i++] = (byte)cmd;
+                        byBuffer[i++] = (byte)pkt;
+                        byBuffer[i++] = (byte)(csos.Cpid & 0xFF);
+                        byBuffer[i++] = (byte)((csos.Cpid >> 8) & 0xFF);
+
+                        Array.Copy(MakeHeader(byBuffer.Length - header.Length), byBuffer, header.Length);
+                        Array.Copy(temp, 0, byBuffer, i, temp.Length);
+                        byBuffer[byBuffer.Length - 1] = (byte)'\0';
+
+                        return byBuffer;
+                    }
+                    break;
+            }
+            return (byte[])null;
+        }
+        #endregion
+
+        #region 변환함수
+        /// <summary> Convert a string of hex digits (ex: E4 CA B2) to a byte array. </summary>
+        /// <param name="s"> The string containing the hex digits (with or without spaces). </param>
+        /// <returns> Returns an array of bytes. </returns>
+        private byte[] HexStringToByteArray(string s)
+        {
+            s = s.Replace(" ", "");
+            byte[] buffer = new byte[s.Length / 2];
+            for (int i = 0; i < s.Length; i += 2)
+                buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
+            return buffer;
+        }
+
+        /// <summary> Converts an array of bytes into a formatted string of hex digits (ex: E4 CA B2)</summary>
+        /// <param name="data"> The array of bytes to be translated into a string of hex digits. </param>
+        /// <returns> Returns a well formatted string of hex digits with spacing. </returns>
+        private string ByteArrayToHexString(byte[] data)
+        {
+            StringBuilder sb = new StringBuilder(data.Length * 3);
+            foreach (byte b in data)
+                sb.Append(Convert.ToString(b, 16).PadLeft(2, '0').PadRight(3, ' '));
+
+            return sb.ToString().ToUpper();
+        }
+        #endregion
+    }
+}

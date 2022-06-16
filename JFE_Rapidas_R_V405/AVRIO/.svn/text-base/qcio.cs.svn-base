@@ -1,0 +1,235 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace AVRIO
+{
+    public class qcio
+    {
+        private ushort readRegisters = 6;
+        private ushort readSocRegisters = 11;
+        private ushort readChargingRegisters = 55;
+        private ushort readFaultRegisters = 4;
+        private ushort readHalfChargingRegisters = 21;
+        private ushort totalReadRegisters = 55;
+
+        public ushort TotalReadRegisters
+        {
+            get { return totalReadRegisters; }
+            set { totalReadRegisters = value; }
+        }
+
+        public ushort ReadHalfChargingRegisters
+        {
+            get { return readHalfChargingRegisters; }
+            set { readHalfChargingRegisters = value; }
+        }
+
+        public ushort ReadChargingRegisters
+        {
+            get { return readChargingRegisters; }
+            set { readChargingRegisters = value; }
+        }
+
+        public ushort ReadSocRegisters
+        {
+            get { return readSocRegisters; }
+            set { readSocRegisters = value; }
+        }
+
+        public ushort ReadFaultRegisters
+        {
+            get { return readFaultRegisters; }
+            set { readFaultRegisters = value; }
+        }
+
+        public ushort ReadRegisters
+        {
+            get { return readRegisters; }
+            set { readRegisters = value; }
+        }
+        private ushort status;
+        private ushort rev_status;
+        private ushort fault;
+        private ushort sw;      // switch
+        private ushort[] rd_analog = new ushort[3];
+        private ushort[] chargerdata = new ushort[3];
+
+        public enum READADDRESS 
+        { 
+            Status = 400, 
+            Inverter = 401,
+            Dcdc = 402,
+            Calibration = 403,
+            Etc = 404,
+            Bms = 405,
+            FaultMain = 406,
+            FaultInverter = 407,
+            FaultDcdc = 408,
+            FaultLoad = 409,
+            FaultReserved = 410,
+            AnalogVc = 424,
+            AnalogIo = 426,
+            AnalogVo = 428,
+            ChargingMode = 434,
+            ChargingRemainMin = 436,
+            CanInfo = 444,
+            CanVCode = 444,
+            CanMCode = 445,
+            CanSWVer = 446,
+            TargetPower = 447,
+            TargetCurrent = 448,
+            TargetVolt = 449,
+            BatterySOC = 450,
+            BatteryCurrent = 451,
+            BatteryVolt = 452,
+            QCCode = 453,
+            QCVer = 454,
+        };
+
+        public enum STMainBitOffSet
+        {
+            SysStandby = 0,
+            SysReady = 1,
+            SysConnectionFinish = 2,
+            SysRun = 3,
+            SysFinish = 5,
+            SysFault = 6,
+            SysReset = 7,
+            ForceGo = 8,
+            ChargeMode = 9,
+            SysMode = 10,           // Auto/Man
+            HomeSw = 11,
+            DoorClose = 13,
+            CsQc = 15
+        };
+
+        private ushort writeRegisters = 1;
+        private ushort writeAdminRegisters = 30;
+
+        public ushort WriteAdminRegisters
+        {
+            get { return writeAdminRegisters; }
+            set { writeAdminRegisters = value; }
+        }
+
+        public ushort WriteRegisters
+        {
+            get { return writeRegisters; }
+            set { writeRegisters = value; }
+        }
+        private ushort command;
+        private ushort rev_command;
+        private ushort[] wr_analog = new ushort[3];
+
+        public enum WRITEADDRESS 
+        { 
+            Command = 200, 
+            Inverter = 201,
+            Dcdc = 202,
+            Setting = 203,
+            Etc = 204,
+            OutSetting = 205,
+            SetData = 211,
+            QuickChargerInfo = 219,
+        };
+
+        public enum CMDMainBitOffset
+        {
+            TsStanby = 0,
+            TsReady = 1,
+            TsConnectionCheck = 2,
+            TsRun = 3,
+            Tspause = 4,
+            TsFinish = 5,
+            TsFault = 6,
+            TsResetFault = 7,
+            TsForceGo = 8,
+            TsChgDis = 9,
+            TsManual = 10
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum SysFault : int
+        {
+            EMG = 1,
+            IN_FUSE,
+            DC_FUSE,
+            OUT_FUSE,
+            LEAKAGE,
+            IN_OTL,
+            OUT_OTL,
+            IN_OTT,
+            HV,
+            INV_R,
+            INV_S,
+            INV_T,
+            INV_OTS,
+            AUX_MC,
+            MAIN_MC,
+            PRECHG,
+            CH_OV,
+            CH_OC,
+            CH_DC_OV,
+            CH_MOD,
+            CH_OTS,
+            OUT_MC,
+            RESERVED1,
+            RESERVED2,
+            RVS_VOLT,
+            BMS_FLT,
+            BMS_READY_OUT,
+            BMS_COM_ERR,
+            BMS_FCHR_OFF,
+            OUT_OC,
+            OUT_OV,
+            INTERLOCK,
+        }
+
+        public string[] msgFault =
+        {
+            "",
+            "EMG	충전기 비상스위치 동작상태",
+            "IN_FUSE	충전기 입력퓨즈 고장상태",
+            "DC_FUSE	충전기 DC/DC 출력퓨즈 고장상태",
+            "OUT_FUSE	충전기 출력퓨즈 고장상태",
+            "LEAKAGE	충전기 누설감지",
+            "IN_OTL	충전기 입력 리액터 온도가 허용치 이상상태",
+            "OUT_OTL	충전기 출력 리액터 온도가 허용치 이상상태",
+            "IN_OTT	충전기 입력 트랜스 온도가 허용치 이상상태",
+            "HV	충전기 인버터 정격출력 전압이 높거나 낮게출력 상태",
+            "INV_R	충전기 인버터 R상 모듈 동작이상 상태",
+            "INV_S	충전기 인버터 S상 모듈 동작이상 상태",
+            "INV_T	충전기 인버터 T상 모듈 동작이상 상태",
+            "INV_OTS	충전기 인버터 방열판 온도가 허용치 이상 상태",
+            "AUX_MC	충전기 보조MC 동작이상 상태",
+            "MAIN_MC	충전기 메인MC 동작이상 상태",
+            "PRECHG	충전기 프리차징 동작이상 상태",
+            "CH_OV	충전기 DC/DC 모듈 출력 전압이상 상태",
+            "CH_OC	충전기 DC/DC 모듈 출력 전류이상 상태",
+            "CH_DC_OV	충전기 DC/DC 입력전압 이상 상태",
+            "CH_MOD	충전기 DC/DC 모듈 동작이상 상태",
+            "CH_OTS	충전기 DC/DC 방열판 온도가 허용치 이상 상태",
+            "OUT_MC	충전기 출력 MC동작 이상상태",
+            "RESERVED 1",
+            "RESERVED 2",
+            "RVS_VOLT	충전기  출력 역전압 감지 상태",
+            "BMS_FLT	Bms 동작 이상 상태",
+            "BMS_READY_OUT	충전중 커넥터 분리됨",
+            "BMS_COM_ERR	Bms와 통신이상",
+            "BMS_FCHR_OFF	Bms출력 Relay OFF상태",
+            "OUT_OC	출력 전류가 설정 전류 110%이상 초과",
+            "OUT_OV	출력 전압이 설정 전압 110%이상 초과",
+            "INTERLOCK	충전중 커넥터 분리",
+        };
+
+        public qcio()
+        {
+        }
+
+
+    }
+}

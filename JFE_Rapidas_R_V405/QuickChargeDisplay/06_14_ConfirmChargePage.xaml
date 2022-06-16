@@ -1,0 +1,24 @@
+﻿<Page x:Class="QuickChargeDisplay.ConfirmChargePage"
+      
+      
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:control="clr-namespace:QuickChargeDisplay.Control"
+      xmlns:local="clr-namespace:QuickChargeDisplay"
+      
+      
+      Title="ConfirmChargePage" Width="800" Height="480" Loaded="Page_Loaded" Unloaded="Page_Unloaded" >    
+
+    <Page.Background>
+        <ImageBrush ImageSource="image\RAPIDAS-R_Monitor\05\충전완료14.png"></ImageBrush>
+    </Page.Background>
+
+    <Grid>
+        <control:AnimatedImage x:Name="BackImage" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <Label FontSize="60" Foreground="#FFE80C0C" Height="97" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="357,224.042,0,0" Name="chargingSoc" VerticalAlignment="Top" Width="209" Content="0">
+            <Label.BorderBrush>
+                <SolidColorBrush />
+            </Label.BorderBrush>
+        </Label>
+    </Grid>
+</Page>

@@ -1,0 +1,36 @@
+﻿<Page x:Class="QuickChargeDisplay.ChargePassPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:QuickChargeDisplay.Control"
+    Loaded="Page_Loaded" Unloaded="Page_Unloaded"
+    
+    Title="ChargePassPage" Width="800" Height="480" >
+    
+    <Page.Background>
+        <ImageBrush ImageSource="image\RAPIDAS-R_Monitor\03\03_패스워드_베이스.png"></ImageBrush>
+    </Page.Background>
+
+    <Grid>
+        <control:AnimatedImage x:Name="BackImage"/>
+        <TextBox x:Name="ValueTxt" HorizontalAlignment="Left" Height="77" Margin="422,101,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="264" FontSize="48" FontFamily="Malgun Gothic" Background="{x:Null}" Foreground="#FFF3E7E7" TextAlignment="Right" VerticalScrollBarVisibility="Auto" OpacityMask="{x:Null}" BorderBrush="{x:Null}">
+            <TextBox.ContextMenu>
+                <ContextMenu/>
+            </TextBox.ContextMenu>
+        </TextBox>
+        <Image x:Name="img0" HorizontalAlignment="Left" Height="71.643" Margin="528.357,279.104,0,0" VerticalAlignment="Top" Width="71.642" Source="image\RAPIDAS-R_Monitor\03/0.png" MouseDown="img0_MouseDown"/>
+        <Image x:Name="img1" HorizontalAlignment="Left" Height="71.643" Margin="199.999,200,0,0" VerticalAlignment="Top" Width="71.642" Source="image/RAPIDAS-R_Monitor/03/1.png" MouseDown="img1_MouseDown"/>
+        <Image x:Name="img2" HorizontalAlignment="Left" Height="71.643" Margin="283.581,200,0,0" VerticalAlignment="Top" Width="71.642" Source="image/RAPIDAS-R_Monitor/03/2.png" MouseDown="img2_MouseDown"/>
+        <Image x:Name="img3" HorizontalAlignment="Left" Height="71.643" Margin="364.702,200,0,0" VerticalAlignment="Top" Width="71.642" Source="image/RAPIDAS-R_Monitor/03/3.png" MouseDown="img3_MouseDown"/>
+        <Image x:Name="img4" HorizontalAlignment="Left" Height="71.643" Margin="445.823,200,0,0" VerticalAlignment="Top" Width="71.642" Source="image/RAPIDAS-R_Monitor/03/4.png" MouseDown="img4_MouseDown"/>
+        <Image x:Name="img5" HorizontalAlignment="Left" Height="71.643" Margin="528.357,200,0,0" VerticalAlignment="Top" Width="71.642" Source="image/RAPIDAS-R_Monitor/03/5.png" MouseDown="img5_MouseDown"/>
+        <Image x:Name="img6" HorizontalAlignment="Left" Height="71.643" Margin="199.999,279.104,0,0" VerticalAlignment="Top" Width="71.642" Source="image/RAPIDAS-R_Monitor/03/6.png" MouseDown="img6_MouseDown"/>
+        <Image x:Name="img7" HorizontalAlignment="Left" Height="71.643" Margin="283.581,279.104,0,0" VerticalAlignment="Top" Width="71.642" Source="image/RAPIDAS-R_Monitor/03/7.png" MouseDown="img7_MouseDown"/>
+        <Image x:Name="img8" HorizontalAlignment="Left" Height="71.643" Margin="364.181,279.104,0,0" VerticalAlignment="Top" Width="71.642" Source="image/RAPIDAS-R_Monitor/03/8.png" MouseDown="img8_MouseDown"/>
+        <Image x:Name="img9" HorizontalAlignment="Left" Height="71.643" Margin="444.33,279.104,0,0" VerticalAlignment="Top" Width="71.642" Source="image/RAPIDAS-R_Monitor/03/9.png" MouseDown="img9_MouseDown"/>
+        <Image x:Name="imgcl" HorizontalAlignment="Left" Height="71.643" Margin="199.999,357.24,0,0" VerticalAlignment="Top" Width="71.642" Source="image/RAPIDAS-R_Monitor/03/CL.png" MouseDown="imgcl_MouseDown"/>
+        <Image x:Name="imgOK" HorizontalAlignment="Left" Height="71.643" Margin="283.581,358.733,0,0" VerticalAlignment="Top" Width="152.242" Source="image/RAPIDAS-R_Monitor/03/OK_다운.png" MouseDown="imgOK_MouseDown"/>
+        <Image x:Name="imgBack" HorizontalAlignment="Left" Height="71.643" Margin="445.823,358.733,0,0" VerticalAlignment="Top" Width="152.242" Source="image/RAPIDAS-R_Monitor/03/Back_다운.png" MouseDown="imgBack_MouseDown"/>
+
+    </Grid>
+</Page>
+
